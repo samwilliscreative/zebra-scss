@@ -1,8 +1,8 @@
 {
-  "name": "swillis",
-  "version": "1.0.0",
+  "name": "zebra",
+  "version": "0.1.0",
   "description": "",
-  "main": "gulpfile.js",
+  "main": "/dist/zebra.css",
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^1.6.0",
@@ -18,6 +18,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Sam Willis",
+  "license": "MIT"
 }

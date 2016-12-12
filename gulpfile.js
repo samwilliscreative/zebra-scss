@@ -4,7 +4,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 
     gulp.task('sass', function () {
-    return gulp.src('./assets/sass/sli-menu.scss')
+    return gulp.src('./assets/sass/zebra.scss')
 
     .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
@@ -18,5 +18,5 @@ var sourcemaps = require('gulp-sourcemaps');
     });
 
     gulp.task('watch', function () {
-        gulp.watch('./assets/sass/sli-menu.scss', ['sass']);
+        gulp.watch('./assets/sass/zebra.scss', ['sass']);
     });
