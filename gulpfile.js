@@ -17,6 +17,6 @@ var sourcemaps = require('gulp-sourcemaps');
         .pipe(gulp.dest('./dist/css/'));
     });
 
-    gulp.task('watch', function () {
+    gulp.task('default', function () {
         gulp.watch('./assets/sass/zebra.scss', ['sass']);
     });

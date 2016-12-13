@@ -1,1 +1,1 @@
-{"version":3,"sources":["zebra.scss"],"names":[],"mappings":"AAAA;EACC,YAAY,EACZ","file":"zebra.css","sourcesContent":[".row {\r\n\twidth: 100%;\r\n}"]}
+{"version":3,"sources":["zebra.scss"],"names":[],"mappings":"AAAA;EACC,YAAY,EAMZ;EAPD;IAGE,qBAAc;IAAd,cAAc;IACd,oBAAgB;IAAhB,gBAAgB;IAChB,wBAAoB;IAApB,oBAAoB,EACpB","file":"zebra.css","sourcesContent":[".row {\r\n\twidth: 100%;\r\n\t&--flex {\r\n\t\tdisplay: flex;\r\n\t\tflex-wrap: wrap;\r\n\t\tflex-direction: row;\r\n\t}\r\n}"]}
