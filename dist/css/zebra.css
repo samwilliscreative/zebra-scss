@@ -8,8 +8,196 @@
     -ms-flex-direction: row;
     flex-direction: row; }
 
-[class^='col-'] {
+/************************/
+/* COLUMN BASE SETTINGS */
+/************************/
+[class*='col-1'],
+[class*='col-2'],
+[class*='col-3'],
+[class*='col-4'],
+[class*='col-5'],
+[class*='col-6'],
+[class*='col-7'],
+[class*='col-8'],
+[class*='col-9'],
+[class*='col-10'],
+[class*='col-11'],
+[class*='col-12'] {
   display: inline-block;
   vertical-align: top; }
+
+/*************/
+/* 1 COLUMNS */
+/*************/
+.col-1of1 {
+  width: 100%; }
+
+/*************/
+/* 2 COLUMNS */
+/*************/
+.col-1of2 {
+  width: 50%; }
+
+/*************/
+/* 3 COLUMNS */
+/*************/
+.col-1of3 {
+  width: 33.33333%; }
+
+.col-2of3 {
+  width: 66.66667%; }
+
+/*************/
+/* 4 COLUMNS */
+/*************/
+.col-1of4 {
+  width: 25%; }
+
+.col-3of4 {
+  width: 75%; }
+
+/*************/
+/* 5 COLUMNS */
+/*************/
+.col-1of5 {
+  width: 20%; }
+
+.col-2of5 {
+  width: 40%; }
+
+.col-3of5 {
+  width: 60%; }
+
+.col-4of5 {
+  width: 80%; }
+
+/*************/
+/* 6 COLUMNS */
+/*************/
+.col-1of6 {
+  width: 16.66667%; }
+
+.col-5of6 {
+  width: 83.33333%; }
+
+/*************/
+/* 7 COLUMNS */
+/*************/
+.col-1of7 {
+  width: 14.28571%; }
+
+.col-2of7 {
+  width: 28.57143%; }
+
+.col-3of7 {
+  width: 42.85714%; }
+
+.col-4of7 {
+  width: 57.14286%; }
+
+.col-5of7 {
+  width: 71.42857%; }
+
+.col-6of7 {
+  width: 85.71429%; }
+
+/*************/
+/* 8 COLUMNS */
+/*************/
+.col-1of8 {
+  width: 12.5%; }
+
+.col-3of8 {
+  width: 37.5%; }
+
+.col-5of8 {
+  width: 62.5%; }
+
+.col-7of8 {
+  width: 87.5%; }
+
+/*************/
+/* 9 COLUMNS */
+/*************/
+.col-1of9 {
+  width: 11.11111%; }
+
+.col-2of9 {
+  width: 22.22222%; }
+
+.col-4of9 {
+  width: 44.44444%; }
+
+.col-5of9 {
+  width: 55.55556%; }
+
+.col-7of9 {
+  width: 77.77778%; }
+
+.col-8of9 {
+  width: 88.88889%; }
+
+/**************/
+/* 10 COLUMNS */
+/**************/
+.col-1of10 {
+  width: 10%; }
+
+.col-3of10 {
+  width: 30%; }
+
+.col-7of10 {
+  width: 70%; }
+
+.col-9of10 {
+  width: 90%; }
+
+/**************/
+/* 11 COLUMNS */
+/**************/
+.col-1of11 {
+  width: 9.09091%; }
+
+.col-2of11 {
+  width: 18.18182%; }
+
+.col-3of11 {
+  width: 27.27273%; }
+
+.col-4of11 {
+  width: 36.36364%; }
+
+.col-5of11 {
+  width: 45.45455%; }
+
+.col-6of11 {
+  width: 54.54545%; }
+
+.col-7of11 {
+  width: 63.63636%; }
+
+.col-8of11 {
+  width: 72.72727%; }
+
+.col-9of11 {
+  width: 81.81818%; }
+
+.col-10of11 {
+  width: 90.90909%; }
+
+/**************/
+/* 12 COLUMNS */
+/**************/
+.col-1of12 {
+  width: 8.33333%; }
+
+.col-5of12 {
+  width: 41.66667%; }
+
+.col-7of12 {
+  width: 58.33333%; }
+
+.col-11of12 {
+  width: 91.66667%; }
 
 /*# sourceMappingURL=zebra.css.map */
