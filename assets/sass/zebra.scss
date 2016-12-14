@@ -1,5 +1,18 @@
+/************************/
+/* ZEBRA SETTINGS */
+/************************/
+$site-width: 1400px;
+
+/************************/
+/* ROW SETTINGS */
+/************************/
 .row {
     width: 100%;
+    margin: 0 auto;
+    font-size: 0;
+    &--contained {
+    	max-width: $site-width;
+    }
 	&--flex {
 		display: flex;
 		flex-wrap: wrap;
