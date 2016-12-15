@@ -1,17 +1,13 @@
 # Zebra - a CSS grid system without the fluff
-Just like a Zebra's stripes, every website design is unique.
-Whilst websites from the early days of the web were often constructed using a 960px grid and tables, current technology allows designers and developers infinitely more freedom when it comes to structuring content.
-This means that a page may have to be split into 24+ columns just to keep elements aligned properly, which is a tad excessive.
+This is a grid system at it's rawest. Zebra simply provides you with a number of premade CSS classes which you can use to quickly add basic structure to a website.
 
-We therefore believe that a grid system should be as flexible as possible, to allow a developer to change .
+Whilst most modern grid systems are implementing more and more advanced features, Zebra is taking a more stripped back approach. You won't find set column gutters or margins, and there are only a few column sizes that have responsive behaviour built in by default.
 
+## What is Zebra?
+Based on the BEM methodology
 
-Whilst most modern CSS grid systems are getting more and more complex, with guttering, margins and prebuilt responsive classes, Zebra is pushing in the opposite direction.
+Whilst websites from the early days of the web were often restricted to using a 960px grid and tables, current technology allows designers and developers infinitely more freedom when it comes to structuring a page.
 
+This results in designs that no longer follow a set grid, with elements often containing their own grid
 
-
-We have stripped back a lot of features that most modern frameworks come with, resulting in a grid system at it's rawest.
-There are no complex margins and gutters, no responsive classes, no
-
-It offers a number of pre-made CSS classes that you can add to your elements, instantly adding rows and columns, without all the fluff of a modern grid system.
-
+Just like a Zebra's stripes, every website is unique.
