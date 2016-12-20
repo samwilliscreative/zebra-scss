@@ -19,6 +19,15 @@ It's really easy to get started with Zebra, just create an element with the clas
 </div>
 ```
 
+Blank rows will automatically keep their width, as there are no floats used.
+```css
+<div class="row">
+	<div class="col-1of6"></div>
+	<div class="col-3of6">This column starts 1/6 of the way across the row</div>
+	<div class="col-2of6">Lorem ipsum dolor sit amet</div>
+</div>
+```
+
 ## What is Zebra?
 Based on the BEM methodology, Zebra
 
