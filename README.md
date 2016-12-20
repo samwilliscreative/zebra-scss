@@ -2,11 +2,20 @@
 This is a grid system at it's rawest. Zebra simply provides you with a number of premade CSS classes which you can use to quickly add structure to a website.
 
 ## Usage Examples
+It's really easy to get started with Zebra, just create an element with the class of `row`, and then add your column elements within.
 ```css
 <div class="row">
 	<div class="col-1of6">A column that spans 1/6 of the parent</div>
-	<div class="col-1of2">A column that spans 1/2 of the parent</div>
-	<div class="col-1of3">A column that spans 1/3 of the parent</div>
+	<div class="col-3of6">A column that spans 1/2 of the parent</div>
+	<div class="col-2of6">A column that spans 1/3 of the parent</div>
+</div>
+```
+
+```css
+<div class="row row--flex">
+	<div class="col-1of6">This column will be taller than the rest due to extra content</div>
+	<div class="col-3of6">Lorem ipsum dolor sit amet</div>
+	<div class="col-2of6">Lorem ipsum dolor sit amet</div>
 </div>
 ```
 
