@@ -1,12 +1,12 @@
-/************************/
+/******************/
 /* ZEBRA SETTINGS */
-/************************/
+/******************/
 $site-width: 1400px;
 $font-size-base: 18px;
 
-/************************/
-/* ROW SETTINGS */
-/************************/
+/**************************/
+/* ROWS AND ROW MODIFIERS */
+/**************************/
 .row {
     width: 100%;
     margin: 0 auto;
@@ -32,15 +32,15 @@ $font-size-base: 18px;
 [class*='col--6'],
 [class*='col--7'],
 [class*='col--8'],
-[class*='col--9'],
-[class*='col--10'],
-[class*='col--11'],
-[class*='col--12'] {
+[class*='col--9'] {
 	display: inline-block;
 	vertical-align: top;
 	font-size: $font-size-base;
 }
 
+/****************/
+/* COLUMN SIZES */
+/****************/
 /*************/
 /* 1 COLUMNS */
 /*************/
@@ -155,3 +155,34 @@ $font-size-base: 18px;
 .col--9of12 { width: percentage(9/12) }
 .col--10of12 { width: percentage(10/12) }
 .col--11of12 { width: percentage(11/12) }
+
+/********************/
+/* COLUMN MODIFIERS */
+/********************/
+.col--extend {
+	&-l, &-r, &-both {
+		position: relative;
+	}
+	&-l, &-both {
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 100%;
+			width: $site-width;
+			height: 100%;
+			background-color: inherit;
+		}
+	}
+	&-r, &-both {
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 100%;
+			width: $site-width;
+			height: 100%;
+			background-color: inherit;
+		}
+	}
+}

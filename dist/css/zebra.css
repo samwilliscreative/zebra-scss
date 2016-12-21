@@ -1,9 +1,9 @@
-/************************/
+/******************/
 /* ZEBRA SETTINGS */
-/************************/
-/************************/
-/* ROW SETTINGS */
-/************************/
+/******************/
+/**************************/
+/* ROWS AND ROW MODIFIERS */
+/**************************/
 .row {
   width: 100%;
   margin: 0 auto;
@@ -29,14 +29,14 @@
 [class*='col--6'],
 [class*='col--7'],
 [class*='col--8'],
-[class*='col--9'],
-[class*='col--10'],
-[class*='col--11'],
-[class*='col--12'] {
+[class*='col--9'] {
   display: inline-block;
   vertical-align: top;
   font-size: 18px; }
 
+/****************/
+/* COLUMN SIZES */
+/****************/
 /*************/
 /* 1 COLUMNS */
 /*************/
@@ -273,5 +273,29 @@
 
 .col--11of12 {
   width: 91.66667%; }
+
+/********************/
+/* COLUMN MODIFIERS */
+/********************/
+.col--extend-l, .col--extend-r, .col--extend-both {
+  position: relative; }
+
+.col--extend-l:before, .col--extend-both:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 1400px;
+  height: 100%;
+  background-color: inherit; }
+
+.col--extend-r:after, .col--extend-both:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 1400px;
+  height: 100%;
+  background-color: inherit; }
 
 /*# sourceMappingURL=zebra.css.map */

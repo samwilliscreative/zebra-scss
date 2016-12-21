@@ -3,6 +3,7 @@ This is a grid system at it's rawest. Zebra simply provides you with a number of
 
 ## Usage Examples
 It's really easy to get started with Zebra, just create an element with the class of `row`, and then add your column elements within.
+
 ```css
 <div class="row">
 	<div class="col--1of6">A column that spans 1/6 of the parent</div>
@@ -20,6 +21,7 @@ It's really easy to get started with Zebra, just create an element with the clas
 ```
 
 Blank rows will automatically keep their width, as there are no floats used.
+
 ```css
 <div class="row">
 	<div class="col--1of6"></div>
@@ -30,11 +32,16 @@ Blank rows will automatically keep their width, as there are no floats used.
 
 ## What is Zebra?
 Based on the BEM methodology.
-Column classes follow a slightly modified version of BEM, where you are only required to add the block with modifier class rather than a block AND a block with modifier.
+
+Columns follow a slightly simplified version of BEM, so that your DOM doesn't end up cluttered with loads of classes. Whilst the BEM methodology would generally separate the styles for `.col` (block) and `.col--X` (modifier), Zebra combines them. This means that you only need to add the size modifier class to your elements.
+
 ```css
+<div class="col--1of2">Zebra's simplified column classes</div>
 <div class="col col--1of2">Typical BEM usage</div>
-<div class="col--1of2">Zebra's efficient columns</div>
 ```
+
+
+
 
 Whilst websites from the early days of the web were often restricted to using a 960px grid and tables, current technology allows designers and developers infinitely more freedom when it comes to structuring a page.
 
