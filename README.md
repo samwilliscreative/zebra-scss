@@ -15,7 +15,7 @@ It's really easy to get started with Zebra, just create an element with the clas
 ## What is Zebra?
 Based on the BEM methodology.
 
-Base columns follow a slightly simplified version of the BEM methodology, combining the properties of `.col` (block) with it's size `.col--(1-12)of(1-12)` (modifier). This is done for a couple of reasons; 
+Base columns follow a slightly simplified version of the BEM methodology, combining the properties of `.col` (a block) with it's size `.col--(1-12)of(1-12)` (a modifier). This is done for a couple of reasons; 
 1. Firstly, there should never be an instance where a column element doesn't have a size modifer, as this would result in a column with no fixed width.
 2. Secondly, this helps to keep the DOM cleaner, as there are less classes littering each element.
 
