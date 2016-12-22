@@ -159,30 +159,48 @@ $font-size-base: 18px;
 /********************/
 /* COLUMN MODIFIERS */
 /********************/
-.col--extend {
-	&-l, &-r, &-both {
-		position: relative;
-	}
-	&-l, &-both {
-		&:before {
-			content: "";
-			position: absolute;
-			top: 0;
-			right: 100%;
-			width: $site-width;
-			height: 100%;
-			background-color: inherit;
+.col {
+	&--flex {
+		&-r {
+			display: flex;
+			flex-direction: row;
+			> * {
+				flex: 1;
+			}
+		}
+		&-c {
+			display: flex;
+			flex-direction: column;
+			> * {
+				flex: 1;
+			}
 		}
 	}
-	&-r, &-both {
-		&:after {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 100%;
-			width: $site-width;
-			height: 100%;
-			background-color: inherit;
+	&--extend {
+		&-l, &-r, &-both {
+			position: relative;
+		}
+		&-l, &-both {
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 100%;
+				width: $site-width;
+				height: 100%;
+				background-color: inherit;
+			}
+		}
+		&-r, &-both {
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 100%;
+				width: $site-width;
+				height: 100%;
+				background-color: inherit;
+			}
 		}
 	}
 }

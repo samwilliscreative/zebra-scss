@@ -277,6 +277,24 @@
 /********************/
 /* COLUMN MODIFIERS */
 /********************/
+.col--flex-r {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+  .col--flex-r > * {
+    -ms-flex: 1;
+    flex: 1; }
+
+.col--flex-c {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .col--flex-c > * {
+    -ms-flex: 1;
+    flex: 1; }
+
 .col--extend-l, .col--extend-r, .col--extend-both {
   position: relative; }
 
