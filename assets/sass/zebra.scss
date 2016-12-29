@@ -3,6 +3,7 @@
 /******************/
 $site-width: 1400px;
 $font-size-base: 18px;
+$max-columns: 12;
 
 /**************************/
 /* ROWS AND ROW MODIFIERS */
@@ -21,166 +22,51 @@ $font-size-base: 18px;
 	}
 }
 
-/************************/
-/* COLUMN BASE SETTINGS */
-/************************/
-[class*='col--1'],
-[class*='col--2'],
-[class*='col--3'],
-[class*='col--4'],
-[class*='col--5'],
-[class*='col--6'],
-[class*='col--7'],
-[class*='col--8'],
-[class*='col--9'] {
-	display: inline-block;
-	vertical-align: top;
-	font-size: $font-size-base;
+/**********************/
+/* COLUMN BASE STYLES */
+/**********************/
+@for $i from 1 through 9 {
+	[class*='col--#{$i}'] {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		font-size: $font-size-base;
+	}
 }
 
-/****************/
-/* COLUMN SIZES */
-/****************/
-/*************/
-/* 1 COLUMNS */
-/*************/
-.col--1of1 { width: 100% }
-
-/*************/
-/* 2 COLUMNS */
-/*************/
-.col--1of2 { width: percentage(1/2) }
-
-/*************/
-/* 3 COLUMNS */
-/*************/
-.col--1of3 { width: percentage(1/3) }
-.col--2of3 { width: percentage(2/3) }
-
-/*************/
-/* 4 COLUMNS */
-/*************/
-.col--1of4 { width: percentage(1/4) }
-.col--2of4 { width: percentage(2/4) }
-.col--3of4 { width: percentage(3/4) }
-
-/*************/
-/* 5 COLUMNS */
-/*************/
-.col--1of5 { width: percentage(1/5) }
-.col--2of5 { width: percentage(2/5) }
-.col--3of5 { width: percentage(3/5) }
-.col--4of5 { width: percentage(4/5) }
-
-/*************/
-/* 6 COLUMNS */
-/*************/
-.col--1of6 { width: percentage(1/6) }
-.col--2of6 { width: percentage(2/6) }
-.col--3of6 { width: percentage(3/6) }
-.col--4of6 { width: percentage(4/6) }
-.col--5of6 { width: percentage(5/6) }
-
-/*************/
-/* 7 COLUMNS */
-/*************/
-.col--1of7 { width: percentage(1/7) }
-.col--2of7 { width: percentage(2/7) }
-.col--3of7 { width: percentage(3/7) }
-.col--4of7 { width: percentage(4/7) }
-.col--5of7 { width: percentage(5/7) }
-.col--6of7 { width: percentage(6/7) }
-
-/*************/
-/* 8 COLUMNS */
-/*************/
-.col--1of8 { width: percentage(1/8) }
-.col--2of8 { width: percentage(2/8) }
-.col--3of8 { width: percentage(3/8) }
-.col--4of8 { width: percentage(4/8) }
-.col--5of8 { width: percentage(5/8) }
-.col--6of8 { width: percentage(6/8) }
-.col--7of8 { width: percentage(7/8) }
-
-/*************/
-/* 9 COLUMNS */
-/*************/
-.col--1of9 { width: percentage(1/9) }
-.col--2of9 { width: percentage(2/9) }
-.col--3of9 { width: percentage(3/9) }
-.col--4of9 { width: percentage(4/9) }
-.col--5of9 { width: percentage(5/9) }
-.col--6of9 { width: percentage(6/9) }
-.col--7of9 { width: percentage(7/9) }
-.col--8of9 { width: percentage(8/9) }
-
-/**************/
-/* 10 COLUMNS */
-/**************/
-.col--1of10 { width: percentage(1/10) }
-.col--2of10 { width: percentage(2/10) }
-.col--3of10 { width: percentage(3/10) }
-.col--4of10 { width: percentage(4/10) }
-.col--5of10 { width: percentage(5/10) }
-.col--6of10 { width: percentage(6/10) }
-.col--7of10 { width: percentage(7/10) }
-.col--8of10 { width: percentage(8/10) }
-.col--9of10 { width: percentage(9/10) }
-
-/**************/
-/* 11 COLUMNS */
-/**************/
-.col--1of11 { width: percentage(1/11) }
-.col--2of11 { width: percentage(2/11) }
-.col--3of11 { width: percentage(3/11) }
-.col--4of11 { width: percentage(4/11) }
-.col--5of11 { width: percentage(5/11) }
-.col--6of11 { width: percentage(6/11) }
-.col--7of11 { width: percentage(7/11) }
-.col--8of11 { width: percentage(8/11) }
-.col--9of11 { width: percentage(9/11) }
-.col--10of11 { width: percentage(10/11) }
-
-/**************/
-/* 12 COLUMNS */
-/**************/
-.col--1of12 { width: percentage(1/12) }
-.col--2of12 { width: percentage(2/12) }
-.col--3of12 { width: percentage(3/12) }
-.col--4of12 { width: percentage(4/12) }
-.col--5of12 { width: percentage(5/12) }
-.col--6of12 { width: percentage(6/12) }
-.col--7of12 { width: percentage(7/12) }
-.col--8of12 { width: percentage(8/12) }
-.col--9of12 { width: percentage(9/12) }
-.col--10of12 { width: percentage(10/12) }
-.col--11of12 { width: percentage(11/12) }
-
-/********************/
-/* COLUMN MODIFIERS */
-/********************/
+/************/
+/* COLUMNS */
+/***********/
 .col {
-	&--flex {
-		&-r {
-			display: flex;
-			flex-direction: row;
-			> * {
-				flex: 1;
+	/* COLUMN SIZES */
+	@for $span from 1 through $max-columns {
+		@for $total from 1 through $max-columns {
+			@if $total > $span {
+				&--#{$span}of#{$total} {
+					width: percentage($span/$total);
+				}
 			}
 		}
-		&-c {
+	}
+	/* COLUMN MODIFIERS */
+	&--flex {
+		&-col {
 			display: flex;
 			flex-direction: column;
 			> * {
 				flex: 1;
 			}
 		}
+		&-row {
+			display: flex;
+			flex-direction: row;
+			> * {
+				flex: 1;
+			}
+		}
 	}
 	&--extend {
-		&-l, &-r, &-both {
-			position: relative;
-		}
-		&-l, &-both {
+		&-left, &-both {
 			&:before {
 				content: "";
 				position: absolute;
@@ -191,7 +77,7 @@ $font-size-base: 18px;
 				background-color: inherit;
 			}
 		}
-		&-r, &-both {
+		&-right, &-both {
 			&:after {
 				content: "";
 				position: absolute;
@@ -202,5 +88,11 @@ $font-size-base: 18px;
 				background-color: inherit;
 			}
 		}
+	}
+	&--offset {
+	}
+	&--push {
+	}
+	&--pull {
 	}
 }
