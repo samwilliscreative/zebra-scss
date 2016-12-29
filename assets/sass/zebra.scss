@@ -45,6 +45,15 @@ $max-columns: 12;
 				&--#{$span}of#{$total} {
 					width: percentage($span/$total);
 				}
+				&--offset-#{$span}of#{$total} {
+					margin-left: percentage($span/$total);
+				}
+				&--push-#{$span}of#{$total} {
+					left: percentage($span/$total);
+				}
+				&--pull-#{$span}of#{$total} {
+					right: percentage($span/$total);
+				}
 			}
 		}
 	}
@@ -88,11 +97,5 @@ $max-columns: 12;
 				background-color: inherit;
 			}
 		}
-	}
-	&--offset {
-	}
-	&--push {
-	}
-	&--pull {
 	}
 }
