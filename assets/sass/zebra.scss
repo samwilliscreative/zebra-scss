@@ -3,7 +3,7 @@
 /******************/
 $site-width: 1400px;
 $font-size-base: 18px;
-$column-spans: 2 3 4 10;
+$columns: 2 3 4 10;
 $enable-offset: true;
 $enable-push: false;
 $enable-pull: false;
@@ -42,36 +42,36 @@ $enable-pull: false;
 /***********/
 .col {
 	/* COLUMN SIZES */
-	@each $column-span in $column-spans {
-		@for $span from 1 through $column-span {
-			&--#{$span}of#{$column-span} {
-				width: percentage($span/$column-span);
+	@each $column-count in $columns {
+		@for $span from 1 through $column-count {
+			&--#{$span}of#{$column-count} {
+				width: percentage($span/$column-count);
 			}
 		}
 	}
 	@if $enable-offset {
-		@each $column-span in $column-spans {
-			@for $span from 1 through $column-span {
-				&--offset-#{$span}of#{$column-span} {
-					margin-left: percentage($span/$column-span);
+		@each $column-count in $columns {
+			@for $span from 1 through $column-count {
+				&--offset-#{$span}of#{$column-count} {
+					margin-left: percentage($span/$column-count);
 				}
 			}
 		}
 	}
 	@if $enable-push {
-		@each $column-span in $column-spans {
-			@for $span from 1 through $column-span {
-				&--offset-#{$span}of#{$column-span} {
-					left: percentage($span/$column-span);
+		@each $column-count in $columns {
+			@for $span from 1 through $column-count {
+				&--offset-#{$span}of#{$column-count} {
+					left: percentage($span/$column-count);
 				}
 			}
 		}
 	}
 	@if $enable-pull {
-		@each $column-span in $column-spans {
-			@for $span from 1 through $column-span {
-				&--offset-#{$span}of#{$column-span} {
-					right: percentage($span/$column-span);
+		@each $column-count in $columns {
+			@for $span from 1 through $column-count {
+				&--offset-#{$span}of#{$column-count} {
+					right: percentage($span/$column-count);
 				}
 			}
 		}
