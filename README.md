@@ -6,9 +6,9 @@ It's really easy to get started with Zebra, just create an element with the clas
 
 ```css
 <div class="row">
-	<div class="col--1of6">A column that spans 1/6 of the parent</div>
-	<div class="col--3of6">A column that spans 1/2 of the parent</div>
-	<div class="col--2of6">A column that spans 1/3 of the parent</div>
+	<div class="col--2of12">A column that spans 1/12 of the parent</div>
+	<div class="col--6of12">A column that spans 6/12 of the parent</div>
+	<div class="col--4of12">A column that spans 4/12 of the parent</div>
 </div>
 ```
 
@@ -28,19 +28,24 @@ Base columns follow a slightly simplified version of the BEM methodology, combin
 ## Usage examples
 ```css
 <div class="row row--flex">
-	<div class="col--1of6">This column will be taller than the rest due to extra content</div>
-	<div class="col--3of6">Lorem ipsum dolor sit amet</div>
-	<div class="col--2of6">Lorem ipsum dolor sit amet</div>
+	<div class="col--1of3">This column will be taller than the rest due to extra content within it</div>
+	<div class="col--1of3">Lorem ipsum dolor sit amet</div>
+	<div class="col--1of3">Lorem ipsum dolor sit amet</div>
 </div>
 ```
 
-Blank rows will automatically keep their width, as there are no floats used.
+To create a space before a column, you can either use an empty column element, or a column offset class.
 
 ```css
 <div class="row">
-	<div class="col--1of6"></div>
-	<div class="col--3of6">This column starts 1/6 of the way across the row</div>
-	<div class="col--2of6">Lorem ipsum dolor sit amet</div>
+	<div class="col--1of3"></div>
+	<div class="col--1of3">This column starts 1/3 of the way across the row</div>
+	<div class="col--1of3">Lorem ipsum dolor sit amet</div>
+</div>
+
+<div class="row">
+	<div class="col--1of3 col--offset-1of3">This column starts 1/3 of the way across the row</div>
+	<div class="col--1of3">Lorem ipsum dolor sit amet</div>
 </div>
 ```
 
