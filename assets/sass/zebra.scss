@@ -2,8 +2,7 @@
 /* ZEBRA SETTINGS */
 /******************/
 $site-width: 1400px;
-$font-size-base: 18px;
-$columns: 2 3 4 10;
+$columns: 2, 3, 4, 12;
 $enable-offset: true;
 $enable-push: false;
 $enable-pull: false;
@@ -33,7 +32,6 @@ $enable-pull: false;
 		position: relative;
 		display: inline-block;
 		vertical-align: top;
-		font-size: $font-size-base;
 	}
 }
 

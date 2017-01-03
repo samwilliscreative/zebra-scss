@@ -43,10 +43,16 @@ Blank rows will automatically keep their width, as there are no floats used.
 </div>
 ```
 
+## Settings
+These settings variables are all stored at the top of the zebra.scss and can be modified for your project.
 
-
-
-
+| Setting         | Type    | Default     | Description |
+|-----------------|---------|-------------|-------------|
+| $site-width     | string  | 1400px      | The max width of your site, used in the `row--contained` class. |
+| $columns        | list    | 2, 3, 4, 12 | Each number represents the number of columns that a row will be split into. |
+| $enable-offset  | boolean | true        | Enable the generation of column offset classes. |
+| $enable-push    | boolean | false       | Enable the generation of column push classes. |
+| $enable-pull    | boolean | false       | Enable the generation of column pull classes. |
 
 Whilst websites from the early days of the web were often restricted to using a 960px grid and tables, current technology allows designers and developers infinitely more freedom when it comes to structuring a page.
 
@@ -56,3 +62,4 @@ Just like a Zebra's stripes, every website is unique.
 
 
 Whilst most modern grid systems are implementing more and more advanced features, Zebra is taking a more stripped back approach. You won't find set column gutters or margins, and there are only a few column sizes that have responsive behaviour built in by default.
+
