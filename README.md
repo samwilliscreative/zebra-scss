@@ -3,21 +3,21 @@ This is a grid system at it's rawest. Zebra simply provides you with a number of
 
 ## Getting started
 It's really easy to get started with Zebra, just create an element with the class of `row`, and then add your columns within.
-
 ```css
 <div class="row">
-	<div class="col--2of12">A column that spans 1/12 of the parent</div>
+	<div class="col--2of12">A column that spans 2/12 of the parent</div>
 	<div class="col--6of12">A column that spans 6/12 of the parent</div>
 	<div class="col--4of12">A column that spans 4/12 of the parent</div>
 </div>
 ```
+*By default, Zebra includes classes for 1, 2, 3, 4 and 12 columns, but different amounts can be added by modifying the `$columns` setting.*
 
 ## What is Zebra?
 Based on the BEM methodology.
 
-Base columns follow a slightly simplified version of the BEM methodology, combining the properties of `.col` (a block) with it's size `.col--(1-12)of(1-12)` (a modifier). This is done for a couple of reasons; 
+Base columns follow a slightly simplified version of the BEM methodology, combining the properties of `.col` (a block) with it's size `.col--XofX` (a modifier). This is done for a couple of reasons; 
 
-1. Firstly, there should never be an instance where a column element doesn't have a size modifer, as this would result in a column with no fixed width.
+1. Firstly, there should never be an instance where a column element doesn't have a size modifer, as this would result in a column with no width.
 2. Secondly, this helps to keep the DOM cleaner, as there are less classes littering each element.
 
 ```css
@@ -55,7 +55,7 @@ These settings variables are all stored at the top of the zebra.scss and can be 
 | Setting         | Type    | Default     | Description |
 |-----------------|---------|-------------|-------------|
 | $site-width     | string  | 1400px      | The max width of your site, used in the `row--contained` class. |
-| $columns        | list    | 2, 3, 4, 12 | Each number represents the number of columns that a row will be split into. |
+| $columns        | list    | 1, 2, 3, 4, 12 | Each number represents the number of columns that a row will be split into. |
 | $enable-offset  | boolean | true        | Enable the generation of column offset classes. |
 | $enable-push    | boolean | false       | Enable the generation of column push classes. |
 | $enable-pull    | boolean | false       | Enable the generation of column pull classes. |
