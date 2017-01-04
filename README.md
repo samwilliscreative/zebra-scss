@@ -1,5 +1,5 @@
 # Zebra - a CSS grid system without the fluff
-This is a grid system at it's rawest. Zebra simply provides you with a number of premade CSS classes which you can use to quickly add structure to a website.
+Zebra aims to provide developers of all skill levels with an easily accessible yet powerful set of grid classes that can be quickly implemented into new or existing projects.
 
 ## Getting started
 It's really easy to get started with Zebra, just create an element with the class of `row`, and then add your columns within.
