@@ -26,6 +26,32 @@ Base columns follow a slightly simplified version of the BEM methodology, combin
 ```
 
 ## Usage examples
+### Rows
+There are currently 3 row classes that you can use;
+
+| Class             | Type     |
+|-------------------|----------|
+| `.row`            | block    |
+| `.row--contained` | modifier |
+| `.row--flex`      | modifier |
+
+#### `.row`
+All row elements must include this class, as it contains the base styles that allow the child columns to work correctly.
+```css
+<div class="row">
+</div>
+```
+
+#### `.row--contained`
+This modifier can be added to any row elements to prevent them from stretching the full width of the page. The max width is dictated by the `$site-width` setting.
+```css
+<div class="row row--contained">
+	<!-- This now has a max-width -->
+</div>
+```
+
+#### `.row--flex`
+To make your column heights match, you can add the `row--flex` class to your `.row` element.
 ```css
 <div class="row row--flex">
 	<div class="col--1of3">This column will be taller than the rest due to extra content within it</div>
@@ -34,7 +60,8 @@ Base columns follow a slightly simplified version of the BEM methodology, combin
 </div>
 ```
 
-To create a space before a column, you can either use an empty column element, or a column offset class.
+#### Offset/blank columns
+To create a space before a column, you can either use an empty column element, or a column offset class (`col--offset-XofX`).
 
 ```css
 <div class="row">
