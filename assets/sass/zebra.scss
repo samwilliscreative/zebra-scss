@@ -59,7 +59,7 @@ $enable-pull: false;
 	@if $enable-push {
 		@each $column-count in $columns {
 			@for $span from 1 through $column-count {
-				&--offset-#{$span}of#{$column-count} {
+				&--push-#{$span}of#{$column-count} {
 					left: percentage($span/$column-count);
 				}
 			}
@@ -68,7 +68,7 @@ $enable-pull: false;
 	@if $enable-pull {
 		@each $column-count in $columns {
 			@for $span from 1 through $column-count {
-				&--offset-#{$span}of#{$column-count} {
+				&--pull-#{$span}of#{$column-count} {
 					right: percentage($span/$column-count);
 				}
 			}

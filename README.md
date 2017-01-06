@@ -60,6 +60,18 @@ To make your column heights match, you can add the `row--flex` class to your `.r
 </div>
 ```
 
+### Columns
+There are a number of column classes that you can use;
+
+| Class               | Type     |
+|---------------------|----------|
+| `.col--XofX`        | block + modifier    |
+| `.col--offset-XofX` | modifier |
+| `.col--push-XofX`   | modifier |
+| `.col--pull-XofX`   | modifier |
+| `.col--flex-col`    | modifier |
+| `.col--flex-row` | modifier |
+
 #### Offset/blank columns
 To create a space before a column, you can either use an empty column element, or a column offset class (`col--offset-XofX`).
 
