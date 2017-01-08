@@ -2,7 +2,11 @@
 Zebra aims to provide developers of all skill levels with an easily accessible yet powerful set of grid classes that can be quickly implemented into new or existing projects.
 
 ## Getting started
-It's really easy to get started with Zebra, just create an element with the class of `row`, and then add your columns within.
+It's really easy to get started with Zebra, firstly include the `zebra.css` file in your `<head>`
+```html
+<link rel="stylesheet" type="text/css" href="/css/zebra.css">
+```
+Now you just need to create an element with the class of `row`, and then add your columns* within.
 ```css
 <div class="row">
 	<div class="col--2of12">A column that spans 2/12 of the parent</div>
