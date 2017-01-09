@@ -6,7 +6,7 @@ It's really easy to get started with Zebra, firstly include the `zebra.css` file
 ```html
 <link rel="stylesheet" type="text/css" href="/css/zebra.css">
 ```
-Now you just need to create an element with the class of `row`, and then add your columns* within.
+Now you just need to create an element with the class of `row`, and then add your columns within.
 ```css
 <div class="row">
 	<div class="col--2of12">A column that spans 2/12 of the parent</div>
@@ -14,7 +14,6 @@ Now you just need to create an element with the class of `row`, and then add you
 	<div class="col--4of12">A column that spans 4/12 of the parent</div>
 </div>
 ```
-*By default, Zebra includes classes for 1, 2, 3, 4 and 12 columns, but different amounts can be added by modifying the `$columns` setting.*
 
 ## What is Zebra?
 Based on the BEM methodology.
@@ -67,14 +66,22 @@ To make your column heights match, you can add the `row--flex` class to your `.r
 ### Columns
 There are a number of column classes that you can use;
 
-| Class               | Type     |
-|---------------------|----------|
+| Class               | Type                |
+|---------------------|---------------------|
 | `.col--XofX`        | block + modifier    |
-| `.col--offset-XofX` | modifier |
-| `.col--push-XofX`   | modifier |
-| `.col--pull-XofX`   | modifier |
-| `.col--flex-col`    | modifier |
-| `.col--flex-row` | modifier |
+| `.col--offset-XofX` | modifier            |
+| `.col--push-XofX`   | modifier            |
+| `.col--pull-XofX`   | modifier            |
+| `.col--flex-col`    | modifier            |
+| `.col--flex-row`    | modifier            |
+
+#### `.col--XofX`
+All column elements must include this class, as it contains required base styles, as well as the size modifier. The class name defines the size of your column, so `.col--3of12` would create a column that spans 1/4 of the page.
+*By default, Zebra includes classes for 1, 2, 3, 4 and 12 columns, but different amounts can be added by modifying the `$columns` setting.*
+```css
+<div class="col--XofX">
+</div>
+```
 
 #### Offset/blank columns
 To create a space before a column, you can either use an empty column element, or a column offset class (`col--offset-XofX`).
