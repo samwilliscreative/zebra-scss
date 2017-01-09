@@ -2,10 +2,14 @@
 Zebra aims to provide developers of all skill levels with an easily accessible yet powerful set of grid classes that can be quickly implemented into new or existing projects.
 
 ## Getting started
-It's really easy to get started with Zebra, firstly include the `zebra.css` file in your `<head>`
+It's really easy to get started with Zebra, firstly include the `zebra.css` file in your `<head>`, or rename the 'zebra.scss' to `_zebra.scss` and include the `it with your SASS partials.
 ```html
+<-- Add this to your HTML -->
 <link rel="stylesheet" type="text/css" href="/css/zebra.css">
+<!-- OR add this to your site.scss -->
+@import '_zebra'
 ```
+Remember to update the file paths to match your project structure.
 Now you just need to create an element with the class of `row`, and then add your columns within.
 ```css
 <div class="row">
