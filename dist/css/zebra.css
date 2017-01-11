@@ -160,22 +160,21 @@
     margin-left: 91.66667%; }
   .col--offset-12of12 {
     margin-left: 100%; }
+  .col--auto {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: auto; }
   .col--flex-col {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column; }
-    .col--flex-col > * {
-      -ms-flex: 1;
-      flex: 1; }
   .col--flex-row {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
     flex-direction: row; }
-    .col--flex-row > * {
-      -ms-flex: 1;
-      flex: 1; }
   .col--extend-left:before, .col--extend-both:before {
     content: "";
     position: absolute;

@@ -74,6 +74,12 @@ $enable-pull: false;
 			}
 		}
 	}
+	&--auto {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: auto;
+	}
 	/* COLUMN MODIFIERS */
 	&--flex {
 		&-col {

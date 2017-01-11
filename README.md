@@ -74,6 +74,7 @@ There are a number of column classes that you can use;
 | Class               | Type                |
 |---------------------|---------------------|
 | `.col--XofX`        | block + modifier    |
+| `.col--auto`        | block + modifier    |
 | `.col--offset-XofX` | modifier            |
 | `.col--push-XofX`   | modifier            |
 | `.col--pull-XofX`   | modifier            |
