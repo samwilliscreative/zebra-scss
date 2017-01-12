@@ -164,7 +164,9 @@
     position: relative;
     display: inline-block;
     vertical-align: top;
-    width: auto; }
+    width: auto;
+    -ms-flex: 1;
+    flex: 1; }
   .col--flex-col {
     display: -ms-flexbox;
     display: flex;
