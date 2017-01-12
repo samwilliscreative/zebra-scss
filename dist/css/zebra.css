@@ -16,7 +16,22 @@
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     -ms-flex-direction: row;
-    flex-direction: row; }
+    flex-direction: row;
+    /* Auto width columns can make use of flex to help fill a gap or align content. */ }
+    .row--flex .col--auto {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex: 1;
+      flex: 1; }
+      .row--flex .col--auto-left {
+        -ms-flex-pack: start;
+        justify-content: flex-start; }
+      .row--flex .col--auto-center {
+        -ms-flex-pack: center;
+        justify-content: center; }
+      .row--flex .col--auto-right {
+        -ms-flex-pack: end;
+        justify-content: flex-end; }
 
 /**********************/
 /* COLUMN BASE STYLES */
@@ -164,9 +179,11 @@
     position: relative;
     display: inline-block;
     vertical-align: top;
-    width: auto;
-    -ms-flex: 1;
-    flex: 1; }
+    width: auto; }
+    .col--auto-left {
+      float: left; }
+    .col--auto-right {
+      float: right; }
   .col--flex-col {
     display: -ms-flexbox;
     display: flex;

@@ -71,15 +71,21 @@ To make your column heights match, you can add the `row--flex` class to your `.r
 ### Columns
 There are a number of column classes that you can use;
 
-| Class               | Type                |
-|---------------------|---------------------|
-| `.col--XofX`        | block + modifier    |
-| `.col--auto`        | block + modifier    |
-| `.col--offset-XofX` | modifier            |
-| `.col--push-XofX`   | modifier            |
-| `.col--pull-XofX`   | modifier            |
-| `.col--flex-col`    | modifier            |
-| `.col--flex-row`    | modifier            |
+| Class                | Type                |
+|----------------------|---------------------|
+| `.col--XofX`         | block + modifier    |
+| `.col--auto`         | block + modifier    |
+| `.col--auto-left`    | modifier            |
+| `.col--auto-center`  | modifier            |
+| `.col--auto-right`   | modifier            |
+| `.col--offset-XofX`  | modifier            |
+| `.col--push-XofX`    | modifier            |
+| `.col--pull-XofX`    | modifier            |
+| `.col--flex-col`     | modifier            |
+| `.col--flex-row`     | modifier            |
+| `.col--extend-left`  | modifier            |
+| `.col--extend-right` | modifier            |
+| `.col--extend-both`  | modifier            |
 
 #### `.col--XofX`
 All column elements must include this class, as it contains required base styles, as well as the size modifier. The class name defines the size of your column, so `.col--3of12` would create a column that spans 1/4 of the page.

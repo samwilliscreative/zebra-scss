@@ -21,6 +21,22 @@ $enable-pull: false;
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: row;
+		/* Auto width columns can make use of flex to help fill a gap or align content. */
+		.col {
+			&--auto {
+				display: flex;
+				flex: 1;
+				&-left {
+					justify-content: flex-start;
+				}
+				&-center {
+					justify-content: center;
+				}
+				&-right {
+					justify-content: flex-end;
+				}
+			}
+		}
 	}
 }
 
@@ -79,7 +95,12 @@ $enable-pull: false;
 		display: inline-block;
 		vertical-align: top;
 		width: auto;
-		flex: 1;
+		&-left {
+			float: left;
+		}
+		&-right {
+			float: right;
+		}
 	}
 	/* COLUMN MODIFIERS */
 	&--flex {
