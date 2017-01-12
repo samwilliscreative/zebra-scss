@@ -211,4 +211,12 @@
     height: 100%;
     background-color: inherit; }
 
+/**********************/
+/* ADDITIONAL CLASSES */
+/**********************/
+.site-wrapper {
+  display: block;
+  max-width: 1400px;
+  margin: 0 auto; }
+
 /*# sourceMappingURL=zebra.css.map */
