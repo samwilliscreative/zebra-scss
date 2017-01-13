@@ -147,3 +147,10 @@ $enable-pull: false;
 	max-width: $site-width;
 	margin: 0 auto;
 }
+.clearfix {
+	&:after {
+	    content:"";
+	    display:block;
+	    clear:both;
+	}
+}
