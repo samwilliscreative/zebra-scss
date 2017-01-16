@@ -194,6 +194,8 @@
     display: flex;
     -ms-flex-direction: row;
     flex-direction: row; }
+  .col--extend-left, .col--extend-right, .col--extend-both {
+    position: relative; }
   .col--extend-left:before, .col--extend-both:before {
     content: "";
     position: absolute;
@@ -202,14 +204,16 @@
     width: 1400px;
     height: 100%;
     background-color: inherit; }
-  .col--extend-right:after, .col--extend-both:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 1400px;
-    height: 100%;
-    background-color: inherit; }
+  .col--extend-right, .col--extend-both {
+    position: relative; }
+    .col--extend-right:after, .col--extend-both:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 1400px;
+      height: 100%;
+      background-color: inherit; }
 
 /**********************/
 /* ADDITIONAL CLASSES */
@@ -218,5 +222,10 @@
   display: block;
   max-width: 1400px;
   margin: 0 auto; }
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both; }
 
 /*# sourceMappingURL=zebra.css.map */

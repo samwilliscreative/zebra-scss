@@ -6,6 +6,7 @@ $columns: 1, 2, 3, 4, 12;
 $enable-offset: true;
 $enable-push: false;
 $enable-pull: false;
+$spacings: 10, 15, 20, 25;
 
 /**************************/
 /* ROWS AND ROW MODIFIERS */
@@ -114,6 +115,9 @@ $enable-pull: false;
 		}
 	}
 	&--extend {
+		&-left, &-right, &-both {
+			position: relative;
+		}
 		&-left, &-both {
 			&:before {
 				content: "";
@@ -152,5 +156,21 @@ $enable-pull: false;
 	    content:"";
 	    display:block;
 	    clear:both;
+	}
+}
+@each $value in $spacings {
+	.p, .m {
+		&--t {
+
+		}
+		&--r {
+
+		}
+		&--b {
+
+		}
+		&--l {
+			
+		}
 	}
 }
