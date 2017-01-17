@@ -6,7 +6,9 @@ $columns: 1, 2, 3, 4, 12;
 $enable-offset: true;
 $enable-push: false;
 $enable-pull: false;
-$spacings: 10, 15, 20, 25;
+$enable-padding: false;
+$enable-margin: false;
+$spacings: 10, 25;
 
 /**************************/
 /* ROWS AND ROW MODIFIERS */
@@ -159,18 +161,82 @@ $spacings: 10, 15, 20, 25;
 	}
 }
 @each $value in $spacings {
-	.p, .m {
-		&--t {
-
+	@if $enable-padding {
+		.p {
+			&--#{$value} {
+				padding: #{$value}px;
+			}
+			&-t {
+				&--#{$value} {
+					padding-top: #{$value}px;
+				}
+			}
+			&-r {
+				&--#{$value} {
+					padding-right: #{$value}px;
+				}
+			}
+			&-b {
+				&--#{$value} {
+					padding-bottom: #{$value}px;
+				}
+			}
+			&-l {
+				&--#{$value} {
+					padding-left: #{$value}px;
+				}
+			}
+			&-x {
+				&--#{$value} {
+					padding-left: #{$value}px;
+					padding-right: #{$value}px;
+				}
+			}
+			&-y {
+				&--#{$value} {
+					padding-top: #{$value}px;
+					padding-bottom: #{$value}px;
+				}
+			}
 		}
-		&--r {
-
-		}
-		&--b {
-
-		}
-		&--l {
-			
+	}
+	@if $enable-margin {
+		.m {
+			&--#{$value} {
+				margin: #{$value}px;
+			}
+			&-t {
+				&--#{$value} {
+					margin-top: #{$value}px;
+				}
+			}
+			&-r {
+				&--#{$value} {
+					margin-right: #{$value}px;
+				}
+			}
+			&-b {
+				&--#{$value} {
+					margin-bottom: #{$value}px;
+				}
+			}
+			&-l {
+				&--#{$value} {
+					margin-left: #{$value}px;
+				}
+			}
+			&-x {
+				&--#{$value} {
+					margin-left: #{$value}px;
+					margin-right: #{$value}px;
+				}
+			}
+			&-y {
+				&--#{$value} {
+					margin-top: #{$value}px;
+					margin-bottom: #{$value}px;
+				}
+			}
 		}
 	}
 }
