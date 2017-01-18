@@ -1,0 +1,242 @@
+/******************/
+/* ZEBRA SETTINGS */
+/******************/
+$site-width: 1400px;
+$columns: 1, 2, 3, 4, 12;
+$enable-offset: true;
+$enable-push: false;
+$enable-pull: false;
+$enable-padding: false;
+$enable-margin: false;
+$spacings: 10, 25;
+
+/**************************/
+/* ROWS AND ROW MODIFIERS */
+/**************************/
+.row {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 0;
+  &--contained {
+    max-width: $site-width;
+  }
+  &--flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* Auto width columns can make use of flex to help fill a gap or align content. */
+    .col {
+      &--auto {
+        display: flex;
+        flex: 1;
+        &-left {
+          justify-content: flex-start;
+        }
+        &-center {
+          justify-content: center;
+        }
+        &-right {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}
+
+/**********************/
+/* COLUMN BASE STYLES */
+/**********************/
+@for $i from 1 through 9 {
+  [class*='col--#{$i}'] {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+/************/
+/* COLUMNS */
+/***********/
+.col {
+  /* COLUMN SIZES */
+  @each $column-count in $columns {
+    @for $span from 1 through $column-count {
+      &--#{$span}of#{$column-count} {
+        width: percentage($span/$column-count);
+      }
+    }
+  }
+  @if $enable-offset {
+    @each $column-count in $columns {
+      @for $span from 1 through $column-count {
+        &--offset-#{$span}of#{$column-count} {
+          margin-left: percentage($span/$column-count);
+        }
+      }
+    }
+  }
+  @if $enable-push {
+    @each $column-count in $columns {
+      @for $span from 1 through $column-count {
+        &--push-#{$span}of#{$column-count} {
+          left: percentage($span/$column-count);
+        }
+      }
+    }
+  }
+  @if $enable-pull {
+    @each $column-count in $columns {
+      @for $span from 1 through $column-count {
+        &--pull-#{$span}of#{$column-count} {
+          right: percentage($span/$column-count);
+        }
+      }
+    }
+  }
+  &--auto {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+    &-left {
+      float: left;
+    }
+    &-right {
+      float: right;
+    }
+  }
+  /* COLUMN MODIFIERS */
+  &--flex {
+    &-col {
+      display: flex;
+      flex-direction: column;
+    }
+    &-row {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  &--extend {
+    &-left, &-right, &-both {
+      position: relative;
+    }
+    &-left, &-both {
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 100%;
+        width: $site-width;
+        height: 100%;
+        background-color: inherit;
+      }
+    }
+    &-right, &-both {
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: $site-width;
+        height: 100%;
+        background-color: inherit;
+      }
+    }
+  }
+}
+
+/**********************/
+/* ADDITIONAL CLASSES */
+/**********************/
+.site-wrapper {
+  display: block;
+  max-width: $site-width;
+  margin: 0 auto;
+}
+.clearfix {
+  &:after {
+    content:"";
+    display:block;
+    clear:both;
+  }
+}
+@each $value in $spacings {
+  @if $enable-padding {
+    .p {
+      &--#{$value} {
+        padding: #{$value}px;
+      }
+      &-t {
+        &--#{$value} {
+          padding-top: #{$value}px;
+        }
+      }
+      &-r {
+        &--#{$value} {
+          padding-right: #{$value}px;
+        }
+      }
+      &-b {
+        &--#{$value} {
+          padding-bottom: #{$value}px;
+        }
+      }
+      &-l {
+        &--#{$value} {
+          padding-left: #{$value}px;
+        }
+      }
+      &-x {
+        &--#{$value} {
+          padding-left: #{$value}px;
+          padding-right: #{$value}px;
+        }
+      }
+      &-y {
+        &--#{$value} {
+          padding-top: #{$value}px;
+          padding-bottom: #{$value}px;
+        }
+      }
+    }
+  }
+  @if $enable-margin {
+    .m {
+      &--#{$value} {
+        margin: #{$value}px;
+      }
+      &-t {
+        &--#{$value} {
+          margin-top: #{$value}px;
+        }
+      }
+      &-r {
+        &--#{$value} {
+          margin-right: #{$value}px;
+        }
+      }
+      &-b {
+        &--#{$value} {
+          margin-bottom: #{$value}px;
+        }
+      }
+      &-l {
+        &--#{$value} {
+          margin-left: #{$value}px;
+        }
+      }
+      &-x {
+        &--#{$value} {
+          margin-left: #{$value}px;
+          margin-right: #{$value}px;
+        }
+      }
+      &-y {
+        &--#{$value} {
+          margin-top: #{$value}px;
+          margin-bottom: #{$value}px;
+        }
+      }
+    }
+  }
+}

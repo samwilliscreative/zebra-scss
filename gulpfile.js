@@ -18,5 +18,5 @@ var sourcemaps = require('gulp-sourcemaps');
     });
 
     gulp.task('default', function () {
-        gulp.watch('./assets/sass/zebra.scss', ['sass']);
+        gulp.watch('./assets/sass/*.scss', ['sass']);
     });
