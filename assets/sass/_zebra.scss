@@ -116,6 +116,17 @@ $spacings: 10, 25;
       flex-direction: row;
     }
   }
+  &--align {
+    &-top {
+      vertical-align: top;
+    }
+    &-middle {
+      vertical-align: middle;
+    }
+    &-bottom {
+      vertical-align: bottom;
+    }
+  }
   &--extend {
     &-left, &-right, &-both {
       position: relative;
