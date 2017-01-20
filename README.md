@@ -2,17 +2,17 @@
 Zebra provides developers with a grid system that can be tailored to your individual projects needs, because just like a Zebra's stripes, every website is unique.
 
 ## Getting started
-It's really easy to get started with Zebra, either include the `/dist/css/zebra.css` file in your `<head>`, or import `/assets/sass/_zebra.scss` into your SASS project to take advantage of Zebras' customisation options.
+It's really easy to get started with Zebra, either include the `/dist/css/zebra.css` file in your `<head>`, or import `/src/sass/_zebra.scss` into your SASS project to take advantage of Zebras' customisation options.
 ```html
 <!-- Add this to your HTML -->
 <link rel="stylesheet" type="text/css" href="/css/zebra.css">
 
 <!-- OR add this to your site.scss -->
-@import '/assets/sass/_zebra'
+@import '/src/sass/_zebra'
 ```
 **Remember to update the file paths to match your project structure.**
 
-Now you just need to create an element with the class of `row`, and then add your columns within.
+Now you just need to create an element with the class of `row` and add your columns within.
 ```css
 <div class="row">
 	<div class="col--2of12">A column that spans 2/12 of the parent</div>
