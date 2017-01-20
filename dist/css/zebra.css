@@ -195,6 +195,12 @@
     display: flex;
     -ms-flex-direction: row;
     flex-direction: row; }
+  .col--align-top {
+    vertical-align: top; }
+  .col--align-middle {
+    vertical-align: middle; }
+  .col--align-bottom {
+    vertical-align: bottom; }
   .col--extend-left, .col--extend-right, .col--extend-both {
     position: relative; }
   .col--extend-left:before, .col--extend-both:before {

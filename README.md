@@ -1,5 +1,5 @@
 # Zebra - a customisable CSS grid system
-Zebra aims to provide developers with a grid system that can be as simple or complex as required. This is achieved through the implementation of settings, which can be altered to tailor Zebra to your individual projects needs.
+Zebra provides developers with a grid system that can be tailored to your individual projects needs, because just like a Zebra's stripes, every website is unique.
 
 ## Getting started
 It's really easy to get started with Zebra, either include the `/dist/css/zebra.css` file in your `<head>`, or import `/assets/sass/_zebra.scss` into your SASS project to take advantage of Zebras' customisation options.
@@ -87,6 +87,9 @@ There are a number of column classes that you can use;
 | `.col--extend-left`  | modifier            |
 | `.col--extend-right` | modifier            |
 | `.col--extend-both`  | modifier            |
+| `.col--align-top`    | modifier            |
+| `.col--align-middle` | modifier            |
+| `.col--align-bottom` | modifier            |
 
 #### `.col--XofX`
 All column elements must include this class, as it contains required base styles, as well as the size modifier. The class name defines the size of your column, so `.col--3of12` would create a column that spans 1/4 of the page.
@@ -130,8 +133,8 @@ Whilst websites from the early days of the web were often restricted to using a 
 
 This results in designs that no longer follow a set grid, with elements often containing their own grid
 
-Just like a Zebra's stripes, every website is unique.
 
+This is achieved through the implementation of settings, which can be altered to .
 
 Whilst most modern grid systems are implementing more and more advanced features, Zebra is taking a more stripped back approach. You won't find set column gutters or margins, and there are only a few column sizes that have responsive behaviour built in by default.
 
