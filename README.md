@@ -1,5 +1,7 @@
 # Zebra - a customisable CSS grid system
-Zebra provides developers with a grid system that can be tailored to your individual projects needs, because just like a Zebra's stripes, every website is unique.
+Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your individual projects needs.
+
+Zebra provides developers with an easy to use grid system based on the BEM methodology, that can be tailored to your projects needs through the built in SASS variables. This dynamic approach allows Zebra to output just the CSS that you require, without the extra fluff that most pre-built grid systems come with.
 
 ## Getting started
 It's really easy to get started with Zebra, either include the `/dist/css/zebra.css` file in your `<head>`, or import `/src/sass/_zebra.scss` into your SASS project to take advantage of Zebras' customisation options.
@@ -128,13 +130,3 @@ These settings variables are all stored at the top of the zebra.scss and can be 
 | $enable-padding | boolean | false          | Enable the generation of padding classes. |
 | $enable-margin  | boolean | false          | Enable the generation of margin classes. |
 | $spacings       | list    | 10, 25         | Each value here is used for the padding and margin classes, if enabled. |
-
-Whilst websites from the early days of the web were often restricted to using a 960px grid and tables, current technology allows designers and developers infinitely more freedom when it comes to structuring a page.
-
-This results in designs that no longer follow a set grid, with elements often containing their own grid
-
-
-This is achieved through the implementation of settings, which can be altered to .
-
-Whilst most modern grid systems are implementing more and more advanced features, Zebra is taking a more stripped back approach. You won't find set column gutters or margins, and there are only a few column sizes that have responsive behaviour built in by default.
-
