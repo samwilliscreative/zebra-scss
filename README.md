@@ -1,7 +1,9 @@
 # Zebra - a customisable CSS grid system
-Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your individual projects needs.
+Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your individual projects needs through built in SASS variables.
 
-Zebra provides you with an easy to use grid system based on the [BEM][1] methodology, that can be tailored to your projects needs through the built in SASS variables. This dynamic approach allows Zebra to output just the CSS that you require, without the extra fluff that most pre-built grid systems come with.
+Zebra provides you with a varying number of CSS classes (depending on what options you choose), based on the [BEM][1] methodology, that you can quickly incorporate into any project.
+
+This dynamic approach allows Zebra to output just the CSS that you require, without the extra fluff that most pre-built grid systems come with.
 
 ## Getting started
 It's really easy to get started with Zebra, either include the `/dist/css/zebra.css` file in your `<head>`, or import `/src/sass/_zebra.scss` into your SASS project to take advantage of Zebras' customisation options.
