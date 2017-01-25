@@ -1,14 +1,5 @@
-/******************/
-/* ZEBRA SETTINGS */
-/******************/
-$site-width: 1400px;
-$columns: 1, 2, 3, 4, 12;
-$enable-offset: true;
-$enable-push: false;
-$enable-pull: false;
-$enable-padding: false;
-$enable-margin: false;
-$spacings: 10, 25;
+/* Import the Zebra settings partial */
+@import "zebra-settings";
 
 /**************************/
 /* ROWS AND ROW MODIFIERS */

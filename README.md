@@ -120,7 +120,7 @@ To create a space before a column, you can either use an empty column element, o
 ```
 
 ## Settings
-These settings variables are all stored at the top of the zebra.scss and can be modified for your project.
+These settings variables are all stored within `_zebra-settings.scss` and can be modified for your project.
 
 | Setting         | Type    | Default        | Description |
 |-----------------|---------|----------------|-------------|
@@ -132,5 +132,7 @@ These settings variables are all stored at the top of the zebra.scss and can be 
 | $enable-padding | boolean | false          | Enable the generation of padding classes. |
 | $enable-margin  | boolean | false          | Enable the generation of margin classes. |
 | $spacings       | list    | 10, 25         | Each value here is used for the padding and margin classes, if enabled. |
+
+## Version - 1.0.0
 
 [1]: http://getbem.com/introduction
