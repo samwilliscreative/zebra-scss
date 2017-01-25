@@ -1,7 +1,7 @@
 # Zebra - a customisable CSS grid system
 Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your individual projects needs through built in SASS variables.
 
-Zebra provides you with a varying number of CSS classes (depending on what options you choose), based on the [BEM][1] methodology, that you can quickly incorporate into any project.
+Zebra provides you with a varying number of CSS classes (depending on what [settings][1] you choose), based on the [BEM][2] methodology, that you can quickly incorporate into any project.
 
 This dynamic approach allows Zebra to output just the CSS that you require, without the extra fluff that most pre-built grid systems come with.
 
@@ -119,20 +119,7 @@ To create a space before a column, you can either use an empty column element, o
 </div>
 ```
 
-## Settings
-These settings variables are all stored within `_zebra-settings.scss` and can be modified for your project.
-
-| Setting         | Type    | Default        | Description |
-|-----------------|---------|----------------|-------------|
-| $site-width     | string  | 1400px         | The max width of your site, used in the `row--contained` class. |
-| $columns        | list    | 1, 2, 3, 4, 12 | Each value represents the number of columns that a row can be split into. |
-| $enable-offset  | boolean | true           | Enable the generation of column offset classes. |
-| $enable-push    | boolean | false          | Enable the generation of column push classes. |
-| $enable-pull    | boolean | false          | Enable the generation of column pull classes. |
-| $enable-padding | boolean | false          | Enable the generation of padding classes. |
-| $enable-margin  | boolean | false          | Enable the generation of margin classes. |
-| $spacings       | list    | 10, 25         | Each value here is used for the padding and margin classes, if enabled. |
-
 ## Version - 1.0.0
 
-[1]: http://getbem.com/introduction
+[1]: https://github.com/swillis93/zebra/wiki/Settings
+[2]: http://getbem.com/introduction
