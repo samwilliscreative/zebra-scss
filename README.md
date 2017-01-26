@@ -38,93 +38,13 @@ Base columns follow a slightly simplified version of the BEM methodology, combin
 <div class="col col--1of2">Typical BEM usage</div>
 ```
 
-## Usage examples
-### Rows
-There are currently 3 row classes that you can use;
-
-| Class             | Type     |
-|-------------------|----------|
-| `.row`            | block    |
-| `.row--contained` | modifier |
-| `.row--flex`      | modifier |
-
-#### `.row`
-All row elements must include this class, as it contains the base styles that allow the child columns to work correctly.
-```css
-<div class="row">
-</div>
-```
-
-#### `.row--contained`
-This modifier can be added to any row elements to prevent them from stretching the full width of the page. The max width is dictated by the `$site-width` setting.
-```css
-<div class="row row--contained">
-	<!-- This now has a max-width -->
-</div>
-```
-
-#### `.row--flex`
-To make your column heights match, you can add the `row--flex` class to your `.row` element.
-```css
-<div class="row row--flex">
-	<div class="col--1of3">This column will be taller than the rest due to extra content within it</div>
-	<div class="col--1of3">Lorem ipsum dolor sit amet</div>
-	<div class="col--1of3">Lorem ipsum dolor sit amet</div>
-</div>
-```
-
-### Columns
-There are a number of column classes that you can use;
-
-| Class                | Type                |
-|----------------------|---------------------|
-| `.col--XofX`         | block + modifier    |
-| `.col--auto`         | block + modifier    |
-| `.col--auto-left`    | modifier            |
-| `.col--auto-center`  | modifier            |
-| `.col--auto-right`   | modifier            |
-| `.col--offset-XofX`  | modifier            |
-| `.col--push-XofX`    | modifier            |
-| `.col--pull-XofX`    | modifier            |
-| `.col--flex-col`     | modifier            |
-| `.col--flex-row`     | modifier            |
-| `.col--extend-left`  | modifier            |
-| `.col--extend-right` | modifier            |
-| `.col--extend-both`  | modifier            |
-| `.col--align-top`    | modifier            |
-| `.col--align-middle` | modifier            |
-| `.col--align-bottom` | modifier            |
-
-#### `.col--XofX`
-All column elements must include this class (or `.col--auto`), as it contains required base styles, as well as the size modifier. The class name defines the size of your column, so `.col--3of12` would create a column that spans 1/4 of the page.
-*By default, Zebra includes classes for 1, 2, 3, 4 and 12 columns, but different amounts can be added by modifying the `$columns` setting.*
-```css
-<div class="col--XofX">
-</div>
-```
-
-#### Offset/blank columns
-To create a space before a column, you can either use an empty column element, or a column offset class (`col--offset-XofX`).
-
-```css
-<div class="row">
-	<div class="col--1of3"></div>
-	<div class="col--1of3">This column starts 1/3 of the way across the row</div>
-	<div class="col--1of3">Lorem ipsum dolor sit amet</div>
-</div>
-
-<div class="row">
-	<div class="col--1of3 col--offset-1of3">This column starts 1/3 of the way across the row</div>
-	<div class="col--1of3">Lorem ipsum dolor sit amet</div>
-</div>
-```
-
 ## Version History
 Current Version: 1.0.0
 
 | Version | Release    |
 |---------|------------|
-| 1.0.0   | 21/01/2017 |
+| [1.0.0][v1.0.0]   | 21/01/2017 |
 
 [1]: https://github.com/swillis93/zebra/wiki/Settings
 [2]: http://getbem.com/introduction
+[v1.0.0]: https://github.com/swillis93/zebra/releases/tag/1.0.0
