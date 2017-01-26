@@ -96,7 +96,7 @@ There are a number of column classes that you can use;
 | `.col--align-bottom` | modifier            |
 
 #### `.col--XofX`
-All column elements must include this class, as it contains required base styles, as well as the size modifier. The class name defines the size of your column, so `.col--3of12` would create a column that spans 1/4 of the page.
+All column elements must include this class (or `.col--auto`), as it contains required base styles, as well as the size modifier. The class name defines the size of your column, so `.col--3of12` would create a column that spans 1/4 of the page.
 *By default, Zebra includes classes for 1, 2, 3, 4 and 12 columns, but different amounts can be added by modifying the `$columns` setting.*
 ```css
 <div class="col--XofX">
@@ -119,7 +119,12 @@ To create a space before a column, you can either use an empty column element, o
 </div>
 ```
 
-## Version - 1.0.0
+## Version History
+Current Version: 1.0.0
+
+| Version | Release    |
+|---------|------------|
+| 1.0.0   | 21/01/2017 |
 
 [1]: https://github.com/swillis93/zebra/wiki/Settings
 [2]: http://getbem.com/introduction
