@@ -1,9 +1,5 @@
-# Zebra - a customisable CSS grid system
-Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your individual projects needs through built in SASS variables.
-
-Zebra provides you with a varying number of CSS classes (depending on what [settings][1] you choose), based on the [BEM][2] methodology, that you can quickly incorporate into any project.
-
-This dynamic approach allows Zebra to output just the CSS that you require, without the extra fluff that most pre-built grid systems come with.
+# Zebra - a customizable CSS grid system
+Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored for your individual project requirements.
 
 ## Getting started
 It's really easy to get started with Zebra, either include the `/dist/css/zebra.css` file in your `<head>`, or import `/src/sass/_zebra.scss` into your SASS project to take advantage of Zebras' customisation options.
@@ -26,7 +22,9 @@ Now you just need to create an element with the class of `row` and add your colu
 ```
 
 ## What is Zebra?
-Based on the BEM methodology.
+By default, Zebra provides a number of CSS classes based on the [BEM][bem] methodology.
+
+Zebra then provides you with a varying number of CSS classes (depending on what [settings][settings] you choose).
 
 Base columns follow a slightly simplified version of the BEM methodology, combining the properties of `.col` (a block) with it's size `.col--XofX` (a modifier). This is done for a couple of reasons; 
 
@@ -41,10 +39,10 @@ Base columns follow a slightly simplified version of the BEM methodology, combin
 ## Version History
 Current Version: 1.0.0
 
-| Version | Release    |
-|---------|------------|
-| [1.0.0][v1.0.0]   | 21/01/2017 |
+| Version         | Release    |
+|-----------------|------------|
+| [1.0.0][v1.0.0] | 21/01/2017 |
 
-[1]: https://github.com/swillis93/zebra/wiki/Settings
-[2]: http://getbem.com/introduction
+[settings]: https://github.com/swillis93/zebra/wiki/Settings
+[bem]: http://getbem.com/introduction
 [v1.0.0]: https://github.com/swillis93/zebra/releases/tag/1.0.0
