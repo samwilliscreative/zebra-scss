@@ -1,5 +1,5 @@
 # Zebra - a customizable CSS grid system
-Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored for your individual project requirements.
+Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your individual project requirements.
 
 ## Getting started
 It's really easy to get started with Zebra, either include the `/dist/css/zebra.css` file in your `<head>`, or import `/src/sass/_zebra.scss` into your SASS project to take advantage of Zebras' customisation options.
@@ -10,7 +10,7 @@ It's really easy to get started with Zebra, either include the `/dist/css/zebra.
 <!-- OR add this to your site.scss -->
 @import '/src/sass/_zebra'
 ```
-**Remember to update the file paths to match your project structure.**
+*Remember to update the file paths to match your project structure.*
 
 Now you just need to create an element with the class of `row` and add your columns within.
 ```css
