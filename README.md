@@ -1,3 +1,5 @@
+[![GitHub version](https://badge.fury.io/gh/swillis93%2Fzebra.svg)](https://badge.fury.io/gh/swillis93%2Fzebra)
+
 # Zebra - a customizable CSS grid system
 Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your individual project requirements.
 
@@ -37,9 +39,6 @@ Base columns follow a slightly simplified version of the BEM methodology, combin
 <div class="col--1of2">Zebra's simplified column classes</div>
 <div class="col col--1of2">Typical BEM usage</div>
 ```
-
-## Current Version: 1.0.0
-
 
 
 
