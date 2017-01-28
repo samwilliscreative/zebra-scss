@@ -26,18 +26,13 @@ Now you just need to create an element with the class of `row` and add your colu
 For a more detailed usage guide, see the [wiki][wiki].
 
 ## What is Zebra?
-Zebra is a CSS grid system based on the [BEM][bem] methodology, that can be customized through the modification of built in SASS variables.
+Zebra is a CSS grid system based on the [BEM][bem] methodology, that can be customized through the modification of built in SASS variables. Zebra provides a varying number of CSS classes (depending on what [settings][settings] you choose) that allow you to quickly add rows and columns to your project.
 
-Zebra then provides you with a varying number of CSS classes (depending on what [settings][settings] you choose).
-
-Base columns follow a slightly simplified version of the BEM methodology, combining the properties of `.col` (a block) with it's size `.col--XofX` (a modifier). This is done for a couple of reasons; 
-
-1. Firstly, there should never be an instance where a column element doesn't have a size modifer, as this would result in a column with no width.
-2. Secondly, this helps to keep the DOM cleaner, as there are less classes littering each element.
+Base columns follow a slightly simplified version of the BEM methodology, combining the properties of `.col` (a block) with it's size `--XofX` or `--auto` (modifiers). This keeps your DOM cleaner, as classes have been combined when possible.
 
 ```css
-<div class="col--1of2">Zebra's simplified column classes</div>
-<div class="col col--1of2">Typical BEM usage</div>
+<div class="col--3of12">Zebra's simplified column classes</div>
+<div class="col col--9of12">Typical BEM usage</div>
 ```
 
 
