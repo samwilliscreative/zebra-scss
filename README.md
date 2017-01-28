@@ -4,7 +4,7 @@
 Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your individual project requirements.
 
 ## Getting started
-It's really easy to get started with Zebra, either include the `/dist/css/zebra.css` file in your `<head>`, or copy the `/src/sass/_zebra.scss` and `/src/sass/_zebra-settings.scss` files into your SASS project to take advantage of Zebras' customisation options.
+It's really easy to get started with Zebra, either include the `/dist/css/zebra.css` file in your `<head>`, or copy the `/src/sass/_zebra.scss` and `/src/sass/_zebra-settings.scss` files into your SASS project to take advantage of Zebra's customization options.
 ```html
 <!-- Add this to your HTML -->
 <link rel="stylesheet" type="text/css" href="/css/zebra.css">
