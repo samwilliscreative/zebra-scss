@@ -6,10 +6,10 @@ Just like a Zebra's stripes, every website is unique, and so we've created a gri
 ## Getting started
 It's really easy to get started with Zebra, either include the `/dist/css/zebra.css` file in your `<head>`, or copy the `/src/sass/_zebra.scss` and `/src/sass/_zebra-settings.scss` files into your SASS project to take advantage of Zebra's customization options.
 ```html
-<!-- Add this to your HTML -->
+<!-- Add this to your head -->
 <link rel="stylesheet" type="text/css" href="/css/zebra.css">
 
-<!-- OR add this to your site.scss -->
+<!-- OR copy the _zebra files into your SASS project and add this to your site.scss -->
 @import '/src/sass/_zebra'
 ```
 *Remember to update the file paths to match your project structure.*
@@ -26,7 +26,7 @@ Now you just need to create an element with the class of `row` and add your colu
 For a more detailed usage guide, see the [wiki][wiki].
 
 ## What is Zebra?
-By default, Zebra provides a number of CSS classes based on the [BEM][bem] methodology.
+Zebra is a CSS grid system based on the [BEM][bem] methodology, that can be customized through the modification of built in SASS variables.
 
 Zebra then provides you with a varying number of CSS classes (depending on what [settings][settings] you choose).
 
