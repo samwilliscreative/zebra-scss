@@ -3,6 +3,20 @@
 # Zebra - a customizable CSS grid system
 Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your individual project requirements.
 
+
+
+## What is Zebra?
+Zebra is a CSS grid system based on the [BEM][bem] methodology, that can be customized through the modification of built in SASS variables. Zebra provides a varying number of CSS classes (depending on what [settings][settings] you choose) that allow you to quickly add rows and columns to your project.
+
+Base columns follow a slightly simplified version of the BEM methodology, combining the properties of `.col` (a block) with it's size `--XofX` or `--auto` (modifiers). This keeps your DOM cleaner, as classes have been combined when possible.
+
+```css
+<div class="col--3of12">Zebra's simplified column classes</div>
+<div class="col col--9of12">Typical BEM usage</div>
+```
+
+
+
 ## Getting started
 It's really easy to get started with Zebra, either include the `/dist/css/zebra.css` file in your `<head>`, or copy the `/src/sass/_zebra.scss` and `/src/sass/_zebra-settings.scss` files into your SASS project to take advantage of Zebra's customization options.
 ```html
@@ -25,18 +39,17 @@ Now you just need to create an element with the class of `row` and add your colu
 
 For a more detailed usage guide, see the [wiki][wiki].
 
-## What is Zebra?
-Zebra is a CSS grid system based on the [BEM][bem] methodology, that can be customized through the modification of built in SASS variables. Zebra provides a varying number of CSS classes (depending on what [settings][settings] you choose) that allow you to quickly add rows and columns to your project.
 
-Base columns follow a slightly simplified version of the BEM methodology, combining the properties of `.col` (a block) with it's size `--XofX` or `--auto` (modifiers). This keeps your DOM cleaner, as classes have been combined when possible.
 
-```css
-<div class="col--3of12">Zebra's simplified column classes</div>
-<div class="col col--9of12">Typical BEM usage</div>
-```
+## Authors and Contributing
+Zebra welcomes collaboration, either in the fixing of bugs, writing of documentation, or developing of new features.
+
+### Authors
+[Sam Willis][swillis] - Project Lead
 
 
 
-[settings]: https://github.com/swillis93/zebra/wiki/Settings
 [bem]: http://getbem.com/introduction
+[settings]: https://github.com/swillis93/zebra/wiki/Settings
+[swillis]: http://swillis.co.uk
 [wiki]: https://github.com/swillis93/zebra/wiki
