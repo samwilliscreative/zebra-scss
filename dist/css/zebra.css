@@ -191,11 +191,17 @@
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column; }
+    .col--flex-col > * {
+      -ms-flex-positive: 1;
+      flex-grow: 1; }
   .col--flex-row {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
     flex-direction: row; }
+    .col--flex-row > * {
+      -ms-flex-positive: 1;
+      flex-grow: 1; }
   .col--align-top {
     vertical-align: top; }
   .col--align-middle {
