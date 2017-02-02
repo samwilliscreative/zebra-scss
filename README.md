@@ -43,10 +43,10 @@ For a more detailed usage guide, see the [wiki][wiki].
 
 
 ## Authors and Contributing
-Zebra welcomes collaboration, either in the fixing of bugs, writing of documentation, or developing of new features.
+Contributions, either in code or constructive feedback, are welcome.
 
 ### Authors
-[Sam Willis][swillis] - Project Lead
+[Sam Willis][swillis]
 
 
 
