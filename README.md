@@ -1,4 +1,5 @@
-[![GitHub version](https://badge.fury.io/gh/swillis93%2Fzebra.svg)](https://badge.fury.io/gh/swillis93%2Fzebra)
+[![GitHub version](https://badge.fury.io/gh/swillis93%2Fzebra.svg)](https://github.com/swillis93/zebra/releases)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg)]
 
 # Zebra - a customizable CSS grid system
 Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your individual project requirements.
