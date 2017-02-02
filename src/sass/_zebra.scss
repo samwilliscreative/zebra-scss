@@ -89,14 +89,14 @@
     display: inline-block;
     vertical-align: top;
     width: auto;
-    &-left {
-      float: left;
-    }
-    &-right {
-      float: right;
-    }
   }
   /* COLUMN MODIFIERS */
+  &-left {
+    float: left;
+  }
+  &-right {
+    float: right;
+  }
   &--flex {
     &-col {
       display: flex;
