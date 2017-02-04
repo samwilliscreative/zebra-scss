@@ -2,10 +2,14 @@
 /* ZEBRA SETTINGS */
 /******************/
 $site-width: 1400px;
-$columns: 1, 2, 3, 4, 12;
+$columns: 5, 8, 12;
 $enable-offset: true;
 $enable-push: false;
 $enable-pull: false;
 $enable-padding: false;
 $enable-margin: false;
+$enable-responsive: true;
+$mobile-first: false;
+$media-widths: 435, 500, 599, 768, 1024;
+$media-width-names: xs, s, m, l, xl;
 $spacings: 10, 25;

@@ -20,16 +20,16 @@
       &--auto {
         display: flex;
         flex: 1;
-        &-left {
-          justify-content: flex-start;
-        }
-        &-center {
-          justify-content: center;
-        }
-        &-right {
-          justify-content: flex-end;
-        }
       }
+    }
+    &-left {
+      justify-content: flex-start;
+    }
+    &-center {
+      justify-content: center;
+    }
+    &-right {
+      justify-content: flex-end;
     }
   }
 }
@@ -148,6 +148,41 @@
         width: $site-width;
         height: 100%;
         background-color: inherit;
+      }
+    }
+  }
+}
+/* RESPONSIVE CLASSES */
+@function reverse($list, $recursive: false) {
+  $result: ();
+  @for $i from length($list)*-1 through -1 {
+    @if type-of(nth($list, abs($i))) == list and $recursive {
+      $result: append($result, reverse(nth($list, abs($i)), $recursive));
+    }
+    @else {
+      $result: append($result, nth($list, abs($i)));
+    }
+  }
+  @return $result;
+}
+@if $enable-responsive {
+  $query-property: min-width;
+  @if not $mobile-first {
+    $query-property: max-width;
+    $media-widths: reverse($media-widths);
+    $media-width-names: reverse($media-width-names);
+  }
+  @each $media-width in $media-widths {
+    @media all and ($query-property: $media-width + px) {
+      .col {
+        $i: index($media-widths, $media-width);
+        @each $column-count in $columns {
+          @for $span from 1 through $column-count {
+            &-#{nth($media-width-names, $i)}--#{$span}of#{$column-count} {
+              width: percentage($span/$column-count);
+            }
+          }
+        }
       }
     }
   }
