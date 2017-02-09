@@ -1,3 +1,5 @@
+"use strict";
+
 let gulp = require('gulp');
 let sass = require('gulp-sass');
 let autoprefixer = require('gulp-autoprefixer');
@@ -23,6 +25,8 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(destination));
 });
 
-gulp.task('default', function () {
+gulp.task('default', ['sass']);
+
+gulp.task('watch', function () {
     gulp.watch('./src/sass/*.scss', ['sass']);
 });
