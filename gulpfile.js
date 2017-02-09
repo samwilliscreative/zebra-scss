@@ -25,6 +25,8 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(destination));
 });
 
-gulp.task('default', function () {
+gulp.task('default', ['sass']);
+
+gulp.task('watch', function () {
     gulp.watch('./src/sass/*.scss', ['sass']);
 });
