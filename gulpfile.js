@@ -15,18 +15,14 @@ gulp.task('sass', function () {
             browsers: autoprefixrBrowsers,
             cascade: false
         }))
-        .pipe(gulp.dest(destination));
-});
-
-gulp.task('minify', function () {
-    gulp.src('./dist/css/zebra.css')
+        .pipe(gulp.dest(destination))
         .pipe(cssnano())
         .pipe(rename({
             suffix: '.min'
         }))
         .pipe(gulp.dest(destination));
-})
+});
 
 gulp.task('default', function () {
-    gulp.watch('./src/sass/*.scss', ['sass', 'minify']);
+    gulp.watch('./src/sass/*.scss', ['sass']);
 });
