@@ -5,281 +5,311 @@
 /* ROWS AND ROW MODIFIERS */
 /**************************/
 .row {
-  width: 100%;
-  margin: 0 auto;
-  font-size: 0;
-  &--contained {
-    max-width: $site-width;
-  }
-  &--flex {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    /* Auto width columns can make use of flex to help fill a gap or align content. */
-    .col {
-      &--auto {
+    margin: 0 auto;
+    font-size: 0;
+    &--contained {
+        max-width: $site-width;
+    }
+    &--flex {
         display: flex;
-        flex: 1;
-      }
+        flex-wrap: wrap;
+        flex-direction: row;
+        /* Auto width columns can make use of flex to help fill a gap or align content. */
+        .col {
+            &--auto {
+                display: flex;
+                flex: 1;
+            }
+        }
+        &-left {
+            justify-content: flex-start;
+        }
+        &-center {
+            justify-content: center;
+        }
+        &-right {
+            justify-content: flex-end;
+        }
     }
-    &-left {
-      justify-content: flex-start;
-    }
-    &-center {
-      justify-content: center;
-    }
-    &-right {
-      justify-content: flex-end;
-    }
-  }
 }
 
 /**********************/
 /* COLUMN BASE STYLES */
 /**********************/
 @for $i from 1 through 9 {
-  [class*='col--#{$i}'] {
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-  }
+    [class*='col--#{$i}'] {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+    }
 }
 
 /************/
 /* COLUMNS */
 /***********/
 .col {
-  /* COLUMN SIZES */
-  @each $column-count in $columns {
-    @for $span from 1 through $column-count {
-      &--#{$span}of#{$column-count} {
-        width: percentage($span/$column-count);
-      }
-    }
-  }
-  @if $enable-offset {
+    /* COLUMN SIZES */
     @each $column-count in $columns {
-      @for $span from 1 through $column-count {
-        &--offset-#{$span}of#{$column-count} {
-          margin-left: percentage($span/$column-count);
+        @for $span from 1 through $column-count {
+            &--#{$span}of#{$column-count} {
+                width: percentage($span/$column-count);
+            }
         }
-      }
     }
-  }
-  @if $enable-push {
-    @each $column-count in $columns {
-      @for $span from 1 through $column-count {
-        &--push-#{$span}of#{$column-count} {
-          left: percentage($span/$column-count);
+    @if $enable-offset {
+        @each $column-count in $columns {
+            @for $span from 1 through $column-count {
+                &--offset-#{$span}of#{$column-count} {
+                    margin-left: percentage($span/$column-count);
+                }
+            }
         }
-      }
     }
-  }
-  @if $enable-pull {
-    @each $column-count in $columns {
-      @for $span from 1 through $column-count {
-        &--pull-#{$span}of#{$column-count} {
-          right: percentage($span/$column-count);
+    @if $enable-push {
+        @each $column-count in $columns {
+            @for $span from 1 through $column-count {
+                &--push-#{$span}of#{$column-count} {
+                    left: percentage($span/$column-count);
+                }
+            }
         }
-      }
     }
-  }
-  &--auto {
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    width: auto;
-  }
-  /* COLUMN MODIFIERS */
-  &-left {
-    float: left;
-  }
-  &-right {
-    float: right;
-  }
-  &--flex {
-    &-col {
-      display: flex;
-      flex-direction: column;
-      > * {
-        flex-grow: 1;
-      }
+    @if $enable-pull {
+        @each $column-count in $columns {
+            @for $span from 1 through $column-count {
+                &--pull-#{$span}of#{$column-count} {
+                    right: percentage($span/$column-count);
+                }
+            }
+        }
     }
-    &-row {
-      display: flex;
-      flex-direction: row;
-      > * {
-        flex-grow: 1;
-      }
+    &--auto {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        width: auto;
     }
-  }
-  &--align {
-    &-top {
-      vertical-align: top;
+    /* COLUMN MODIFIERS */
+    &-left {
+        float: left;
     }
-    &-middle {
-      vertical-align: middle;
+    &-right {
+        float: right;
     }
-    &-bottom {
-      vertical-align: bottom;
+    &--flex {
+        &-col {
+            display: flex;
+            flex-direction: column;
+            > * {
+                flex-grow: 1;
+            }
+        }
+        &-row {
+            display: flex;
+            flex-direction: row;
+            > * {
+                flex-grow: 1;
+            }
+        }
     }
-  }
-  &--extend {
-    &-left, &-right, &-both {
-      position: relative;
+    &--align {
+        &-top {
+            vertical-align: top;
+        }
+        &-middle {
+            vertical-align: middle;
+        }
+        &-bottom {
+            vertical-align: bottom;
+        }
     }
-    &-left, &-both {
-      &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 100%;
-        width: $site-width;
-        height: 100%;
-        background-color: inherit;
-      }
+    &--extend {
+        position: relative;
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: $site-width;
+            height: 100%;
+            background-color: inherit;
+        }
+        &:before {
+            right: 100%;
+        }
+        &:after {
+            left: 100%;
+        }
+        &-left, &-right {
+            position: relative;
+        }
+        &-left {
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 100%;
+                width: $site-width;
+                height: 100%;
+                background-color: inherit;
+            }
+        }
+        &-right {
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 100%;
+                width: $site-width;
+                height: 100%;
+                background-color: inherit;
+            }
+        }
     }
-    &-right, &-both {
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 100%;
-        width: $site-width;
-        height: 100%;
-        background-color: inherit;
-      }
-    }
-  }
 }
+
 /* RESPONSIVE CLASSES */
 @function reverse($list, $recursive: false) {
-  $result: ();
-  @for $i from length($list)*-1 through -1 {
-    @if type-of(nth($list, abs($i))) == list and $recursive {
-      $result: append($result, reverse(nth($list, abs($i)), $recursive));
-    }
-    @else {
-      $result: append($result, nth($list, abs($i)));
-    }
-  }
-  @return $result;
-}
-@if $enable-responsive {
-  $query-property: min-width;
-  @if not $mobile-first {
-    $query-property: max-width;
-    $media-widths: reverse($media-widths);
-    $media-width-names: reverse($media-width-names);
-  }
-  @each $media-width in $media-widths {
-    @media all and ($query-property: $media-width + px) {
-      .col {
-        $i: index($media-widths, $media-width);
-        @each $column-count in $columns {
-          @for $span from 1 through $column-count {
-            &-#{nth($media-width-names, $i)}--#{$span}of#{$column-count} {
-              width: percentage($span/$column-count);
-            }
-          }
+    $result: ();
+    @for $i from length($list)*-1 through -1 {
+        @if type-of(nth($list, abs($i))) == list and $recursive {
+            $result: append($result, reverse(nth($list, abs($i)), $recursive));
+        } @else {
+            $result: append($result, nth($list, abs($i)));
         }
-      }
     }
-  }
+    @return $result;
+}
+
+@if $enable-responsive {
+    $query-property: min-width;
+    @if not $mobile-first {
+        $query-property: max-width;
+        $media-widths: reverse($media-widths);
+        $media-width-names: reverse($media-width-names);
+    }
+    @each $media-width in $media-widths {
+        @media all and ($query-property: $media-width + px) {
+            .col {
+                $i: index($media-widths, $media-width);
+                @each $column-count in $columns {
+                    @for $span from 1 through $column-count {
+                        &-#{nth($media-width-names, $i)}--#{$span}of#{$column-count} {
+                            width: percentage($span/$column-count);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 /**********************/
 /* ADDITIONAL CLASSES */
 /**********************/
 .site-wrapper {
-  display: block;
-  max-width: $site-width;
-  margin: 0 auto;
+    display: block;
+    max-width: $site-width;
+    margin: 0 auto;
 }
+
 .clearfix {
-  &:after {
-    content:"";
-    display:block;
-    clear:both;
-  }
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
 }
+
 @each $value in $spacings {
-  @if $enable-padding {
-    .p {
-      &--#{$value} {
-        padding: #{$value}px;
-      }
-      &-t {
-        &--#{$value} {
-          padding-top: #{$value}px;
+    @if $enable-padding {
+        .p {
+            &--#{$value} {
+                padding: #{$value}px;
+            }
+            &-t {
+                &--#{$value} {
+                    padding-top: #{$value}px;
+                }
+            }
+            &-r {
+                &--#{$value} {
+                    padding-right: #{$value}px;
+                }
+            }
+            &-b {
+                &--#{$value} {
+                    padding-bottom: #{$value}px;
+                }
+            }
+            &-l {
+                &--#{$value} {
+                    padding-left: #{$value}px;
+                }
+            }
+            &-x {
+                &--#{$value} {
+                    padding-left: #{$value}px;
+                    padding-right: #{$value}px;
+                }
+            }
+            &-y {
+                &--#{$value} {
+                    padding-top: #{$value}px;
+                    padding-bottom: #{$value}px;
+                }
+            }
         }
-      }
-      &-r {
-        &--#{$value} {
-          padding-right: #{$value}px;
-        }
-      }
-      &-b {
-        &--#{$value} {
-          padding-bottom: #{$value}px;
-        }
-      }
-      &-l {
-        &--#{$value} {
-          padding-left: #{$value}px;
-        }
-      }
-      &-x {
-        &--#{$value} {
-          padding-left: #{$value}px;
-          padding-right: #{$value}px;
-        }
-      }
-      &-y {
-        &--#{$value} {
-          padding-top: #{$value}px;
-          padding-bottom: #{$value}px;
-        }
-      }
     }
-  }
-  @if $enable-margin {
-    .m {
-      &--#{$value} {
-        margin: #{$value}px;
-      }
-      &-t {
-        &--#{$value} {
-          margin-top: #{$value}px;
+    @if $enable-margin {
+        .m {
+            &--#{$value} {
+                margin: #{$value}px;
+            }
+            &-t {
+                &--#{$value} {
+                    margin-top: #{$value}px;
+                }
+            }
+            &-r {
+                &--#{$value} {
+                    margin-right: #{$value}px;
+                }
+            }
+            &-b {
+                &--#{$value} {
+                    margin-bottom: #{$value}px;
+                }
+            }
+            &-l {
+                &--#{$value} {
+                    margin-left: #{$value}px;
+                }
+            }
+            &-x {
+                &--#{$value} {
+                    margin-left: #{$value}px;
+                    margin-right: #{$value}px;
+                }
+            }
+            &-y {
+                &--#{$value} {
+                    margin-top: #{$value}px;
+                    margin-bottom: #{$value}px;
+                }
+            }
         }
-      }
-      &-r {
-        &--#{$value} {
-          margin-right: #{$value}px;
-        }
-      }
-      &-b {
-        &--#{$value} {
-          margin-bottom: #{$value}px;
-        }
-      }
-      &-l {
-        &--#{$value} {
-          margin-left: #{$value}px;
-        }
-      }
-      &-x {
-        &--#{$value} {
-          margin-left: #{$value}px;
-          margin-right: #{$value}px;
-        }
-      }
-      &-y {
-        &--#{$value} {
-          margin-top: #{$value}px;
-          margin-bottom: #{$value}px;
-        }
-      }
     }
-  }
+}
+@each $value in $gutter-sizes {
+    @if $enable-gutters {
+        $half-value: $value / 2;
+        .gutters--#{$value} {
+            margin-left: -#{$half-value}px;
+            margin-right: -#{$half-value}px;
+            > * {
+                padding-left: #{$half-value}px;
+                padding-right: #{$half-value}px;
+            }
+        }
+    }
 }

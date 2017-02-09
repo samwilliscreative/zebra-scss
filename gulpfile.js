@@ -4,7 +4,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var cssnano = require('gulp-cssnano');
 var rename = require('gulp-rename');
 
-    gulp.task('sass', function () {
+gulp.task('sass', function () {
     return gulp.src('./src/sass/zebra.scss')
 
         .pipe(sass().on('error', sass.logError))
@@ -13,18 +13,18 @@ var rename = require('gulp-rename');
             cascade: false
         }))
         .pipe(gulp.dest('./dist/css/'));
-    });
+});
 
-    gulp.task('minify', function(){
-        gulp.src('./dist/css/zebra.css')
-            .pipe(cssnano())
-            .pipe(rename({
-                suffix: '.min'
-            }))
+gulp.task('minify', function () {
+    gulp.src('./dist/css/zebra.css')
+        .pipe(cssnano())
+        .pipe(rename({
+            suffix: '.min'
+        }))
         .pipe(gulp.dest('./dist/css/'));
-    })
+})
 
-    gulp.task('default', function () {
-        gulp.watch('./src/sass/*.scss', ['sass', 'minify']);
+gulp.task('default', function () {
+    gulp.watch('./src/sass/*.scss', ['sass', 'minify']);
 
-    });
+});

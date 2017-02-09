@@ -2,14 +2,26 @@
 /* ZEBRA SETTINGS */
 /******************/
 $site-width: 1400px;
+
+/* COLUMN FRACTIONS */
 $columns: 5, 8, 12;
+
+/* POSITIONING */
 $enable-offset: true;
 $enable-push: false;
 $enable-pull: false;
+
+/* SPACING */
 $enable-padding: false;
 $enable-margin: false;
+$spacings: 10, 25;
+
+/* GUTTERS */
+$enable-gutters: true;
+$gutter-sizes: 10, 15;
+
+/* RESPONSIVE  */
 $enable-responsive: true;
 $mobile-first: false;
 $media-widths: 435, 500, 599, 768, 1024;
 $media-width-names: xs, s, m, l, xl;
-$spacings: 10, 25;
