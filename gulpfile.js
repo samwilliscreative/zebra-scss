@@ -1,3 +1,5 @@
+"use strict";
+
 let gulp = require('gulp');
 let sass = require('gulp-sass');
 let autoprefixer = require('gulp-autoprefixer');
