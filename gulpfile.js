@@ -6,12 +6,13 @@ let rename = require('gulp-rename');
 
 const src = './src/sass/zebra.scss';
 const destination = './dist/css/';
+const autoprefixrBrowsers = ['last 2 versions', 'ie >= 8'];
 
 gulp.task('sass', function () {
     return gulp.src('./src/sass/zebra.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
-            browsers: ['last 2 versions', 'ie >= 8'],
+            browsers: autoprefixrBrowsers,
             cascade: false
         }))
         .pipe(gulp.dest(destination));
