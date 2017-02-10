@@ -6,6 +6,7 @@
 /* COLUMN FRACTIONS */
 /* POSITIONING */
 /* SPACING */
+/* GRIDS */
 /* GUTTERS */
 /* RESPONSIVE  */
 /**************************/
@@ -529,6 +530,16 @@
   content: "";
   display: block;
   clear: both; }
+
+[class*="grid--"] > * {
+  display: inline-block;
+  vertical-align: top; }
+
+.grid--3 > * {
+  width: 33.33333%; }
+
+.grid--4 > * {
+  width: 25%; }
 
 .gutters--10 {
   margin-left: -5px;

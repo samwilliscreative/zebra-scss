@@ -300,8 +300,23 @@
         }
     }
 }
-@each $value in $gutter-sizes {
-    @if $enable-gutters {
+@if $enable-grids {
+    [class*="grid--"] {
+        > * {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+    @each $grid-size in $grid-columns {
+        .grid--#{$grid-size} {
+            > * {
+                width: percentage(1/$grid-size);
+            }
+        }
+    }
+}
+@if $enable-gutters {
+    @each $value in $gutter-sizes {
         $half-value: $value / 2;
         .gutters--#{$value} {
             margin-left: -#{$half-value}px;
