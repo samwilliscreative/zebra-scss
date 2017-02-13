@@ -180,28 +180,7 @@
     @return $result;
 }
 
-@if $enable-responsive {
-    $query-property: min-width;
-    @if not $mobile-first {
-        $query-property: max-width;
-        $media-widths: reverse($media-widths);
-        $media-width-names: reverse($media-width-names);
-    }
-    @each $media-width in $media-widths {
-        @media all and ($query-property: $media-width + px) {
-            .col {
-                $i: index($media-widths, $media-width);
-                @each $column-count in $columns {
-                    @for $span from 1 through $column-count {
-                        &-#{nth($media-width-names, $i)}--#{$span}of#{$column-count} {
-                            width: percentage($span/$column-count);
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+
 
 /**********************/
 /* ADDITIONAL CLASSES */
@@ -342,6 +321,47 @@
                         padding-top: #{$half-value}px;
                         padding-bottom: #{$half-value}px;
                         box-sizing: border-box;;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* RESPONSIVE */
+@if $enable-responsive {
+    $query-property: min-width;
+    @if not $mobile-first {
+        $query-property: max-width;
+        $media-widths: reverse($media-widths);
+        $media-width-names: reverse($media-width-names);
+    }
+    @each $media-width in $media-widths {
+        @media all and ($query-property: $media-width + px) {
+            .col {
+                $i: index($media-widths, $media-width);
+                @each $column-count in $columns {
+                    @for $span from 1 through $column-count {
+                        &-#{nth($media-width-names, $i)}--#{$span}of#{$column-count} {
+                            width: percentage($span/$column-count);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @if $enable-grids {
+        @each $media-width in $media-widths {
+            @media all and ($query-property: $media-width + px) {
+                .grid {
+                    $i: index($media-widths, $media-width);
+                    @each $grid-size in $grid-columns {
+                        &-#{nth($media-width-names, $i)}--#{$grid-size} {
+                            > * {
+                                width: percentage(1/$grid-size);
+                            }
+                        }
                     }
                 }
             }
