@@ -308,6 +308,8 @@
             }
             &--x {
                 &-#{$value} {
+                    margin-left: -#{$half-value}px;
+                    margin-right: -#{$half-value}px;
                     > * {
                         padding-left: #{$half-value}px;;
                         padding-right: #{$half-value}px;
@@ -317,6 +319,8 @@
             }
             &--y {
                 &-#{$value} {
+                    margin-left: -#{$half-value}px;
+                    margin-right: -#{$half-value}px;
                     > * {
                         padding-top: #{$half-value}px;
                         padding-bottom: #{$half-value}px;
