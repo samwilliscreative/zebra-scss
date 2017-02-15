@@ -1,6 +1,6 @@
 {
   "name": "zebra",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "",
   "main": "/dist/zebra.css",
   "dependencies": {

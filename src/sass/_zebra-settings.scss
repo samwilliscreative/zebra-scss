@@ -3,6 +3,10 @@
 /******************/
 $site-width: 1400px;
 
+/* RESET FONT SIZE */
+$enable-reset-font: false;
+$reset-font-size: 16px;
+
 /* COLUMN FRACTIONS */
 $columns: 5, 8, 12;
 

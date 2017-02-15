@@ -41,6 +41,9 @@
         position: relative;
         display: inline-block;
         vertical-align: top;
+        @if $enable-reset-font {
+            font-size: $reset-font-size;
+        }
     }
 }
 
