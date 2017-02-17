@@ -134,7 +134,7 @@
             top: 0;
             width: $site-width;
             height: 100%;
-            background-color: inherit;
+            background: inherit;
         }
         &:before {
             right: 100%;
@@ -144,27 +144,36 @@
         }
         &-left, &-right {
             position: relative;
-        }
-        &-left {
-            &:before {
+            &:before, &:after {
                 content: "";
                 position: absolute;
                 top: 0;
-                right: 100%;
                 width: $site-width;
                 height: 100%;
-                background-color: inherit;
+                background: inherit;
+            }
+        }
+        &-left {
+            background-position: left top;
+            &:before {
+                right: 100%;
+                background-position: right top;
             }
         }
         &-right {
+            background-position: right top;
             &:after {
-                content: "";
-                position: absolute;
-                top: 0;
                 left: 100%;
-                width: $site-width;
-                height: 100%;
-                background-color: inherit;
+                background-position: left top;
+            }
+        }
+        /* Make nested column extends overlay each other correctly */
+        .col {
+            &--extend {
+                z-index: 1;
+                &-left, &-right {
+                    z-index: 1;
+                }
             }
         }
     }
