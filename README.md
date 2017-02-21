@@ -1,4 +1,5 @@
 [![GitHub version](https://badge.fury.io/gh/swillis93%2Fzebra.svg)](https://github.com/swillis93/zebra/releases)
+[![npm version](https://badge.fury.io/js/zebra-scss.svg)](https://www.npmjs.com/package/zebra-scss)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg)](https://badge.fury.io/gh/swillis93%2Fzebra)
 
 # Zebra - a customizable CSS grid system
@@ -19,19 +20,12 @@ Base columns follow a slightly simplified version of the BEM methodology, combin
 
 
 ## Getting started
-It's really easy to get started, you can either install via NPM, or download and include the files manually.
-### NPM
-```
-npm install zebra-scss
-```
-
-### Manually
-Include the `/dist/css/zebra.min.css` file in your `<head>`, or copy the `/src/sass/_zebra.scss` and `/src/sass/_zebra-settings.scss` files into your SASS project to take advantage of Zebra's customization options.
+It's really easy to get started, either include the `/dist/css/zebra.css` file in your `<head>`, or copy the `/src/sass/_zebra.scss` and `/src/sass/_zebra-settings.scss` files into your SASS project to take advantage of Zebra's customization options.
 ```html
-# Add this to your head
-<link rel="stylesheet" type="text/css" href="/css/zebra.min.css">
+<!-- Add this to your head -->
+<link rel="stylesheet" type="text/css" href="/css/zebra.css">
 
-# OR copy the _zebra files into your SASS project and add this to your site.scss
+<!-- OR copy the _zebra files into your SASS project and add this to your site.scss -->
 @import '/src/sass/_zebra'
 ```
 *Remember to update the file paths to match your project structure.*
