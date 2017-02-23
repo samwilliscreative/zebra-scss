@@ -1,4 +1,4 @@
-[![GitHub version](https://badge.fury.io/gh/swillis93%2Fzebra.svg)](https://github.com/swillis93/zebra/releases)
+[![GitHub version](https://badge.fury.io/gh/swillis93%2Fzebra.svg)](https://github.com/swillis93/zebra-scss/releases)
 [![npm version](https://badge.fury.io/js/zebra-scss.svg)](https://www.npmjs.com/package/zebra-scss)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg)](https://badge.fury.io/gh/swillis93%2Fzebra)
 
@@ -52,6 +52,6 @@ Contributions, either in code or constructive feedback, are welcome.
 
 
 [bem]: http://getbem.com/introduction
-[settings]: https://github.com/swillis93/zebra/wiki/Settings
+[settings]: https://github.com/swillis93/zebra-scss/wiki/Settings
 [swillis]: http://swillis.co.uk
-[wiki]: https://github.com/swillis93/zebra/wiki
+[wiki]: https://github.com/swillis93/zebra-scss/wiki
