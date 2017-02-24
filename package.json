@@ -1,8 +1,31 @@
 {
   "name": "zebra-scss",
   "version": "4.3.0",
-  "description": "",
+  "description": "A customizable CSS grid system based on the BEM methodology",
+  "author": "Sam Willis",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "main": "/dist/zebra.css",
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/swillis93/zebra-scss"
+  },
+  "bugs": {
+    "url": "https://github.com/swillis93/zebra-scss/issues"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "scss",
+    "css-grid",
+    "framework",
+    "bem",
+    "responsive",
+    "customizable",
+    "zebra",
+    "gulp"
+  ],
   "dependencies": {
   },
   "devDependencies": {
@@ -12,9 +35,5 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.1"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Sam Willis",
   "license": "MIT"
 }
