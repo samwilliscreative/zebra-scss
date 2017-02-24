@@ -8,7 +8,7 @@
     margin: 0 auto;
     font-size: 0;
     &--contained {
-        max-width: $site-width;
+        max-width: $zeb-site-width;
     }
     &--flex {
         display: flex;
@@ -41,8 +41,8 @@
         position: relative;
         display: inline-block;
         vertical-align: top;
-        @if $enable-reset-font {
-            font-size: $reset-font-size;
+        @if $zeb-enable-reset-font {
+            font-size: $zeb-reset-font-size;
         }
     }
 }
@@ -52,15 +52,15 @@
 /***********/
 .col {
     /* COLUMN SIZES */
-    @each $column-count in $columns {
+    @each $column-count in $zeb-columns {
         @for $span from 1 through $column-count {
             &--#{$span}of#{$column-count} {
                 width: percentage($span/$column-count);
             }
         }
     }
-    @if $enable-offset {
-        @each $column-count in $columns {
+    @if $zeb-enable-offset {
+        @each $column-count in $zeb-columns {
             @for $span from 1 through $column-count {
                 &--offset-#{$span}of#{$column-count} {
                     margin-left: percentage($span/$column-count);
@@ -68,8 +68,8 @@
             }
         }
     }
-    @if $enable-push {
-        @each $column-count in $columns {
+    @if $zeb-enable-push {
+        @each $column-count in $zeb-columns {
             @for $span from 1 through $column-count {
                 &--push-#{$span}of#{$column-count} {
                     left: percentage($span/$column-count);
@@ -77,8 +77,8 @@
             }
         }
     }
-    @if $enable-pull {
-        @each $column-count in $columns {
+    @if $zeb-enable-pull {
+        @each $column-count in $zeb-columns {
             @for $span from 1 through $column-count {
                 &--pull-#{$span}of#{$column-count} {
                     right: percentage($span/$column-count);
@@ -132,7 +132,7 @@
             content: "";
             position: absolute;
             top: 0;
-            width: $site-width;
+            width: $zeb-site-width;
             height: 100%;
             background: inherit;
         }
@@ -148,7 +148,7 @@
                 content: "";
                 position: absolute;
                 top: 0;
-                width: $site-width;
+                width: $zeb-site-width;
                 height: 100%;
                 background: inherit;
             }
@@ -184,7 +184,7 @@
 /**********************/
 .site-wrapper {
     display: block;
-    max-width: $site-width;
+    max-width: $zeb-site-width;
     margin: 0 auto;
 }
 
@@ -196,8 +196,8 @@
     }
 }
 
-@each $value in $spacings {
-    @if $enable-padding {
+@each $value in $zeb-spacings {
+    @if $zeb-enable-padding {
         .p {
             &--#{$value} {
                 padding: #{$value}px;
@@ -236,7 +236,7 @@
             }
         }
     }
-    @if $enable-margin {
+    @if $zeb-enable-margin {
         .m {
             &--#{$value} {
                 margin: #{$value}px;
@@ -276,14 +276,14 @@
         }
     }
 }
-@if $enable-grids {
+@if $zeb-enable-grids {
     [class*="grid--"] {
         > * {
             display: inline-block;
             vertical-align: top;
         }
     }
-    @each $grid-size in $grid-columns {
+    @each $grid-size in $zeb-grid-columns {
         .grid--#{$grid-size} {
             > * {
                 width: percentage(1/$grid-size);
@@ -291,8 +291,8 @@
         }
     }
 }
-@if $enable-gutters {
-    @each $value in $gutter-sizes {
+@if $zeb-enable-gutters {
+    @each $value in $zeb-gutter-sizes {
         $half-value: $value / 2;
         .gutters {
             &--#{$value} {
@@ -342,20 +342,20 @@
     @return $result;
 }
 /* RESPONSIVE */
-@if $enable-responsive {
+@if $zeb-enable-responsive {
     $query-property: min-width;
-    @if not $mobile-first {
+    @if not $zeb-mobile-first {
         $query-property: max-width;
-        $media-widths: reverse($media-widths);
-        $media-width-names: reverse($media-width-names);
+        $media-widths: reverse($zeb-media-widths);
+        $media-width-names: reverse($zeb-media-width-names);
     }
-    @each $media-width in $media-widths {
+    @each $media-width in $zeb-media-widths {
         @media all and ($query-property: $media-width + px) {
             .col {
-                $i: index($media-widths, $media-width);
-                @each $column-count in $columns {
+                $i: index($zeb-media-widths, $media-width);
+                @each $column-count in $zeb-columns {
                     @for $span from 1 through $column-count {
-                        &-#{nth($media-width-names, $i)}--#{$span}of#{$column-count} {
+                        &-#{nth($zeb-media-width-names, $i)}--#{$span}of#{$column-count} {
                             width: percentage($span/$column-count);
                         }
                     }
@@ -363,13 +363,13 @@
             }
         }
     }
-    @if $enable-grids {
-        @each $media-width in $media-widths {
+    @if $zeb-enable-grids {
+        @each $media-width in $zeb-media-widths {
             @media all and ($query-property: $media-width + px) {
                 .grid {
-                    $i: index($media-widths, $media-width);
-                    @each $grid-size in $grid-columns {
-                        &-#{nth($media-width-names, $i)}--#{$grid-size} {
+                    $i: index($zeb-media-widths, $media-width);
+                    @each $grid-size in $zeb-grid-columns {
+                        &-#{nth($zeb-media-width-names, $i)}--#{$grid-size} {
                             > * {
                                 width: percentage(1/$grid-size);
                             }

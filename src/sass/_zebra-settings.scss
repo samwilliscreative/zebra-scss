@@ -1,35 +1,35 @@
 /******************/
 /* ZEBRA SETTINGS */
 /******************/
-$site-width: 1400px;
+$zeb-site-width: 1400px;
 
 /* RESET FONT SIZE */
-$enable-reset-font: false;
-$reset-font-size: 16px;
+$zeb-enable-reset-font: false;
+$zeb-reset-font-size: 16px;
 
 /* COLUMN FRACTIONS */
-$columns: 5, 8, 12;
+$zeb-columns: 5, 8, 12;
 
 /* POSITIONING */
-$enable-offset: true;
-$enable-push: false;
-$enable-pull: false;
+$zeb-enable-offset: true;
+$zeb-enable-push: false;
+$zeb-enable-pull: false;
 
 /* SPACING */
-$enable-padding: false;
-$enable-margin: false;
-$spacings: 10, 25;
+$zeb-enable-padding: false;
+$zeb-enable-margin: false;
+$zeb-spacings: 10, 25;
 
 /* GRIDS */
-$enable-grids: true;
-$grid-columns: 1,2, 3, 4;
+$zeb-enable-grids: true;
+$zeb-grid-columns: 1,2, 3, 4;
 
 /* GUTTERS */
-$enable-gutters: true;
-$gutter-sizes: 10, 25;
+$zeb-enable-gutters: true;
+$zeb-gutter-sizes: 10, 25;
 
 /* RESPONSIVE  */
-$enable-responsive: true;
-$mobile-first: false;
-$media-widths: 435, 500, 599, 768, 1024;
-$media-width-names: xs, s, m, l, xl;
+$zeb-enable-responsive: true;
+$zeb-mobile-first: false;
+$zeb-media-widths: 435, 500, 599, 768, 1024;
+$zeb-media-width-names: xs, s, m, l, xl;
