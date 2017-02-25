@@ -346,8 +346,8 @@
     $query-property: min-width;
     @if not $zeb-mobile-first {
         $query-property: max-width;
-        $media-widths: reverse($zeb-media-widths);
-        $media-width-names: reverse($zeb-media-width-names);
+        $zeb-media-widths: reverse($zeb-media-widths);
+        $zeb-media-width-names: reverse($zeb-media-width-names);
     }
     @each $media-width in $zeb-media-widths {
         @media all and ($query-property: $media-width + px) {
