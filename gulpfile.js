@@ -1,47 +1,41 @@
 "use strict";
 
-let gulp = require('gulp');
-let sass = require('gulp-sass');
-let autoprefixer = require('gulp-autoprefixer');
-let cssnano = require('gulp-cssnano');
-let rename = require('gulp-rename');
-let sourcemaps = require('gulp-sourcemaps');
-let filter = require('gulp-filter');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const cssnano = require('gulp-cssnano');
+const rename = require('gulp-rename');
+const sourcemaps = require('gulp-sourcemaps');
+const postcss = require('gulp-postcss');
+const merge = require('merge-stream');
+const clone = require('gulp-clone');
 
 const src = './src/sass/zebra.scss';
 const destination = './dist/css/';
 const autoprefixerBrowsers = ['last 2 versions', 'ie >= 8'];
 
 gulp.task('sass', function () {
-    return gulp.src('./src/sass/zebra.scss')
-
-        // .pipe(sourcemaps.init())
-        //     .pipe(sass().on('error', sass.logError))
-        //     .pipe(autoprefixer({
-        //         browsers: autoprefixerBrowsers,
-        //         cascade: false
-        //     }))
-        // .pipe(sourcemaps.write('.'))
-        // .pipe(gulp.dest(destination))
-        // .pipe(cssnano())
-        // .pipe(rename({
-        //     suffix: '.min'
-        // }))
-        // .pipe(gulp.dest(destination));
-
+    let source = gulp.src('./src/sass/zebra.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: autoprefixerBrowsers,
             cascade: false
-        }))
+        }));
+
+    let pipe1 = source.pipe(clone())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(destination))
-        .pipe(cssnano())
+        .pipe(gulp.dest(destination));
+
+    let pipe2 = source.pipe(clone())
         .pipe(rename({
             suffix: '.min'
         }))
+        .pipe(cssnano())
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(destination));
+
+    return merge(pipe1, pipe2);
 });
 
 gulp.task('default', ['sass']);
