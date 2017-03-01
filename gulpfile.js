@@ -6,7 +6,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const cssnano = require('gulp-cssnano');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
-const postcss = require('gulp-postcss');
 const merge = require('merge-stream');
 const clone = require('gulp-clone');
 
