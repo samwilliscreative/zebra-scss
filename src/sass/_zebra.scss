@@ -383,4 +383,100 @@
             }
         }
     }
+    @if $zeb-enable-padding {
+        @each $media-width in $zeb-media-widths {
+            @media all and ($query-property: $media-width + px) {
+                @each $value in $zeb-spacings {
+                    .p {
+                        $i: index($zeb-media-widths, $media-width);
+                        &-#{nth($zeb-media-width-names, $i)} {
+                            &--#{$value} {
+                                padding: #{$value}px;
+                            }
+                            &--t {
+                                &-#{$value} {
+                                    padding-top: #{$value}px;
+                                }
+                            }
+                            &--r {
+                                &-#{$value} {
+                                    padding-right: #{$value}px;
+                                }
+                            }
+                            &--b {
+                                &-#{$value} {
+                                    padding-bottom: #{$value}px;
+                                }
+                            }
+                            &--l {
+                                &-#{$value} {
+                                    padding-left: #{$value}px;
+                                }
+                            }
+                            &--x {
+                                &-#{$value} {
+                                    padding-left: #{$value}px;
+                                    padding-right: #{$value}px;
+                                }
+                            }
+                            &--y {
+                                &-#{$value} {
+                                    padding-top: #{$value}px;
+                                    padding-bottom: #{$value}px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @if $zeb-enable-margin {
+        @each $media-width in $zeb-media-widths {
+            @media all and ($query-property: $media-width + px) {
+                @each $value in $zeb-spacings {
+                    .m {
+                        $i: index($zeb-media-widths, $media-width);
+                        &-#{nth($zeb-media-width-names, $i)} {
+                            &--#{$value} {
+                                margin: #{$value}px;
+                            }
+                            &--t {
+                                &-#{$value} {
+                                    margin-top: #{$value}px;
+                                }
+                            }
+                            &--r {
+                                &-#{$value} {
+                                    margin-right: #{$value}px;
+                                }
+                            }
+                            &--b {
+                                &-#{$value} {
+                                    margin-bottom: #{$value}px;
+                                }
+                            }
+                            &--l {
+                                &-#{$value} {
+                                    margin-left: #{$value}px;
+                                }
+                            }
+                            &--x {
+                                &-#{$value} {
+                                    margin-left: #{$value}px;
+                                    margin-right: #{$value}px;
+                                }
+                            }
+                            &--y {
+                                &-#{$value} {
+                                    margin-top: #{$value}px;
+                                    margin-bottom: #{$value}px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
