@@ -347,130 +347,118 @@
 }
 /* RESPONSIVE */
 @if $zeb-enable-responsive {
-    $query-property: min-width;
+    $zeb-query-property: min-width;
     @if not $zeb-mobile-first {
-        $query-property: max-width;
+        $zeb-query-property: max-width;
         $zeb-media-widths: reverse($zeb-media-widths);
         $zeb-media-width-names: reverse($zeb-media-width-names);
     }
-    @each $media-width in $zeb-media-widths {
-        @media all and ($query-property: $media-width + px) {
+    @each $zeb-media-width in $zeb-media-widths {
+        @media all and ($zeb-query-property: $zeb-media-width + px) {
             .col {
-                $i: index($zeb-media-widths, $media-width);
-                @each $column-count in $zeb-columns {
-                    @for $span from 1 through $column-count {
-                        &-#{nth($zeb-media-width-names, $i)}--#{$span}of#{$column-count} {
-                            width: percentage($span/$column-count);
+                $i: index($zeb-media-widths, $zeb-media-width);
+                @each $zeb-column-count in $zeb-columns {
+                    @for $zeb-span from 1 through $zeb-column-count {
+                        &-#{nth($zeb-media-width-names, $i)}--#{$zeb-span}of#{$zeb-column-count} {
+                            width: percentage($zeb-span/$zeb-column-count);
                         }
                     }
                 }
             }
-        }
-    }
-    @if $zeb-enable-grids {
-        @each $media-width in $zeb-media-widths {
-            @media all and ($query-property: $media-width + px) {
+            @if $zeb-enable-grids {
                 .grid {
-                    $i: index($zeb-media-widths, $media-width);
-                    @each $grid-size in $zeb-grid-columns {
-                        &-#{nth($zeb-media-width-names, $i)}--#{$grid-size} {
+                    $i: index($zeb-media-widths, $zeb-media-width);
+                    @each $zeb-grid-size in $zeb-grid-columns {
+                        &-#{nth($zeb-media-width-names, $i)}--#{$zeb-grid-size} {
                             > * {
-                                width: percentage(1/$grid-size);
+                                width: percentage(1/$zeb-grid-size);
                             }
                         }
                     }
                 }
             }
-        }
-    }
-    @if $zeb-enable-padding {
-        @each $media-width in $zeb-media-widths {
-            @media all and ($query-property: $media-width + px) {
-                @each $value in $zeb-spacings {
+            @if $zeb-enable-padding {
+                @each $zeb-value in $zeb-spacings {
                     .p {
-                        $i: index($zeb-media-widths, $media-width);
+                        $i: index($zeb-media-widths, $zeb-media-width);
                         &-#{nth($zeb-media-width-names, $i)} {
-                            &--#{$value} {
-                                padding: #{$value}px;
+                            &--#{$zeb-value} {
+                                padding: #{$zeb-value}px;
                             }
                             &--t {
-                                &-#{$value} {
-                                    padding-top: #{$value}px;
+                                &-#{$zeb-value} {
+                                    padding-top: #{$zeb-value}px;
                                 }
                             }
                             &--r {
-                                &-#{$value} {
-                                    padding-right: #{$value}px;
+                                &-#{$zeb-value} {
+                                    padding-right: #{$zeb-value}px;
                                 }
                             }
                             &--b {
-                                &-#{$value} {
-                                    padding-bottom: #{$value}px;
+                                &-#{$zeb-value} {
+                                    padding-bottom: #{$zeb-value}px;
                                 }
                             }
                             &--l {
-                                &-#{$value} {
-                                    padding-left: #{$value}px;
+                                &-#{$zeb-value} {
+                                    padding-left: #{$zeb-value}px;
                                 }
                             }
                             &--x {
-                                &-#{$value} {
-                                    padding-left: #{$value}px;
-                                    padding-right: #{$value}px;
+                                &-#{$zeb-value} {
+                                    padding-left: #{$zeb-value}px;
+                                    padding-right: #{$zeb-value}px;
                                 }
                             }
                             &--y {
-                                &-#{$value} {
-                                    padding-top: #{$value}px;
-                                    padding-bottom: #{$value}px;
+                                &-#{$zeb-value} {
+                                    padding-top: #{$zeb-value}px;
+                                    padding-bottom: #{$zeb-value}px;
                                 }
                             }
                         }
                     }
                 }
             }
-        }
-    }
-    @if $zeb-enable-margin {
-        @each $media-width in $zeb-media-widths {
-            @media all and ($query-property: $media-width + px) {
-                @each $value in $zeb-spacings {
+            @if $zeb-enable-margin {
+                @each $zeb-value in $zeb-spacings {
                     .m {
-                        $i: index($zeb-media-widths, $media-width);
+                        $i: index($zeb-media-widths, $zeb-media-width);
                         &-#{nth($zeb-media-width-names, $i)} {
-                            &--#{$value} {
-                                margin: #{$value}px;
+                            &--#{$zeb-value} {
+                                margin: #{$zeb-value}px;
                             }
                             &--t {
-                                &-#{$value} {
-                                    margin-top: #{$value}px;
+                                &-#{$zeb-value} {
+                                    margin-top: #{$zeb-value}px;
                                 }
                             }
                             &--r {
-                                &-#{$value} {
-                                    margin-right: #{$value}px;
+                                &-#{$zeb-value} {
+                                    margin-right: #{$zeb-value}px;
                                 }
                             }
                             &--b {
-                                &-#{$value} {
-                                    margin-bottom: #{$value}px;
+                                &-#{$zeb-value} {
+                                    margin-bottom: #{$zeb-value}px;
                                 }
                             }
                             &--l {
-                                &-#{$value} {
-                                    margin-left: #{$value}px;
+                                &-#{$zeb-value} {
+                                    margin-left: #{$zeb-value}px;
                                 }
                             }
                             &--x {
-                                &-#{$value} {
-                                    margin-left: #{$value}px;
-                                    margin-right: #{$value}px;
+                                &-#{$zeb-value} {
+                                    margin-left: #{$zeb-value}px;
+                                    margin-right: #{$zeb-value}px;
                                 }
                             }
                             &--y {
-                                &-#{$value} {
-                                    margin-top: #{$value}px;
-                                    margin-bottom: #{$value}px;
+                                &-#{$zeb-value} {
+                                    margin-top: #{$zeb-value}px;
+                                    margin-bottom: #{$zeb-value}px;
                                 }
                             }
                         }
