@@ -45,47 +45,38 @@
 /* COLUMN BASE STYLES */
 /**********************/
 [class*='col--1'] {
-  position: relative;
   display: inline-block;
   vertical-align: top; }
 
 [class*='col--2'] {
-  position: relative;
   display: inline-block;
   vertical-align: top; }
 
 [class*='col--3'] {
-  position: relative;
   display: inline-block;
   vertical-align: top; }
 
 [class*='col--4'] {
-  position: relative;
   display: inline-block;
   vertical-align: top; }
 
 [class*='col--5'] {
-  position: relative;
   display: inline-block;
   vertical-align: top; }
 
 [class*='col--6'] {
-  position: relative;
   display: inline-block;
   vertical-align: top; }
 
 [class*='col--7'] {
-  position: relative;
   display: inline-block;
   vertical-align: top; }
 
 [class*='col--8'] {
-  position: relative;
   display: inline-block;
   vertical-align: top; }
 
 [class*='col--9'] {
-  position: relative;
   display: inline-block;
   vertical-align: top; }
 
@@ -208,7 +199,9 @@
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
-    flex-direction: column; }
+    flex-direction: column;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
     .col--flex-col > * {
       -ms-flex-positive: 1;
       flex-grow: 1; }
@@ -216,7 +209,9 @@
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
-    flex-direction: row; }
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
     .col--flex-row > * {
       -ms-flex-positive: 1;
       flex-grow: 1; }
@@ -242,21 +237,26 @@
       left: 100%; }
     .col--extend-left, .col--extend-right {
       position: relative; }
-      .col--extend-left:before, .col--extend-left:after, .col--extend-right:before, .col--extend-right:after {
+    .col--extend-left {
+      background-position: left top; }
+      .col--extend-left:before {
         content: "";
         position: absolute;
         top: 0;
         width: 1400px;
         height: 100%;
-        background: inherit; }
-    .col--extend-left {
-      background-position: left top; }
-      .col--extend-left:before {
+        background: inherit;
         right: 100%;
         background-position: right top; }
     .col--extend-right {
       background-position: right top; }
       .col--extend-right:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 1400px;
+        height: 100%;
+        background: inherit;
         left: 100%;
         background-position: left top; }
     .col--extend .col--extend {

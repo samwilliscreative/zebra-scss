@@ -38,7 +38,6 @@
 /**********************/
 @for $i from 1 through 9 {
     [class*='col--#{$i}'] {
-        position: relative;
         display: inline-block;
         vertical-align: top;
         @if $zeb-enable-reset-font {
@@ -72,6 +71,7 @@
         @each $column-count in $zeb-columns {
             @for $span from 1 through $column-count {
                 &--push-#{$span}of#{$column-count} {
+                    position: relative;
                     left: percentage($span/$column-count);
                 }
             }
@@ -81,6 +81,7 @@
         @each $column-count in $zeb-columns {
             @for $span from 1 through $column-count {
                 &--pull-#{$span}of#{$column-count} {
+                    position: relative;
                     right: percentage($span/$column-count);
                 }
             }
@@ -103,6 +104,7 @@
         &-col {
             display: flex;
             flex-direction: column;
+            flex-wrap: wrap;
             > * {
                 flex-grow: 1;
             }
@@ -110,6 +112,7 @@
         &-row {
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
             > * {
                 flex-grow: 1;
             }
@@ -144,18 +147,16 @@
         }
         &-left, &-right {
             position: relative;
-            &:before, &:after {
+        }
+        &-left {
+            background-position: left top;
+            &:before {
                 content: "";
                 position: absolute;
                 top: 0;
                 width: $zeb-site-width;
                 height: 100%;
                 background: inherit;
-            }
-        }
-        &-left {
-            background-position: left top;
-            &:before {
                 right: 100%;
                 background-position: right top;
             }
@@ -163,6 +164,12 @@
         &-right {
             background-position: right top;
             &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                width: $zeb-site-width;
+                height: 100%;
+                background: inherit;
                 left: 100%;
                 background-position: left top;
             }
