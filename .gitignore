@@ -30,11 +30,19 @@
 ######################
 .DS_Store
 .DS_Store?
+ehthumbs.db
 ._*
 .Spotlight-V100
 .Trashes
 ehthumbs.db
 Thumbs.db
+Icon?
+*.swp
+
+# IDE generated files #
+#######################
 .idea
 
+# Package managers #
+######################
 node_modules
