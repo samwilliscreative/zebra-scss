@@ -1,36 +1,36 @@
 /******************/
 /* ZEBRA SETTINGS */
 /******************/
-$zeb-site-width: 1400px;
+$zeb-site-width: 1400px !default;
 
 /* RESET FONT SIZE */
-$zeb-enable-reset-font: false;
-$zeb-reset-font-size: 16px;
+$zeb-enable-reset-font: false !default;
+$zeb-reset-font-size: 16px !default;
 
 /* COLUMN FRACTIONS */
-$zeb-columns: 5, 8, 12;
+$zeb-columns: 5, 8, 12 !default;
 
 /* POSITIONING */
-$zeb-enable-offset: true;
-$zeb-enable-push: false;
-$zeb-enable-pull: false;
+$zeb-enable-offset: true !default;
+$zeb-enable-push: false !default;
+$zeb-enable-pull: false !default;
 
 /* SPACING */
-$zeb-enable-padding: true;
-$zeb-enable-margin: true;
-$zeb-spacings: 10, 25;
+$zeb-enable-padding: true !default;
+$zeb-enable-margin: true !default;
+$zeb-spacings: 10, 25 !default;
 
 /* GRIDS */
-$zeb-enable-grids: true;
-$zeb-safe-grid-classes: false;
-$zeb-grid-columns: 1,2, 3, 4;
+$zeb-enable-grids: true !default;
+$zeb-safe-grid-classes: false !default;
+$zeb-grid-columns: 1,2, 3, 4 !default;
 
 /* GUTTERS */
-$zeb-enable-gutters: true;
-$zeb-gutter-sizes: 10, 25;
+$zeb-enable-gutters: true !default;
+$zeb-gutter-sizes: 10, 25 !default;
 
 /* RESPONSIVE  */
-$zeb-enable-responsive: true;
-$zeb-mobile-first: false;
-$zeb-media-widths: 435, 500, 599, 768, 1024;
-$zeb-media-width-names: xs, s, m, l, xl;
+$zeb-enable-responsive: true !default;
+$zeb-mobile-first: false !default;
+$zeb-media-widths: 435, 500, 599, 768, 1024 !default;
+$zeb-media-width-names: xs, s, m, l, xl !default;
