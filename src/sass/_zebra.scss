@@ -92,6 +92,9 @@
         display: inline-block;
         vertical-align: top;
         width: auto;
+        @if $zeb-enable-reset-font {
+            font-size: $zeb-reset-font-size;
+        }
     }
     /* COLUMN MODIFIERS */
     &-left {
