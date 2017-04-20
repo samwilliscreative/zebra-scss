@@ -1,6 +1,24 @@
 /* Import the Zebra settings partial */
 @import "zebra-settings";
 
+/****************/
+/* SIMPLE RESET */
+/****************/
+@if $zeb-enable-simple-reset {
+
+    /* Add box-sizing to columns to allow for padding to be easily added */
+    @for $i from 1 through 9 {
+        [class*='col--#{$i}'] {
+            box-sizing: border-box;
+        }
+    }
+    .col--auto {
+        box-sizing: border-box;
+    }
+
+}
+
+
 /**************************/
 /* ROWS AND ROW MODIFIERS */
 /**************************/

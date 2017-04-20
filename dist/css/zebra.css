@@ -3,6 +3,7 @@
 /******************/
 /* ZEBRA SETTINGS */
 /******************/
+/* INCLUDE SIMPLE RESET */
 /* RESET FONT SIZE */
 /* COLUMN FRACTIONS */
 /* POSITIONING */
@@ -10,6 +11,40 @@
 /* GRIDS */
 /* GUTTERS */
 /* RESPONSIVE  */
+/****************/
+/* SIMPLE RESET */
+/****************/
+/* Add box-sizing to columns to allow for padding to be easily added */
+[class*='col--1'] {
+  box-sizing: border-box; }
+
+[class*='col--2'] {
+  box-sizing: border-box; }
+
+[class*='col--3'] {
+  box-sizing: border-box; }
+
+[class*='col--4'] {
+  box-sizing: border-box; }
+
+[class*='col--5'] {
+  box-sizing: border-box; }
+
+[class*='col--6'] {
+  box-sizing: border-box; }
+
+[class*='col--7'] {
+  box-sizing: border-box; }
+
+[class*='col--8'] {
+  box-sizing: border-box; }
+
+[class*='col--9'] {
+  box-sizing: border-box; }
+
+.col--auto {
+  box-sizing: border-box; }
+
 /**************************/
 /* ROWS AND ROW MODIFIERS */
 /**************************/

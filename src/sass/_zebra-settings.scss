@@ -3,6 +3,9 @@
 /******************/
 $zeb-site-width: 1400px !default;
 
+/* INCLUDE SIMPLE RESET */
+$zeb-enable-simple-reset: true;
+
 /* RESET FONT SIZE */
 $zeb-enable-reset-font: true !default;
 $zeb-reset-font-size: 16px !default;
