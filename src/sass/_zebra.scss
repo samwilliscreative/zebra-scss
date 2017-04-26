@@ -16,6 +16,17 @@
         box-sizing: border-box;
     }
 
+    /* Remove white space from page edges */
+    body {
+        margin: 0;
+    }
+
+    /* Make images responsive to their containers */
+    img {
+        max-width: 100%;
+        height: auto;
+        border: 0;
+    }
 }
 
 
