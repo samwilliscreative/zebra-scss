@@ -271,7 +271,7 @@ bg {
             }
         }
         /* Make nested column extends overlay each other correctly */
-        .col {
+        .bg {
             &--extend {
                 z-index: 1;
                 &-left, &-right {
