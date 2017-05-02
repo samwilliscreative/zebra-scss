@@ -43,14 +43,9 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        /* Auto width columns can make use of flex to help fill a gap or align content. */
+        /* Stretch columns can make use of flex to help fill a gap */
         .col {
-            &--auto {
-                display: flex;
-                flex: 1;
-            }
             &--stretch {
-                display: flex;
                 flex: 1 1 auto;
             }
         }
@@ -144,6 +139,9 @@
             > * {
                 flex-grow: 1;
             }
+            > .row {
+                margin: 0;
+            }
         }
         &-row {
             display: flex;
@@ -167,8 +165,6 @@
     }
 }
 
-
-// TODO: Need to remove col--extend in version 6
 bg {
     &--extend {
         position: relative;

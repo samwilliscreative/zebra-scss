@@ -70,15 +70,8 @@ img {
     flex-wrap: wrap;
     -ms-flex-direction: row;
     flex-direction: row;
-    /* Auto width columns can make use of flex to help fill a gap or align content. */ }
-    .row--flex .col--auto {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex: 1;
-      flex: 1; }
+    /* Stretch columns can make use of flex to help fill a gap */ }
     .row--flex .col--stretch {
-      display: -ms-flexbox;
-      display: flex;
       -ms-flex: 1 1 auto;
       flex: 1 1 auto; }
     .row--flex-left {
@@ -215,6 +208,8 @@ img {
     .col--flex-col > * {
       -ms-flex-positive: 1;
       flex-grow: 1; }
+    .col--flex-col > .row {
+      margin: 0; }
   .col--flex-row {
     display: -ms-flexbox;
     display: flex;
