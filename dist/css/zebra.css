@@ -76,6 +76,11 @@ img {
       display: flex;
       -ms-flex: 1;
       flex: 1; }
+    .row--flex .col--stretch {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto; }
     .row--flex-left {
       -ms-flex-pack: start;
       justify-content: flex-start; }
@@ -268,6 +273,49 @@ img {
       z-index: 1; }
       .col--extend .col--extend-left, .col--extend .col--extend-right {
         z-index: 1; }
+
+bg--extend {
+  position: relative;
+  /* Make nested column extends overlay each other correctly */ }
+  bg--extend:before, bg--extend:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 1400px;
+    height: 100%;
+    background: inherit; }
+  bg--extend:before {
+    right: 100%; }
+  bg--extend:after {
+    left: 100%; }
+  bg--extend-left, bg--extend-right {
+    position: relative; }
+  bg--extend-left {
+    background-position: left top; }
+    bg--extend-left:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 1400px;
+      height: 100%;
+      background: inherit;
+      right: 100%;
+      background-position: right top; }
+  bg--extend-right {
+    background-position: right top; }
+    bg--extend-right:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 1400px;
+      height: 100%;
+      background: inherit;
+      left: 100%;
+      background-position: left top; }
+  bg--extend .col--extend {
+    z-index: 1; }
+    bg--extend .col--extend-left, bg--extend .col--extend-right {
+      z-index: 1; }
 
 /**********************/
 /* ADDITIONAL CLASSES */

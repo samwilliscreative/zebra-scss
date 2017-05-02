@@ -1,6 +1,6 @@
 {
   "name": "zebra-scss",
-  "version": "5.5.0",
+  "version": "5.6.0",
   "description": "A customizable CSS grid system based on the BEM methodology",
   "author": "Sam Willis",
   "scripts": {
