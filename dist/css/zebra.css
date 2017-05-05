@@ -55,6 +55,19 @@ img {
   height: auto;
   border: 0; }
 
+/**********************/
+/* ADDITIONAL CLASSES */
+/**********************/
+.site-wrapper {
+  display: block;
+  max-width: 1400px;
+  margin: 0 auto; }
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both; }
+
 /**************************/
 /* ROWS AND ROW MODIFIERS */
 /**************************/
@@ -70,10 +83,7 @@ img {
     flex-wrap: wrap;
     -ms-flex-direction: row;
     flex-direction: row;
-    /* Stretch columns can make use of flex to help fill a gap */ }
-    .row--flex .col--stretch {
-      -ms-flex: 1 1 auto;
-      flex: 1 1 auto; }
+    /* Stretch columns can make use of flex to help fill any remaining gaps */ }
     .row--flex-left {
       -ms-flex-pack: start;
       justify-content: flex-start; }
@@ -83,6 +93,9 @@ img {
     .row--flex-right {
       -ms-flex-pack: end;
       justify-content: flex-end; }
+    .row--flex .col--stretch {
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto; }
 
 /**********************/
 /* COLUMN BASE STYLES */
@@ -90,46 +103,64 @@ img {
 [class*='col--1'] {
   display: inline-block;
   vertical-align: top;
+  /* If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows */
+  /* The font size that is applied can be altered in settings */
   font-size: 16px; }
 
 [class*='col--2'] {
   display: inline-block;
   vertical-align: top;
+  /* If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows */
+  /* The font size that is applied can be altered in settings */
   font-size: 16px; }
 
 [class*='col--3'] {
   display: inline-block;
   vertical-align: top;
+  /* If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows */
+  /* The font size that is applied can be altered in settings */
   font-size: 16px; }
 
 [class*='col--4'] {
   display: inline-block;
   vertical-align: top;
+  /* If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows */
+  /* The font size that is applied can be altered in settings */
   font-size: 16px; }
 
 [class*='col--5'] {
   display: inline-block;
   vertical-align: top;
+  /* If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows */
+  /* The font size that is applied can be altered in settings */
   font-size: 16px; }
 
 [class*='col--6'] {
   display: inline-block;
   vertical-align: top;
+  /* If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows */
+  /* The font size that is applied can be altered in settings */
   font-size: 16px; }
 
 [class*='col--7'] {
   display: inline-block;
   vertical-align: top;
+  /* If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows */
+  /* The font size that is applied can be altered in settings */
   font-size: 16px; }
 
 [class*='col--8'] {
   display: inline-block;
   vertical-align: top;
+  /* If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows */
+  /* The font size that is applied can be altered in settings */
   font-size: 16px; }
 
 [class*='col--9'] {
   display: inline-block;
   vertical-align: top;
+  /* If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows */
+  /* The font size that is applied can be altered in settings */
   font-size: 16px; }
 
 /************/
@@ -269,19 +300,6 @@ bg--extend {
     z-index: 1; }
     bg--extend .bg--extend-left, bg--extend .bg--extend-right {
       z-index: 1; }
-
-/**********************/
-/* ADDITIONAL CLASSES */
-/**********************/
-.site-wrapper {
-  display: block;
-  max-width: 1400px;
-  margin: 0 auto; }
-
-.clearfix:after {
-  content: "";
-  display: block;
-  clear: both; }
 
 .p--10 {
   padding: 10px; }

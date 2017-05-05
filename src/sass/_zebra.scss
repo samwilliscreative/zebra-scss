@@ -1,11 +1,12 @@
 /* Import the Zebra settings partial */
 @import "zebra-settings";
 
+
+
 /****************/
 /* SIMPLE RESET */
 /****************/
 @if $zeb-enable-simple-reset {
-
     /* Add box-sizing to columns to allow for padding to be easily added */
     @for $i from 1 through 9 {
         [class*='col--#{$i}'] {
@@ -15,17 +16,33 @@
     .col--auto {
         box-sizing: border-box;
     }
-
     /* Remove white space from page edges */
     body {
         margin: 0;
     }
-
     /* Make images responsive to their containers */
     img {
         max-width: 100%;
         height: auto;
         border: 0;
+    }
+}
+
+
+
+/**********************/
+/* ADDITIONAL CLASSES */
+/**********************/
+.site-wrapper {
+    display: block;
+    max-width: $zeb-site-width;
+    margin: 0 auto;
+}
+.clearfix {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
     }
 }
 
@@ -43,12 +60,6 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        /* Stretch columns can make use of flex to help fill a gap */
-        .col {
-            &--stretch {
-                flex: 1 1 auto;
-            }
-        }
         &-left {
             justify-content: flex-start;
         }
@@ -58,8 +69,16 @@
         &-right {
             justify-content: flex-end;
         }
+        /* Stretch columns can make use of flex to help fill any remaining gaps */
+        .col {
+            &--stretch {
+                flex: 1 1 auto;
+            }
+        }
     }
 }
+
+
 
 /**********************/
 /* COLUMN BASE STYLES */
@@ -68,11 +87,15 @@
     [class*='col--#{$i}'] {
         display: inline-block;
         vertical-align: top;
+        /* If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows */
+        /* The font size that is applied can be altered in settings */
         @if $zeb-enable-reset-font {
             font-size: $zeb-reset-font-size;
         }
     }
 }
+
+
 
 /************/
 /* COLUMNS */
@@ -223,22 +246,7 @@ bg {
     }
 }
 
-/**********************/
-/* ADDITIONAL CLASSES */
-/**********************/
-.site-wrapper {
-    display: block;
-    max-width: $zeb-site-width;
-    margin: 0 auto;
-}
 
-.clearfix {
-    &:after {
-        content: "";
-        display: block;
-        clear: both;
-    }
-}
 
 @each $value in $zeb-spacings {
     @if $zeb-enable-padding {
