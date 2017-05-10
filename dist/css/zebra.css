@@ -258,25 +258,25 @@ img {
   .col--align-bottom {
     vertical-align: bottom; }
 
-bg--extend {
+.bg--extend {
   position: relative;
   /* Make nested column extends overlay each other correctly */ }
-  bg--extend:before, bg--extend:after {
+  .bg--extend:before, .bg--extend:after {
     content: "";
     position: absolute;
     top: 0;
     width: 1400px;
     height: 100%;
     background: inherit; }
-  bg--extend:before {
+  .bg--extend:before {
     right: 100%; }
-  bg--extend:after {
+  .bg--extend:after {
     left: 100%; }
-  bg--extend-left, bg--extend-right {
+  .bg--extend-left, .bg--extend-right {
     position: relative; }
-  bg--extend-left {
+  .bg--extend-left {
     background-position: left top; }
-    bg--extend-left:before {
+    .bg--extend-left:before {
       content: "";
       position: absolute;
       top: 0;
@@ -285,9 +285,9 @@ bg--extend {
       background: inherit;
       right: 100%;
       background-position: right top; }
-  bg--extend-right {
+  .bg--extend-right {
     background-position: right top; }
-    bg--extend-right:after {
+    .bg--extend-right:after {
       content: "";
       position: absolute;
       top: 0;
@@ -296,9 +296,9 @@ bg--extend {
       background: inherit;
       left: 100%;
       background-position: left top; }
-  bg--extend .bg--extend {
+  .bg--extend .bg--extend {
     z-index: 1; }
-    bg--extend .bg--extend-left, bg--extend .bg--extend-right {
+    .bg--extend .bg--extend-left, .bg--extend .bg--extend-right {
       z-index: 1; }
 
 .p--10 {
