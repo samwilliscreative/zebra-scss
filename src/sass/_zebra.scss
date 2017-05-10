@@ -223,8 +223,7 @@
 }
 
 
-// TODO: Need to remove col--extend in version 6
-bg {
+.bg {
     &--extend {
         position: relative;
         &:before, &:after {
