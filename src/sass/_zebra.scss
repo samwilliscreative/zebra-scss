@@ -104,7 +104,7 @@
     /* COLUMN SIZES */
     @each $column-count in $zeb-columns {
         @for $span from 1 through $column-count {
-            &--#{$span}of#{$column-count} {
+            &--#{$span}-#{$column-count} {
                 width: percentage($span/$column-count);
             }
         }
@@ -112,7 +112,7 @@
     @if $zeb-enable-offset {
         @each $column-count in $zeb-columns {
             @for $span from 1 through $column-count {
-                &--offset-#{$span}of#{$column-count} {
+                &--offset-#{$span}-#{$column-count} {
                     margin-left: percentage($span/$column-count);
                 }
             }
@@ -121,7 +121,7 @@
     @if $zeb-enable-push {
         @each $column-count in $zeb-columns {
             @for $span from 1 through $column-count {
-                &--push-#{$span}of#{$column-count} {
+                &--push-#{$span}-#{$column-count} {
                     position: relative;
                     left: percentage($span/$column-count);
                 }
@@ -131,7 +131,7 @@
     @if $zeb-enable-pull {
         @each $column-count in $zeb-columns {
             @for $span from 1 through $column-count {
-                &--pull-#{$span}of#{$column-count} {
+                &--pull-#{$span}-#{$column-count} {
                     position: relative;
                     right: percentage($span/$column-count);
                 }
@@ -349,7 +349,7 @@
 }
 @if $zeb-enable-gutters {
     @each $value in $zeb-gutter-sizes {
-        $half-value: $value / 2;
+        $half-value: ceil($value / 2);
         .gutters {
             &--#{$value} {
                 margin: -#{$half-value}px;
@@ -410,7 +410,7 @@
                 $i: index($zeb-media-widths, $zeb-media-width);
                 @each $zeb-column-count in $zeb-columns {
                     @for $zeb-span from 1 through $zeb-column-count {
-                        &-#{nth($zeb-media-width-names, $i)}--#{$zeb-span}of#{$zeb-column-count} {
+                        &-#{nth($zeb-media-width-names, $i)}--#{$zeb-span}-#{$zeb-column-count} {
                             width: percentage($zeb-span/$zeb-column-count);
                         }
                     }
