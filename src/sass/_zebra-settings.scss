@@ -1,6 +1,7 @@
 /******************/
 /* ZEBRA SETTINGS */
 /******************/
+//TODO: reorder all settings
 $zeb-site-width: 1400px !default;
 
 /* INCLUDE SIMPLE RESET */
@@ -37,3 +38,6 @@ $zeb-enable-responsive: true !default;
 $zeb-mobile-first: false !default;
 $zeb-media-widths: 435, 500, 599, 768, 1024 !default;
 $zeb-media-width-names: xs, s, m, l, xl !default;
+
+/*  NEED ORGANISING*/
+$zeb-format--col: "-" !default;

@@ -104,7 +104,7 @@
     /* COLUMN SIZES */
     @each $column-count in $zeb-columns {
         @for $span from 1 through $column-count {
-            &--#{$span}-#{$column-count} {
+            &--#{$span}#{$zeb-format--col}#{$column-count} {
                 width: percentage($span/$column-count);
             }
         }
@@ -410,7 +410,7 @@
                 $i: index($zeb-media-widths, $zeb-media-width);
                 @each $zeb-column-count in $zeb-columns {
                     @for $zeb-span from 1 through $zeb-column-count {
-                        &-#{nth($zeb-media-width-names, $i)}--#{$zeb-span}-#{$zeb-column-count} {
+                        &-#{nth($zeb-media-width-names, $i)}--#{$zeb-span}#{$zeb-format--col}#{$zeb-column-count} {
                             width: percentage($zeb-span/$zeb-column-count);
                         }
                     }
