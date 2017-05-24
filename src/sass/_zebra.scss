@@ -45,7 +45,9 @@
         clear: both;
     }
 }
-
+.hidden {
+    display: none;
+}
 
 /**************************/
 /* ROWS AND ROW MODIFIERS */
@@ -384,6 +386,7 @@
     }
 }
 
+
 /* REVERSE FUNCTION */
 @function reverse($list, $recursive: false) {
     $result: ();
@@ -514,6 +517,21 @@
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+    @if $zeb-enable-hidden {
+        @each $zeb-media-width in $zeb-media-widths {
+            $i: index($zeb-media-widths, $zeb-media-width);
+            @media all and (max-width: $zeb-media-width + px) {
+                .hidden-#{nth($zeb-media-width-names, $i)}--down {
+                    display: none;
+                }
+            }
+            @media all and (min-width: $zeb-media-width + px) {
+                .hidden-#{nth($zeb-media-width-names, $i)}--up {
+                    display: none;
                 }
             }
         }

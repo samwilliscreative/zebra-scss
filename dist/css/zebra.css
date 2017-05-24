@@ -69,6 +69,9 @@ img {
   display: block;
   clear: both; }
 
+.hidden {
+  display: none; }
+
 /**************************/
 /* ROWS AND ROW MODIFIERS */
 /**************************/
@@ -1062,5 +1065,45 @@ img {
   .m-xs--y-25 {
     margin-top: 25px;
     margin-bottom: 25px; } }
+
+@media all and (max-width: 1024px) {
+  .hidden-xl--down {
+    display: none; } }
+
+@media all and (min-width: 1024px) {
+  .hidden-xl--up {
+    display: none; } }
+
+@media all and (max-width: 768px) {
+  .hidden-l--down {
+    display: none; } }
+
+@media all and (min-width: 768px) {
+  .hidden-l--up {
+    display: none; } }
+
+@media all and (max-width: 599px) {
+  .hidden-m--down {
+    display: none; } }
+
+@media all and (min-width: 599px) {
+  .hidden-m--up {
+    display: none; } }
+
+@media all and (max-width: 500px) {
+  .hidden-s--down {
+    display: none; } }
+
+@media all and (min-width: 500px) {
+  .hidden-s--up {
+    display: none; } }
+
+@media all and (max-width: 435px) {
+  .hidden-xs--down {
+    display: none; } }
+
+@media all and (min-width: 435px) {
+  .hidden-xs--up {
+    display: none; } }
 
 /*# sourceMappingURL=zebra.css.map */
