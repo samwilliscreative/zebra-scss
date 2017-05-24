@@ -3,30 +3,35 @@
 
 
 
-/****************/
-/* SIMPLE RESET */
-/****************/
+/*****************/
+/* BROWSER RESET */
+/*****************/
 @if $zeb-enable-simple-reset {
-    /* Add box-sizing to columns to allow for padding to be easily added */
-    @for $i from 1 through 9 {
-        [class*='col--#{$i}'] {
-            box-sizing: border-box;
-        }
-    }
-    .col--auto {
-        box-sizing: border-box;
-    }
-    /* Remove white space from page edges */
+
+    // Remove white space from page edges
     body {
         margin: 0;
     }
-    /* Make images responsive to their containers */
+
+    // Make images responsive to their containers
     img {
         max-width: 100%;
         height: auto;
         border: 0;
     }
+
+    // Add box-sizing to all elements
+    @if $zeb-box-sizing {
+        html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+    }
+
 }
+/* BROWSER RESET END */
 
 
 

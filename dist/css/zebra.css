@@ -3,7 +3,7 @@
 /******************/
 /* ZEBRA SETTINGS */
 /******************/
-/* INCLUDE SIMPLE RESET */
+/* BROWSER RESET AND BOILERPLATE */
 /* RESET FONT SIZE */
 /* COLUMN FRACTIONS */
 /* POSITIONING */
@@ -15,37 +15,6 @@
 /****************/
 /* SIMPLE RESET */
 /****************/
-/* Add box-sizing to columns to allow for padding to be easily added */
-[class*='col--1'] {
-  box-sizing: border-box; }
-
-[class*='col--2'] {
-  box-sizing: border-box; }
-
-[class*='col--3'] {
-  box-sizing: border-box; }
-
-[class*='col--4'] {
-  box-sizing: border-box; }
-
-[class*='col--5'] {
-  box-sizing: border-box; }
-
-[class*='col--6'] {
-  box-sizing: border-box; }
-
-[class*='col--7'] {
-  box-sizing: border-box; }
-
-[class*='col--8'] {
-  box-sizing: border-box; }
-
-[class*='col--9'] {
-  box-sizing: border-box; }
-
-.col--auto {
-  box-sizing: border-box; }
-
 /* Remove white space from page edges */
 body {
   margin: 0; }
@@ -55,6 +24,13 @@ img {
   max-width: 100%;
   height: auto;
   border: 0; }
+
+/* Add box-sizing to columns to allow for padding to be easily added */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
 
 /**********************/
 /* ADDITIONAL CLASSES */

@@ -2,10 +2,13 @@
 /* ZEBRA SETTINGS */
 /******************/
 //TODO: reorder all settings
-$zeb-site-width: 1400px !default;
 
-/* INCLUDE SIMPLE RESET */
+/* BROWSER RESET */
 $zeb-enable-simple-reset: true !default;
+$zeb-box-sizing: true !default;
+
+
+$zeb-site-width: 1400px !default;
 
 /* RESET FONT SIZE */
 $zeb-enable-reset-font: true !default;
