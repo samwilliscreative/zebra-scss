@@ -1,12 +1,54 @@
-/* Import the Zebra settings partial */
+/**********/
+/* IMPORT */
+/**********/
 @import "zebra-settings";
+
+
+
+/*************************/
+/* RESPONSIVE PROPERTIES */
+/*************************/
+
+    // REVERSE FUNCTION (used if not mobile first)
+    @function reverse($list, $recursive: false) {
+        $result: ();
+        @for $i from length($list)*-1 through -1 {
+            @if type-of(nth($list, abs($i))) == list and $recursive {
+                $result: append($result, reverse(nth($list, abs($i)), $recursive));
+            } @else {
+                $result: append($result, nth($list, abs($i)));
+            }
+        }
+        @return $result;
+    }
+
+    // SET MEDIA QUERY PROPERTY FOR MOBILE FIRST
+    $zeb-query-property: min-width;
+
+    // OVERWRITE VARIABLES IF NOT MOBILE FIRST
+    @if not $zeb-mobile-first {
+
+        // Replace media query property
+        $zeb-query-property: max-width;
+
+        // Reverse the list of media query width values
+        $zeb-media-widths: reverse($zeb-media-widths);
+
+        // Reverse the list of media query names
+        $zeb-media-width-names: reverse($zeb-media-width-names);
+
+    }
+
+/* RESPONSIVE PROPERTIES END */
+
+
 
 
 
 /*****************/
 /* BROWSER RESET */
 /*****************/
-@if $zeb-enable-simple-reset {
+@if $zeb-enable-browser-reset {
 
     // Remove white space from page edges
     body {
@@ -35,9 +77,9 @@
 
 
 
-/**********************/
-/* ADDITIONAL CLASSES */
-/**********************/
+/******************/
+/* SIMPLE CLASSES */
+/******************/
 .site-wrapper {
     display: block;
     max-width: $zeb-site-width;
@@ -50,9 +92,36 @@
         clear: both;
     }
 }
-.hidden {
-    display: none;
+/* SIMPLE CLASSES END */
+
+
+
+/******************/
+/* HIDDEN CLASSES */
+/******************/
+@if $zeb-enable-hidden {
+    .hidden {
+        display: none;
+    }
+    @if $zeb-enable-responsive {
+        @each $zeb-media-width in $zeb-media-widths {
+            $i: index($zeb-media-widths, $zeb-media-width);
+            @media all and (max-width: $zeb-media-width + px) {
+                .hidden-#{nth($zeb-media-width-names, $i)}--down {
+                    display: none;
+                }
+            }
+            @media all and (min-width: $zeb-media-width + px) {
+                .hidden-#{nth($zeb-media-width-names, $i)}--up {
+                    display: none;
+                }
+            }
+        }
+    }
 }
+/* HIDDEN CLASSES END */
+
+
 
 /**************************/
 /* ROWS AND ROW MODIFIERS */
@@ -392,18 +461,7 @@
 }
 
 
-/* REVERSE FUNCTION */
-@function reverse($list, $recursive: false) {
-    $result: ();
-    @for $i from length($list)*-1 through -1 {
-        @if type-of(nth($list, abs($i))) == list and $recursive {
-            $result: append($result, reverse(nth($list, abs($i)), $recursive));
-        } @else {
-            $result: append($result, nth($list, abs($i)));
-        }
-    }
-    @return $result;
-}
+
 /* RESPONSIVE */
 @if $zeb-enable-responsive {
     $zeb-query-property: min-width;
@@ -522,21 +580,6 @@
                             }
                         }
                     }
-                }
-            }
-        }
-    }
-    @if $zeb-enable-hidden {
-        @each $zeb-media-width in $zeb-media-widths {
-            $i: index($zeb-media-widths, $zeb-media-width);
-            @media all and (max-width: $zeb-media-width + px) {
-                .hidden-#{nth($zeb-media-width-names, $i)}--down {
-                    display: none;
-                }
-            }
-            @media all and (min-width: $zeb-media-width + px) {
-                .hidden-#{nth($zeb-media-width-names, $i)}--up {
-                    display: none;
                 }
             }
         }

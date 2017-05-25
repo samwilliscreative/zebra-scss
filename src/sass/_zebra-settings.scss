@@ -1,10 +1,36 @@
 /******************/
 /* ZEBRA SETTINGS */
 /******************/
-//TODO: reorder all settings
+
+
+
+/***********************/
+/* RESPONSIVE SETTINGS */
+/***********************/
+
+  // Enable/Disable the output of classes within media queries
+  $zeb-enable-responsive: true !default;
+
+  // Enable/Disable mobile first media queries
+  $zeb-mobile-first: true !default;
+
+  // Media query breakpoints
+  $zeb-media-widths: 435, 500, 599, 768, 1024 !default;
+  // TODO: add option to set unit type
+
+  // Aliases for the media query breakpoints
+  $zeb-media-width-names: xs, s, m, l, xl !default;
+
+/* RESPONSIVE SETTINGS END */
+
+
+
+
+
+
 
 /* BROWSER RESET */
-$zeb-enable-simple-reset: true !default;
+$zeb-enable-browser-reset: true !default;
 $zeb-box-sizing: true !default;
 
 
@@ -36,11 +62,7 @@ $zeb-grid-columns: 2, 3, 4 !default;
 $zeb-enable-gutters: true !default;
 $zeb-gutter-sizes: 10, 25 !default;
 
-/* RESPONSIVE  */
-$zeb-enable-responsive: true !default;
-$zeb-mobile-first: false !default;
-$zeb-media-widths: 435, 500, 599, 768, 1024 !default;
-$zeb-media-width-names: xs, s, m, l, xl !default;
+
 
 /*  NEED ORGANISING*/
 $zeb-format--col: "-" !default;
