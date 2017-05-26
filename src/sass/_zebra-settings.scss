@@ -42,14 +42,36 @@
 
 
 
-/**************************/
+/*******************/
 /* HELPER SETTINGS */
-/**************************/
+/*******************/
 
     // Max site width (used by both .site-wrapper and .row--contained)
     $zeb-site-width: 1400px !default;
 
-/* BROWSER RESET SETTINGS END */
+/* HELPER SETTINGS END */
+
+
+
+
+
+/**************************/
+/* HIDDEN SETTINGS */
+/**************************/
+
+    // Enable/disable the output of classes that hide elements
+    $zeb-enable-hidden: true !default;
+
+/* HIDDEN SETTINGS END */
+
+
+
+
+
+
+
+
+
 
 
 
@@ -85,5 +107,3 @@ $zeb-gutter-sizes: 10, 25 !default;
 
 /*  NEED ORGANISING*/
 $zeb-format--col: "-" !default;
-
-$zeb-enable-hidden: true !default;

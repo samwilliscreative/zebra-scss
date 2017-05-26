@@ -147,36 +147,68 @@
 
 
 
-/**************************/
-/* ROWS AND ROW MODIFIERS */
-/**************************/
-.row {
-    margin: 0 auto;
-    font-size: 0;
-    &--contained {
-        max-width: $zeb-site-width;
-    }
-    &--flex {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        &-left {
-            justify-content: flex-start;
+/*********************************/
+/* ROWS AND ROW MODIFIER CLASSES */
+/*********************************/
+
+    .row {
+        margin: 0 auto;
+        font-size: 0; // This removes the white space between child inline block elements. Be aware that if you have disabled the $zeb-enable-reset-font setting, you will need to manually add font size declarations for all elements or they will inherit the 0 value
+
+        // Stop rows from being wider than the $zeb-site-width value
+        &--contained {
+            max-width: $zeb-site-width;
         }
-        &-center {
-            justify-content: center;
-        }
-        &-right {
-            justify-content: flex-end;
-        }
-        /* Stretch columns can make use of flex to help fill any remaining gaps */
-        .col {
-            &--stretch {
-                flex: 1 1 auto;
+
+        // Flex columns can be used to help line up items
+        &--flex {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+
+            // Stretch columns can make use of flex to help fill any remaining gaps
+            .col {
+                &--stretch {
+                    flex: 1 1 auto;
+                }
             }
         }
+
+        // Used in conjunction with .row--flex to justify the child columns
+        &--justify {
+            &-l {
+                justify-content: flex-start;
+            }
+
+            &-c {
+                justify-content: center;
+            }
+
+            &-r {
+                justify-content: flex-end;
+            }
+        }
+
+        // Used in conjunction with .row--flex to align the child columns
+        &--align {
+            &-l {
+                align-items: flex-start;
+            }
+
+            &-c {
+                align-items: center;
+            }
+
+            &-r {
+                align-items: flex-end;
+            }
+        }
+
     }
-}
+
+/* ROWS AND ROW MODIFIER END */
+
+
 
 
 
