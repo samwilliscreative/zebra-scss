@@ -55,9 +55,9 @@
 
 
 
-/**************************/
+/*******************/
 /* HIDDEN SETTINGS */
-/**************************/
+/*******************/
 
     // Enable/disable the output of classes that hide elements
     $zeb-enable-hidden: true !default;
@@ -68,6 +68,22 @@
 
 
 
+/*******************/
+/* COLUMN SETTINGS */
+/*******************/
+
+    // Column fractions
+    $zeb-columns: 5, 8, 12 !default;
+
+    // Column class format
+    $zeb-format--col: "-" !default; // This is the separator used between column values in a column class for example. If this setting were "-foo-" then column classes would be .col--6-foo-12
+
+    // Enable/disable the font size reset. We advise you to declare font sizes on all elements yourself, as rows will set font sizes to 0 to remove white space.
+    // This setting will add a default font size back to columns, meaning that any elements within a column that don't have a specified font size will inherit one (otherwise they won't show up!)
+    $zeb-enable-reset-font: true !default;
+    $zeb-reset-font-size: 18px !default;
+
+/* COLUMN SETTINGS END */
 
 
 
@@ -76,13 +92,6 @@
 
 
 
-
-/* RESET FONT SIZE */
-$zeb-enable-reset-font: true !default;
-$zeb-reset-font-size: 16px !default;
-
-/* COLUMN FRACTIONS */
-$zeb-columns: 5, 8, 12 !default;
 
 /* POSITIONING */
 $zeb-enable-offset: false !default;
@@ -102,8 +111,3 @@ $zeb-grid-columns: 2, 3, 4 !default;
 /* GUTTERS */
 $zeb-enable-gutters: true !default;
 $zeb-gutter-sizes: 10, 25 !default;
-
-
-
-/*  NEED ORGANISING*/
-$zeb-format--col: "-" !default;

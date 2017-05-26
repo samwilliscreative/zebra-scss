@@ -219,8 +219,8 @@
     [class*='col--#{$i}'] {
         display: inline-block;
         vertical-align: top;
-        /* If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows */
-        /* The font size that is applied can be altered in settings */
+        // If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows
+        // The font size that is applied can be altered in settings
         @if $zeb-enable-reset-font {
             font-size: $zeb-reset-font-size;
         }
