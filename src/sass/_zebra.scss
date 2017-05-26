@@ -1,7 +1,9 @@
-/**********/
-/* IMPORT */
-/**********/
+/*******************/
+/* IMPORT SETTINGS */
+/*******************/
 @import "zebra-settings";
+
+
 
 
 
@@ -9,7 +11,7 @@
 /* RESPONSIVE PROPERTIES */
 /*************************/
 
-    // REVERSE FUNCTION (used if not mobile first)
+    // REVERSE FUNCTION (used if Zebra is not set to be mobile first)
     @function reverse($list, $recursive: false) {
         $result: ();
         @for $i from length($list)*-1 through -1 {
@@ -48,78 +50,100 @@
 /*****************/
 /* BROWSER RESET */
 /*****************/
-@if $zeb-enable-browser-reset {
 
-    // Remove white space from page edges
-    body {
-        margin: 0;
-    }
+    @if $zeb-enable-browser-reset {
 
-    // Make images responsive to their containers
-    img {
-        max-width: 100%;
-        height: auto;
-        border: 0;
-    }
-
-    // Add box-sizing to all elements
-    @if $zeb-box-sizing {
-        html {
-            box-sizing: border-box;
+        // Remove white space from page edges
+        body {
+            margin: 0;
         }
-        *, *:before, *:after {
-            box-sizing: inherit;
+
+        // Make images responsive to their containers
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 0;
         }
+
+        // Add box-sizing to all elements
+        @if $zeb-box-sizing {
+            html {
+                box-sizing: border-box;
+            }
+            *, *:before, *:after {
+                box-sizing: inherit;
+            }
+        }
+
     }
 
-}
 /* BROWSER RESET END */
 
 
 
+
+
 /******************/
-/* SIMPLE CLASSES */
+/* HELPER CLASSES */
 /******************/
-.site-wrapper {
-    display: block;
-    max-width: $zeb-site-width;
-    margin: 0 auto;
-}
-.clearfix {
-    &:after {
-        content: "";
+
+    .site-wrapper {
         display: block;
-        clear: both;
+        max-width: $zeb-site-width;
+        margin: 0 auto;
     }
-}
-/* SIMPLE CLASSES END */
+
+    .clearfix {
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+
+/* HELPER CLASSES END */
+
+
 
 
 
 /******************/
 /* HIDDEN CLASSES */
 /******************/
-@if $zeb-enable-hidden {
-    .hidden {
-        display: none;
-    }
-    @if $zeb-enable-responsive {
-        @each $zeb-media-width in $zeb-media-widths {
-            $i: index($zeb-media-widths, $zeb-media-width);
-            @media all and (max-width: $zeb-media-width + px) {
-                .hidden-#{nth($zeb-media-width-names, $i)}--down {
-                    display: none;
-                }
-            }
-            @media all and (min-width: $zeb-media-width + px) {
-                .hidden-#{nth($zeb-media-width-names, $i)}--up {
-                    display: none;
-                }
-            }
+
+    @if $zeb-enable-hidden {
+
+        .hidden {
+            display: none;
         }
+
+        @if $zeb-enable-responsive {
+
+            @each $zeb-media-width in $zeb-media-widths {
+
+                $i: index($zeb-media-widths, $zeb-media-width);
+
+                @media all and (max-width: $zeb-media-width + $zeb-media-unit) {
+                    .hidden-#{nth($zeb-media-width-names, $i)}--down {
+                        display: none;
+                    }
+                }
+
+                @media all and (min-width: $zeb-media-width + px) {
+                    .hidden-#{nth($zeb-media-width-names, $i)}--up {
+                        display: none;
+                    }
+                }
+
+            }
+
+        }
+
     }
-}
+
 /* HIDDEN CLASSES END */
+
+
 
 
 
@@ -471,7 +495,7 @@
         $zeb-media-width-names: reverse($zeb-media-width-names);
     }
     @each $zeb-media-width in $zeb-media-widths {
-        @media all and ($zeb-query-property: $zeb-media-width + px) {
+        @media all and ($zeb-query-property: $zeb-media-width + $zeb-media-unit) {
             .col {
                 $i: index($zeb-media-widths, $zeb-media-width);
                 @each $zeb-column-count in $zeb-columns {

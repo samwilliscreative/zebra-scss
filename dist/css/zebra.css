@@ -1,7 +1,7 @@
 /* Import the Zebra partial */
-/**********/
-/* IMPORT */
-/**********/
+/*******************/
+/* IMPORT SETTINGS */
+/*******************/
 /******************/
 /* ZEBRA SETTINGS */
 /******************/
@@ -9,7 +9,14 @@
 /* RESPONSIVE SETTINGS */
 /***********************/
 /* RESPONSIVE SETTINGS END */
-/* BROWSER RESET */
+/**************************/
+/* BROWSER RESET SETTINGS */
+/**************************/
+/* BROWSER RESET SETTINGS END */
+/**************************/
+/* HELPER SETTINGS */
+/**************************/
+/* BROWSER RESET SETTINGS END */
 /* RESET FONT SIZE */
 /* COLUMN FRACTIONS */
 /* POSITIONING */
@@ -40,7 +47,7 @@ html {
 
 /* BROWSER RESET END */
 /******************/
-/* SIMPLE CLASSES */
+/* HELPER CLASSES */
 /******************/
 .site-wrapper {
   display: block;
@@ -52,7 +59,7 @@ html {
   display: block;
   clear: both; }
 
-/* SIMPLE CLASSES END */
+/* HELPER CLASSES END */
 /******************/
 /* HIDDEN CLASSES */
 /******************/
