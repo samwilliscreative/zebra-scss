@@ -89,19 +89,48 @@
 
 
 
+/************************/
+/* POSITIONING SETTINGS */
+/************************/
+
+    // Enable/disable the output of offset classes
+    $zeb-enable-offset: false !default;
+
+    // Enable/disable the output of push classes
+    $zeb-enable-push: false !default;
+
+    // Enable/disable the output of pull classes
+    $zeb-enable-pull: false !default;
+
+/* POSITIONING SETTINGS END */
 
 
 
 
-/* POSITIONING */
-$zeb-enable-offset: false !default;
-$zeb-enable-push: false !default;
-$zeb-enable-pull: false !default;
 
-/* SPACING */
-$zeb-enable-padding: true !default;
-$zeb-enable-margin: true !default;
-$zeb-spacings: 10, 25 !default;
+/************************/
+/* SPACING SETTINGS */
+/************************/
+
+    // Numeric values for padding and margin classes
+    $zeb-spacings: 10, 25 !default;
+
+    // Spacing unit type
+    $zeb-spacing-unit: "px" !default;
+
+    // Enable/disable the output of padding classes
+    $zeb-enable-padding: true !default;
+
+    // Enable/disable the output of margin classes
+    $zeb-enable-margin: true !default;
+
+
+/* SPACING SETTINGS END */
+
+
+
+
+
 
 /* GRIDS */
 $zeb-enable-grids: true !default;
