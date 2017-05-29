@@ -206,119 +206,142 @@
 
     }
 
-/* ROWS AND ROW MODIFIER END */
+/* ROWS AND ROW MODIFIERS END */
 
 
 
 
 
-/**********************/
-/* COLUMN BASE STYLES */
-/**********************/
-@for $i from 1 through 9 {
-    [class*='col--#{$i}'] {
-        display: inline-block;
-        vertical-align: top;
-        // If enabled, a font size will be applied to columns which will counter the 'font-size: 0' fix that is used on .rows
-        // The font size that is applied can be altered in settings
-        @if $zeb-enable-reset-font {
-            font-size: $zeb-reset-font-size;
-        }
-    }
-}
+/**************************************/
+/* COLUMN AND COLUMN MODIFIER CLASSES */
+/**************************************/
 
+    // Column base styling
+    @for $i from 1 through 9 {
 
-
-/************/
-/* COLUMNS */
-/***********/
-.col {
-    /* COLUMN SIZES */
-    @each $column-count in $zeb-columns {
-        @for $span from 1 through $column-count {
-            &--#{$span}#{$zeb-format--col}#{$column-count} {
-                width: percentage($span/$column-count);
-            }
-        }
-    }
-    @if $zeb-enable-offset {
-        @each $column-count in $zeb-columns {
-            @for $span from 1 through $column-count {
-                &--offset-#{$span}-#{$column-count} {
-                    margin-left: percentage($span/$column-count);
-                }
-            }
-        }
-    }
-    @if $zeb-enable-push {
-        @each $column-count in $zeb-columns {
-            @for $span from 1 through $column-count {
-                &--push-#{$span}-#{$column-count} {
-                    position: relative;
-                    left: percentage($span/$column-count);
-                }
-            }
-        }
-    }
-    @if $zeb-enable-pull {
-        @each $column-count in $zeb-columns {
-            @for $span from 1 through $column-count {
-                &--pull-#{$span}-#{$column-count} {
-                    position: relative;
-                    right: percentage($span/$column-count);
-                }
-            }
-        }
-    }
-    &--auto {
-        position: relative;
-        display: inline-block;
-        vertical-align: top;
-        width: auto;
-        @if $zeb-enable-reset-font {
-            font-size: $zeb-reset-font-size;
-        }
-    }
-    /* COLUMN MODIFIERS */
-    &--left {
-        float: left;
-    }
-    &--right {
-        float: right;
-    }
-    &--flex {
-        &-col {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            > * {
-                flex-grow: 1;
-            }
-            > .row {
-                margin: 0;
-            }
-        }
-        &-row {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            > * {
-                flex-grow: 1;
-            }
-        }
-    }
-    &--align {
-        &-top {
+        [class*='col--#{$i}'] {
+            display: inline-block;
             vertical-align: top;
+
+            // We advise you to declare font sizes on all elements yourself, as rows will set font sizes to 0 to remove white space.
+            // If enabled, This setting will add a default font size back to columns, so that any elements within that don't have a specified font size will inherit one (otherwise they won't show up!)
+            @if $zeb-enable-reset-font {
+                font-size: $zeb-reset-font-size;
+            }
         }
-        &-middle {
-            vertical-align: middle;
-        }
-        &-bottom {
-            vertical-align: bottom;
-        }
+
     }
-}
+
+    // Columns and column modifiers
+    .col {
+
+        // Core column size classes
+        @each $column-count in $zeb-columns {
+            @for $span from 1 through $column-count {
+                &--#{$span}#{$zeb-format--col}#{$column-count} {
+                    width: percentage($span/$column-count);
+                }
+            }
+        }
+
+        // If enabled, zebra will output offset classes
+        @if $zeb-enable-offset {
+            @each $column-count in $zeb-columns {
+                @for $span from 1 through $column-count {
+                    &--offset-#{$span}#{$zeb-format--col}#{$column-count} {
+                        margin-left: percentage($span/$column-count);
+                    }
+                }
+            }
+        }
+
+        // If enabled, zebra will output push classes
+        @if $zeb-enable-push {
+            @each $column-count in $zeb-columns {
+                @for $span from 1 through $column-count {
+                    &--push-#{$span}#{$zeb-format--col}#{$column-count} {
+                        position: relative;
+                        left: percentage($span/$column-count);
+                    }
+                }
+            }
+        }
+
+        // If enabled, zebra will output pull classes
+        @if $zeb-enable-pull {
+            @each $column-count in $zeb-columns {
+                @for $span from 1 through $column-count {
+                    &--pull-#{$span}#{$zeb-format--col}#{$column-count} {
+                        position: relative;
+                        right: percentage($span/$column-count);
+                    }
+                }
+            }
+        }
+
+        // Column that will take the width of it's child content, ignoring any grid classes.
+        &--auto {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            width: auto;
+        }
+
+        // Add font size to automatic width columns
+        &--auto, &--stretch {
+            @if $zeb-enable-reset-font {
+                font-size: $zeb-reset-font-size;
+            }
+        }
+
+        // Column modifiers
+        &--left {
+            float: left;
+        }
+        &--right {
+            float: right;
+        }
+
+        &--align {
+            &-top {
+                vertical-align: top;
+            }
+            &-middle {
+                vertical-align: middle;
+            }
+            &-bottom {
+                vertical-align: bottom;
+            }
+        }
+
+        // Flex columns
+        &--flex {
+            &-col, &-row {
+                display: flex;
+                flex-wrap: wrap;
+                > * {
+                    flex-grow: 1;
+                }
+            }
+            &-col {
+                flex-direction: column;
+                > .row {
+                    margin: 0;
+                }
+            }
+            &-row {
+                flex-direction: row;
+            }
+        }
+
+    }
+
+/* COLUMN AND COLUMN MODIFIERS END */
+
+
+
+
+
 
 .bg {
     &--extend {
