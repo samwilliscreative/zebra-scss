@@ -342,64 +342,124 @@
 
 
 
+/*****************************/
+/* BACKGROUND EXTEND CLASSES */
+/*****************************/
 
-.bg {
-    &--extend {
-        position: relative;
-        &:before, &:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            width: $zeb-site-width;
-            height: 100%;
-            background: inherit;
-        }
-        &:before {
-            right: 100%;
-        }
-        &:after {
-            left: 100%;
-        }
-        &-left, &-right {
-            position: relative;
-        }
-        &-left {
-            background-position: left top;
-            &:before {
-                content: "";
-                position: absolute;
-                top: 0;
-                width: $zeb-site-width;
-                height: 100%;
-                background: inherit;
-                right: 100%;
-                background-position: right top;
-            }
-        }
-        &-right {
-            background-position: right top;
-            &:after {
-                content: "";
-                position: absolute;
-                top: 0;
-                width: $zeb-site-width;
-                height: 100%;
-                background: inherit;
-                left: 100%;
-                background-position: left top;
-            }
-        }
-        /* Make nested column extends overlay each other correctly */
+    @if $zeb-enabled-bg-extends {
+
         .bg {
             &--extend {
-                z-index: 1;
-                &-left, &-right {
-                    z-index: 1;
+                position: relative;
+                &:before, &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    width: $zeb-bg-extends-width;
+                    height: 100%;
+                    background: inherit;
+                }
+                &:before {
+                    right: 100%;
+                }
+                &:after {
+                    left: 100%;
+                }
+                &-l, &-r {
+                    position: relative;
+                }
+                &-l {
+                    background-position: left top;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        width: $zeb-bg-extends-width;
+                        height: 100%;
+                        background: inherit;
+                        right: 100%;
+                        background-position: right top;
+                    }
+                }
+                &-r {
+                    background-position: right top;
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        width: $zeb-bg-extends-width;
+                        height: 100%;
+                        background: inherit;
+                        left: 100%;
+                        background-position: left top;
+                    }
+                }
+
+                // Make nested column extends overlay each other correctly
+                .bg {
+                    &--extend {
+                        z-index: 1;
+                        &-l, &-r {
+                            z-index: 1;
+                        }
+                    }
                 }
             }
         }
+
+        @if $zeb-enable-responsive {
+
+            @each $zeb-media-width in $zeb-media-widths {
+
+                $i: index($zeb-media-widths, $zeb-media-width);
+
+                @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                    .bg {
+                        &--extend {
+                            &-#{nth($zeb-media-width-names, $i)}--down {
+
+                            }
+                        }
+                        &--extend-l {
+                            &-#{nth($zeb-media-width-names, $i)}--down {
+
+                            }
+                        }
+                        &--extend-r {
+                            &-#{nth($zeb-media-width-names, $i)}--down {
+
+                            }
+                        }
+                    }
+                }
+
+                @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
+                    .bg {
+                        &--extend {
+                            &-#{nth($zeb-media-width-names, $i)}--up {
+
+                            }
+                        }
+                        &--extend-l {
+                            &-#{nth($zeb-media-width-names, $i)}--up {
+
+                            }
+                        }
+                        &--extend-r {
+                            &-#{nth($zeb-media-width-names, $i)}--up {
+
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        }
+
     }
-}
+
+/* BACKGROUND EXTENDS END */
 
 
 

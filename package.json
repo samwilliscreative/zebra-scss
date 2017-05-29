@@ -19,9 +19,12 @@
     "sass",
     "scss",
     "css-grid",
+    "responsive",
     "framework",
     "bem",
-    "responsive",
+    "fkexbox",
+    "edit",
+    "editable",
     "customizable",
     "zebra",
     "gulp"

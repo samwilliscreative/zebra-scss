@@ -108,9 +108,23 @@
 
 
 
-/************************/
+/******************************/
+/* BACKGROUND EXTEND SETTINGS */
+/******************************/
+
+    // Enable/disable the output of background extend classes
+    $zeb-enabled-bg-extends: true !default;
+
+    // Set the width of the extending panel. Uses the site width value by default but can be any numeric unit type.
+    $zeb-bg-extends-width: $zeb-site-width !default;
+
+/* POSITIONING SETTINGS END */
+
+
+
+/********************/
 /* SPACING SETTINGS */
-/************************/
+/********************/
 
     // Numeric values for padding and margin classes
     $zeb-spacings: 10, 25 !default;
