@@ -124,13 +124,13 @@
                 $i: index($zeb-media-widths, $zeb-media-width);
 
                 @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
-                    .hidden-#{nth($zeb-media-width-names, $i)}--down {
+                    .hidden__#{nth($zeb-media-width-names, $i)}-down {
                         display: none;
                     }
                 }
 
                 @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
-                    .hidden-#{nth($zeb-media-width-names, $i)}--up {
+                    .hidden__#{nth($zeb-media-width-names, $i)}-up {
                         display: none;
                     }
                 }
@@ -349,7 +349,7 @@
     @if $zeb-enabled-bg-extends {
 
         .bg {
-            &--extend {
+            &-ext {
                 position: relative;
                 &:before, &:after {
                     content: "";
@@ -365,10 +365,10 @@
                 &:after {
                     left: 100%;
                 }
-                &-l, &-r {
+                &--l, &--r {
                     position: relative;
                 }
-                &-l {
+                &--l {
                     background-position: left top;
                     &:before {
                         content: "";
@@ -381,7 +381,7 @@
                         background-position: right top;
                     }
                 }
-                &-r {
+                &--r {
                     background-position: right top;
                     &:after {
                         content: "";
@@ -397,9 +397,9 @@
 
                 // Make nested column extends overlay each other correctly
                 .bg {
-                    &--extend {
+                    &-ext {
                         z-index: 1;
-                        &-l, &-r {
+                        &--l, &--r {
                             z-index: 1;
                         }
                     }
@@ -415,19 +415,62 @@
 
                 @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
                     .bg {
-                        &--extend {
-                            &-#{nth($zeb-media-width-names, $i)}--down {
-
+                        &-ext {
+                            &__#{nth($zeb-media-width-names, $i)}-down {
+                                position: relative;
+                                &:before, &:after {
+                                    content: "";
+                                    position: absolute;
+                                    top: 0;
+                                    width: $zeb-bg-extends-width;
+                                    height: 100%;
+                                    background: inherit;
+                                }
+                                &:before {
+                                    right: 100%;
+                                }
+                                &:after {
+                                    left: 100%;
+                                }
+                                &--l, &--r {
+                                    position: relative;
+                                }
                             }
                         }
-                        &--extend-l {
-                            &-#{nth($zeb-media-width-names, $i)}--down {
-
+                        &-ext {
+                            &__#{nth($zeb-media-width-names, $i)}-down {
+                                &--l {
+                                    position: relative;
+                                    background-position: left top;
+                                    &:before {
+                                        content: "";
+                                        position: absolute;
+                                        top: 0;
+                                        width: $zeb-bg-extends-width;
+                                        height: 100%;
+                                        background: inherit;
+                                        right: 100%;
+                                        background-position: right top;
+                                    }
+                                }
                             }
                         }
-                        &--extend-r {
-                            &-#{nth($zeb-media-width-names, $i)}--down {
-
+                        &-ext {
+                            &__#{nth($zeb-media-width-names, $i)}-down {
+                                &--r {
+                                    position: relative;
+                                    background-position: right top;
+                                    &:after {
+                                        content: "";
+                                        position: absolute;
+                                        top: 0;
+                                        width: $zeb-bg-extends-width;
+                                        height: 100%;
+                                        background: inherit;
+                                        left: 100%;
+                                        background-position: left top;
+                                    }
+                                }
                             }
                         }
                     }
@@ -435,19 +478,62 @@
 
                 @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
                     .bg {
-                        &--extend {
-                            &-#{nth($zeb-media-width-names, $i)}--up {
-
+                        &-ext {
+                            &__#{nth($zeb-media-width-names, $i)}-up {
+                                position: relative;
+                                &:before, &:after {
+                                    content: "";
+                                    position: absolute;
+                                    top: 0;
+                                    width: $zeb-bg-extends-width;
+                                    height: 100%;
+                                    background: inherit;
+                                }
+                                &:before {
+                                    right: 100%;
+                                }
+                                &:after {
+                                    left: 100%;
+                                }
+                                &--l, &--r {
+                                    position: relative;
+                                }
                             }
                         }
-                        &--extend-l {
-                            &-#{nth($zeb-media-width-names, $i)}--up {
-
+                        &-ext {
+                            &__#{nth($zeb-media-width-names, $i)}-up {
+                                &--l {
+                                    position: relative;
+                                    background-position: left top;
+                                    &:before {
+                                        content: "";
+                                        position: absolute;
+                                        top: 0;
+                                        width: $zeb-bg-extends-width;
+                                        height: 100%;
+                                        background: inherit;
+                                        right: 100%;
+                                        background-position: right top;
+                                    }
+                                }
                             }
                         }
-                        &--extend-r {
-                            &-#{nth($zeb-media-width-names, $i)}--up {
-
+                        &-ext {
+                            &__#{nth($zeb-media-width-names, $i)}-up {
+                                &--r {
+                                    position: relative;
+                                    background-position: right top;
+                                    &:after {
+                                        content: "";
+                                        position: absolute;
+                                        top: 0;
+                                        width: $zeb-bg-extends-width;
+                                        height: 100%;
+                                        background: inherit;
+                                        left: 100%;
+                                        background-position: left top;
+                                    }
+                                }
                             }
                         }
                     }
