@@ -17,8 +17,8 @@
     $zeb-mobile-first: true !default;
 
     // Media query breakpoints
-    $zeb-media-widths: 435, 500, 599, 768, 1024 !default; // Numeric value of the unit type set below
-    $zeb-media-width-names: xs, s, m, l, xl !default; // Aliases for the media query breakpoints
+    $zeb-media-widths:      435, 500, 599, 768, 1024 !default; // Numeric value of the unit type set below
+    $zeb-media-width-names: xs,  s,   m,   l,   xl   !default; // Aliases for the media query breakpoints
 
     // Media query unit type
     $zeb-media-unit: "px" !default;
