@@ -549,86 +549,289 @@
 
 
 
-@each $value in $zeb-spacings {
-    @if $zeb-enable-padding {
-        .p {
-            &--#{$value} {
-                padding: $value#{$zeb-spacing-unit};
-            }
-            &--t {
-                &-#{$value} {
-                    padding-top: $value#{$zeb-spacing-unit};
+
+
+/****************************/
+/* PADDING & MARGIN CLASSES */
+/****************************/
+
+    @each $value in $zeb-spacings {
+
+        // Padding classes
+        @if $zeb-enable-padding {
+            .p {
+                &--#{$value} {
+                    padding: $value#{$zeb-spacing-unit};
+                }
+                &--t {
+                    &-#{$value} {
+                        padding-top: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--r {
+                    &-#{$value} {
+                        padding-right: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--b {
+                    &-#{$value} {
+                        padding-bottom: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--l {
+                    &-#{$value} {
+                        padding-left: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--x {
+                    &-#{$value} {
+                        padding-left: $value#{$zeb-spacing-unit};
+                        padding-right: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--y {
+                    &-#{$value} {
+                        padding-top: $value#{$zeb-spacing-unit};
+                        padding-bottom: $value#{$zeb-spacing-unit};
+                    }
                 }
             }
-            &--r {
-                &-#{$value} {
-                    padding-right: $value#{$zeb-spacing-unit};
+
+            @if $zeb-enable-responsive {
+
+                @each $zeb-media-width in $zeb-media-widths {
+
+                    $i: index($zeb-media-widths, $zeb-media-width);
+
+                    @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                        .p {
+                            &__#{nth($zeb-media-width-names, $i)}-down {
+                                &--#{$value} {
+                                    padding: $value#{$zeb-spacing-unit};
+                                }
+                                &--t {
+                                    &-#{$value} {
+                                        padding-top: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--r {
+                                    &-#{$value} {
+                                        padding-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--b {
+                                    &-#{$value} {
+                                        padding-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--l {
+                                    &-#{$value} {
+                                        padding-left: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--x {
+                                    &-#{$value} {
+                                        padding-left: $value#{$zeb-spacing-unit};
+                                        padding-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--y {
+                                    &-#{$value} {
+                                        padding-top: $value#{$zeb-spacing-unit};
+                                        padding-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
+                        .p {
+                            &__#{nth($zeb-media-width-names, $i)}-up {
+                                &--#{$value} {
+                                    padding: $value#{$zeb-spacing-unit};
+                                }
+                                &--t {
+                                    &-#{$value} {
+                                        padding-top: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--r {
+                                    &-#{$value} {
+                                        padding-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--b {
+                                    &-#{$value} {
+                                        padding-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--l {
+                                    &-#{$value} {
+                                        padding-left: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--x {
+                                    &-#{$value} {
+                                        padding-left: $value#{$zeb-spacing-unit};
+                                        padding-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--y {
+                                    &-#{$value} {
+                                        padding-top: $value#{$zeb-spacing-unit};
+                                        padding-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                 }
+
             }
-            &--b {
-                &-#{$value} {
-                    padding-bottom: $value#{$zeb-spacing-unit};
-                }
-            }
-            &--l {
-                &-#{$value} {
-                    padding-left: $value#{$zeb-spacing-unit};
-                }
-            }
-            &--x {
-                &-#{$value} {
-                    padding-left: $value#{$zeb-spacing-unit};
-                    padding-right: $value#{$zeb-spacing-unit};
-                }
-            }
-            &--y {
-                &-#{$value} {
-                    padding-top: $value#{$zeb-spacing-unit};
-                    padding-bottom: $value#{$zeb-spacing-unit};
-                }
-            }
+
         }
-    }
-    @if $zeb-enable-margin {
-        .m {
-            &--#{$value} {
-                margin: $value#{$zeb-spacing-unit};
-            }
-            &--t {
-                &-#{$value} {
-                    margin-top: $value#{$zeb-spacing-unit};
+
+        // Margin classes
+        @if $zeb-enable-margin {
+            .m {
+                &--#{$value} {
+                    margin: $value#{$zeb-spacing-unit};
+                }
+                &--t {
+                    &-#{$value} {
+                        margin-top: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--r {
+                    &-#{$value} {
+                        margin-right: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--b {
+                    &-#{$value} {
+                        margin-bottom: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--l {
+                    &-#{$value} {
+                        margin-left: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--x {
+                    &-#{$value} {
+                        margin-left: $value#{$zeb-spacing-unit};
+                        margin-right: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--y {
+                    &-#{$value} {
+                        margin-top: $value#{$zeb-spacing-unit};
+                        margin-bottom: $value#{$zeb-spacing-unit};
+                    }
                 }
             }
-            &--r {
-                &-#{$value} {
-                    margin-right: $value#{$zeb-spacing-unit};
+
+            @if $zeb-enable-responsive {
+
+                @each $zeb-media-width in $zeb-media-widths {
+
+                    $i: index($zeb-media-widths, $zeb-media-width);
+
+                    @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                        .m {
+                            &__#{nth($zeb-media-width-names, $i)}-down {
+                                &--#{$value} {
+                                    margin: $value#{$zeb-spacing-unit};
+                                }
+                                &--t {
+                                    &-#{$value} {
+                                        margin-top: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--r {
+                                    &-#{$value} {
+                                        margin-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--b {
+                                    &-#{$value} {
+                                        margin-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--l {
+                                    &-#{$value} {
+                                        margin-left: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--x {
+                                    &-#{$value} {
+                                        margin-left: $value#{$zeb-spacing-unit};
+                                        margin-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--y {
+                                    &-#{$value} {
+                                        margin-top: $value#{$zeb-spacing-unit};
+                                        margin-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
+                        .m {
+                            &__#{nth($zeb-media-width-names, $i)}-up {
+                                &--#{$value} {
+                                    margin: $value#{$zeb-spacing-unit};
+                                }
+                                &--t {
+                                    &-#{$value} {
+                                        margin-top: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--r {
+                                    &-#{$value} {
+                                        margin-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--b {
+                                    &-#{$value} {
+                                        margin-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--l {
+                                    &-#{$value} {
+                                        margin-left: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--x {
+                                    &-#{$value} {
+                                        margin-left: $value#{$zeb-spacing-unit};
+                                        margin-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--y {
+                                    &-#{$value} {
+                                        margin-top: $value#{$zeb-spacing-unit};
+                                        margin-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                 }
+
             }
-            &--b {
-                &-#{$value} {
-                    margin-bottom: $value#{$zeb-spacing-unit};
-                }
-            }
-            &--l {
-                &-#{$value} {
-                    margin-left: $value#{$zeb-spacing-unit};
-                }
-            }
-            &--x {
-                &-#{$value} {
-                    margin-left: $value#{$zeb-spacing-unit};
-                    margin-right: $value#{$zeb-spacing-unit};
-                }
-            }
-            &--y {
-                &-#{$value} {
-                    margin-top: $value#{$zeb-spacing-unit};
-                    margin-bottom: $value#{$zeb-spacing-unit};
-                }
-            }
+
         }
+
     }
-}
+
+/* PADDING & MARGIN CLASSES END */
 
 
 

@@ -126,18 +126,17 @@
 /* SPACING SETTINGS */
 /********************/
 
-    // Numeric values for padding and margin classes
-    $zeb-spacings: 10, 25 !default;
-
-    // Spacing unit type
-    $zeb-spacing-unit: "px" !default;
-
     // Enable/disable the output of padding classes
     $zeb-enable-padding: true !default;
 
     // Enable/disable the output of margin classes
     $zeb-enable-margin: true !default;
 
+    // Numeric values for padding and margin classes
+    $zeb-spacings: 10, 25 !default;
+
+    // Spacing unit type
+    $zeb-spacing-unit: "px" !default;
 
 /* SPACING SETTINGS END */
 
