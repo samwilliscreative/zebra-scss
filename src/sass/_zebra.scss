@@ -1006,3 +1006,23 @@
     }
 
 /* GUTTER CLASSES END */
+
+
+
+
+
+/*********/
+/* DEBUG */
+/*********/
+
+    // Print all setting values when compiling
+    @if $zeb-print-settings {
+
+        @debug "$zeb-enable-responsive = " $zeb-enable-responsive;
+        @debug "$zeb-mobile-first = " $zeb-mobile-first;
+        @debug "$zeb-media-widths = " $zeb-media-widths;
+        @debug "$zeb-media-width-names = " $zeb-media-width-names;
+
+    }
+
+/* DEBUG END */

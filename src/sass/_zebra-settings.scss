@@ -166,9 +166,9 @@
 
 
 
-/*****************/
+/*******************/
 /* GUTTER SETTINGS */
-/*****************/
+/*******************/
 
     // Enable the output of gutter classes
     $zeb-enable-gutters: true !default;
@@ -184,3 +184,16 @@
     $zeb-gutter-unit: "px" !default;
 
 /* GUTTER SETTINGS END */
+
+
+
+
+
+/******************/
+/* DEBUG SETTINGS */
+/******************/
+
+    // Enabled/disable the printing of all setting values when compiling
+    $zeb-print-settings: true !default;
+
+/* DEBUG SETTINGS END */

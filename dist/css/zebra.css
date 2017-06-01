@@ -1,7 +1,4 @@
 /* Import the Zebra partial */
-/*******************/
-/* IMPORT SETTINGS */
-/*******************/
 /******************/
 /* ZEBRA SETTINGS */
 /******************/
@@ -41,10 +38,17 @@
 /* GRID SETTINGS */
 /*****************/
 /* GRID SETTINGS END */
-/*****************/
+/*******************/
 /* GUTTER SETTINGS */
-/*****************/
+/*******************/
 /* GUTTER SETTINGS END */
+/******************/
+/* DEBUG SETTINGS */
+/******************/
+/* DEBUG SETTINGS END */
+/*******************/
+/* IMPORT SETTINGS */
+/*******************/
 /*************************/
 /* RESPONSIVE PROPERTIES */
 /*************************/
@@ -52,6 +56,20 @@
 /*****************/
 /* BROWSER RESET */
 /*****************/
+body {
+  margin: 0; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0; }
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
 /* BROWSER RESET END */
 /******************/
 /* HELPER CLASSES */
@@ -2037,9 +2055,6 @@
 /******************/
 /* GUTTER CLASSES */
 /******************/
-[class*="gutters"] {
-  box-sizing: border-box; }
-
 .gutters--10 {
   margin: -5px; }
   .gutters--10 > * {
@@ -2085,5 +2100,9 @@
     box-sizing: border-box; }
 
 /* GUTTER CLASSES END */
+/*********/
+/* DEBUG */
+/*********/
+/* DEBUG END */
 
 /*# sourceMappingURL=zebra.css.map */
