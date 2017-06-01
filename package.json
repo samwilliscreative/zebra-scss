@@ -16,18 +16,20 @@
   },
   "keywords": [
     "css",
+    "css3",
     "sass",
     "scss",
     "css-grid",
+    "grid",
     "responsive",
     "framework",
     "bem",
-    "fkexbox",
+    "flexbox",
     "edit",
     "editable",
     "customizable",
     "zebra",
-    "gulp"
+    "zebra-scss"
   ],
   "dependencies": {},
   "devDependencies": {

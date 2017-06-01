@@ -836,61 +836,141 @@
 
 
 
-@if $zeb-enable-grids {
-    $grid-sub-class: "> *";
-    @if $zeb-safe-grid-classes {
-        $grid-sub-class: ".grid__col";
-    }
-    [class*="grid--"] {
-        #{$grid-sub-class} {
-            display: inline-block;
-            vertical-align: top;
+
+/****************/
+/* GRID CLASSES */
+/****************/
+
+    @if $zeb-enable-grids {
+
+        // By default, all direct children of a grid will become grid items
+        $grid-sub-class: "> *";
+
+        // If the safe grid classes setting is enabled, then only direct children elements with the class of .grid__item will become grid items
+        @if $zeb-safe-grid-classes {
+            $grid-sub-class: "> .grid__item";
         }
-    }
-    @each $grid-size in $zeb-grid-columns {
-        .grid--#{$grid-size} {
+
+        [class*="grid--"] {
             #{$grid-sub-class} {
-                width: percentage(1/$grid-size);
+                display: inline-block;
+                vertical-align: top;
             }
         }
-    }
-}
-@if $zeb-enable-gutters {
-    @each $value in $zeb-gutter-sizes {
-        $half-value: ceil($value / 2);
-        .gutters {
-            &--#{$value} {
-                margin: -#{$half-value}px;
-                > * {
-                    padding: #{$half-value}px;
-                    box-sizing: border-box;;
-                }
-            }
-            &--x {
-                &-#{$value} {
-                    margin-left: -#{$half-value}px;
-                    margin-right: -#{$half-value}px;
-                    > * {
-                        padding-left: #{$half-value}px;;
-                        padding-right: #{$half-value}px;
-                        box-sizing: border-box;;
+
+        @each $grid-size in $zeb-grid-columns {
+
+            .grid--#{$grid-size} {
+                #{$grid-sub-class} {
+                    width: percentage(1/$grid-size);
+
+                    // We advise you to declare font sizes on all elements yourself, as rows will set font sizes to 0 to remove white space.
+                    // If enabled, This setting will add a default font size back to grid items, so that any elements within that don't have a specified font size will inherit one (otherwise they won't show up!)
+                    @if $zeb-enable-reset-font {
+                        font-size: $zeb-reset-font-size;
                     }
                 }
             }
-            &--y {
-                &-#{$value} {
-                    margin-top: -#{$half-value}px;
-                    margin-bottom: -#{$half-value}px;
+
+            @if $zeb-enable-responsive {
+
+                @each $zeb-media-width in $zeb-media-widths {
+
+                    $i: index($zeb-media-widths, $zeb-media-width);
+
+                    @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                        .grid {
+                            &__#{nth($zeb-media-width-names, $i)}-down {
+                                &--#{$grid-size} {
+                                    #{$grid-sub-class} {
+                                        width: percentage(1/$grid-size);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
+                        .grid {
+                            &__#{nth($zeb-media-width-names, $i)}-up {
+                                &--#{$grid-size} {
+                                    #{$grid-sub-class} {
+                                        width: percentage(1/$grid-size);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+/* GRID CLASSES END */
+
+
+
+
+
+/******************/
+/* GUTTER CLASSES */
+/******************/
+
+    @if $zeb-enable-gutters {
+
+        @each $value in $zeb-gutter-sizes {
+
+            $half-value: ceil($value / 2);
+
+            @if $zeb-gutter-round-down {
+                $half-value: floor($value / 2);
+            }
+
+            .gutters {
+
+                &--#{$value} {
+                    margin: -#{$half-value}#{$zeb-gutter-unit};
                     > * {
-                        padding-top: #{$half-value}px;
-                        padding-bottom: #{$half-value}px;
+                        padding: #{$half-value}#{$zeb-gutter-unit};
                         box-sizing: border-box;;
                     }
                 }
+
+                &--x {
+                    &-#{$value} {
+                        margin-left: -#{$half-value}#{$zeb-gutter-unit};
+                        margin-right: -#{$half-value}#{$zeb-gutter-unit};
+                        > * {
+                            padding-left: #{$half-value}#{$zeb-gutter-unit};;
+                            padding-right: #{$half-value}#{$zeb-gutter-unit};
+                            box-sizing: border-box;;
+                        }
+                    }
+                }
+
+                &--y {
+                    &-#{$value} {
+                        margin-top: -#{$half-value}#{$zeb-gutter-unit};
+                        margin-bottom: -#{$half-value}#{$zeb-gutter-unit};
+                        > * {
+                            padding-top: #{$half-value}#{$zeb-gutter-unit};
+                            padding-bottom: #{$half-value}#{$zeb-gutter-unit};
+                            box-sizing: border-box;;
+                        }
+                    }
+                }
+
             }
+
         }
+
     }
-}
+
+/* GUTTER CLASSES END */
 
 
 

@@ -37,8 +37,14 @@
 /* SPACING SETTINGS */
 /********************/
 /* SPACING SETTINGS END */
-/* GRIDS */
-/* GUTTERS */
+/*****************/
+/* GRID SETTINGS */
+/*****************/
+/* GRID SETTINGS END */
+/*****************/
+/* GUTTER SETTINGS */
+/*****************/
+/* GUTTER SETTINGS END */
 /*************************/
 /* RESPONSIVE PROPERTIES */
 /*************************/
@@ -1599,19 +1605,193 @@ html {
     margin-bottom: 25px; } }
 
 /* PADDING & MARGIN CLASSES END */
+/****************/
+/* GRID CLASSES */
+/****************/
 [class*="grid--"] > * {
   display: inline-block;
   vertical-align: top; }
 
+.grid--1 > * {
+  width: 100%;
+  font-size: 18px; }
+
+@media all and (max-width: 435px) {
+  .grid__xs-down--1 > * {
+    width: 100%; } }
+
+@media all and (min-width: 435px) {
+  .grid__xs-up--1 > * {
+    width: 100%; } }
+
+@media all and (max-width: 500px) {
+  .grid__s-down--1 > * {
+    width: 100%; } }
+
+@media all and (min-width: 500px) {
+  .grid__s-up--1 > * {
+    width: 100%; } }
+
+@media all and (max-width: 599px) {
+  .grid__m-down--1 > * {
+    width: 100%; } }
+
+@media all and (min-width: 599px) {
+  .grid__m-up--1 > * {
+    width: 100%; } }
+
+@media all and (max-width: 768px) {
+  .grid__l-down--1 > * {
+    width: 100%; } }
+
+@media all and (min-width: 768px) {
+  .grid__l-up--1 > * {
+    width: 100%; } }
+
+@media all and (max-width: 1024px) {
+  .grid__xl-down--1 > * {
+    width: 100%; } }
+
+@media all and (min-width: 1024px) {
+  .grid__xl-up--1 > * {
+    width: 100%; } }
+
 .grid--2 > * {
-  width: 50%; }
+  width: 50%;
+  font-size: 18px; }
+
+@media all and (max-width: 435px) {
+  .grid__xs-down--2 > * {
+    width: 50%; } }
+
+@media all and (min-width: 435px) {
+  .grid__xs-up--2 > * {
+    width: 50%; } }
+
+@media all and (max-width: 500px) {
+  .grid__s-down--2 > * {
+    width: 50%; } }
+
+@media all and (min-width: 500px) {
+  .grid__s-up--2 > * {
+    width: 50%; } }
+
+@media all and (max-width: 599px) {
+  .grid__m-down--2 > * {
+    width: 50%; } }
+
+@media all and (min-width: 599px) {
+  .grid__m-up--2 > * {
+    width: 50%; } }
+
+@media all and (max-width: 768px) {
+  .grid__l-down--2 > * {
+    width: 50%; } }
+
+@media all and (min-width: 768px) {
+  .grid__l-up--2 > * {
+    width: 50%; } }
+
+@media all and (max-width: 1024px) {
+  .grid__xl-down--2 > * {
+    width: 50%; } }
+
+@media all and (min-width: 1024px) {
+  .grid__xl-up--2 > * {
+    width: 50%; } }
 
 .grid--3 > * {
-  width: 33.33333%; }
+  width: 33.33333%;
+  font-size: 18px; }
+
+@media all and (max-width: 435px) {
+  .grid__xs-down--3 > * {
+    width: 33.33333%; } }
+
+@media all and (min-width: 435px) {
+  .grid__xs-up--3 > * {
+    width: 33.33333%; } }
+
+@media all and (max-width: 500px) {
+  .grid__s-down--3 > * {
+    width: 33.33333%; } }
+
+@media all and (min-width: 500px) {
+  .grid__s-up--3 > * {
+    width: 33.33333%; } }
+
+@media all and (max-width: 599px) {
+  .grid__m-down--3 > * {
+    width: 33.33333%; } }
+
+@media all and (min-width: 599px) {
+  .grid__m-up--3 > * {
+    width: 33.33333%; } }
+
+@media all and (max-width: 768px) {
+  .grid__l-down--3 > * {
+    width: 33.33333%; } }
+
+@media all and (min-width: 768px) {
+  .grid__l-up--3 > * {
+    width: 33.33333%; } }
+
+@media all and (max-width: 1024px) {
+  .grid__xl-down--3 > * {
+    width: 33.33333%; } }
+
+@media all and (min-width: 1024px) {
+  .grid__xl-up--3 > * {
+    width: 33.33333%; } }
 
 .grid--4 > * {
-  width: 25%; }
+  width: 25%;
+  font-size: 18px; }
 
+@media all and (max-width: 435px) {
+  .grid__xs-down--4 > * {
+    width: 25%; } }
+
+@media all and (min-width: 435px) {
+  .grid__xs-up--4 > * {
+    width: 25%; } }
+
+@media all and (max-width: 500px) {
+  .grid__s-down--4 > * {
+    width: 25%; } }
+
+@media all and (min-width: 500px) {
+  .grid__s-up--4 > * {
+    width: 25%; } }
+
+@media all and (max-width: 599px) {
+  .grid__m-down--4 > * {
+    width: 25%; } }
+
+@media all and (min-width: 599px) {
+  .grid__m-up--4 > * {
+    width: 25%; } }
+
+@media all and (max-width: 768px) {
+  .grid__l-down--4 > * {
+    width: 25%; } }
+
+@media all and (min-width: 768px) {
+  .grid__l-up--4 > * {
+    width: 25%; } }
+
+@media all and (max-width: 1024px) {
+  .grid__xl-down--4 > * {
+    width: 25%; } }
+
+@media all and (min-width: 1024px) {
+  .grid__xl-up--4 > * {
+    width: 25%; } }
+
+/* GRID CLASSES END */
+/******************/
+/* GUTTER CLASSES */
+/******************/
 .gutters--10 {
   margin: -5px; }
   .gutters--10 > * {
@@ -1635,27 +1815,28 @@ html {
     box-sizing: border-box; }
 
 .gutters--25 {
-  margin: -13px; }
+  margin: -12px; }
   .gutters--25 > * {
-    padding: 13px;
+    padding: 12px;
     box-sizing: border-box; }
 
 .gutters--x-25 {
-  margin-left: -13px;
-  margin-right: -13px; }
+  margin-left: -12px;
+  margin-right: -12px; }
   .gutters--x-25 > * {
-    padding-left: 13px;
-    padding-right: 13px;
+    padding-left: 12px;
+    padding-right: 12px;
     box-sizing: border-box; }
 
 .gutters--y-25 {
-  margin-top: -13px;
-  margin-bottom: -13px; }
+  margin-top: -12px;
+  margin-bottom: -12px; }
   .gutters--y-25 > * {
-    padding-top: 13px;
-    padding-bottom: 13px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     box-sizing: border-box; }
 
+/* GUTTER CLASSES END */
 /* RESPONSIVE */
 @media all and (min-width: 435px) {
   .col-xs--1-5 {
@@ -1707,6 +1888,8 @@ html {
   .col-xs--11-12 {
     width: 91.66667%; }
   .col-xs--12-12 {
+    width: 100%; }
+  .grid-xs--1 > * {
     width: 100%; }
   .grid-xs--2 > * {
     width: 50%; }
@@ -1830,6 +2013,8 @@ html {
     width: 91.66667%; }
   .col-s--12-12 {
     width: 100%; }
+  .grid-s--1 > * {
+    width: 100%; }
   .grid-s--2 > * {
     width: 50%; }
   .grid-s--3 > * {
@@ -1951,6 +2136,8 @@ html {
   .col-m--11-12 {
     width: 91.66667%; }
   .col-m--12-12 {
+    width: 100%; }
+  .grid-m--1 > * {
     width: 100%; }
   .grid-m--2 > * {
     width: 50%; }
@@ -2074,6 +2261,8 @@ html {
     width: 91.66667%; }
   .col-l--12-12 {
     width: 100%; }
+  .grid-l--1 > * {
+    width: 100%; }
   .grid-l--2 > * {
     width: 50%; }
   .grid-l--3 > * {
@@ -2195,6 +2384,8 @@ html {
   .col-xl--11-12 {
     width: 91.66667%; }
   .col-xl--12-12 {
+    width: 100%; }
+  .grid-xl--1 > * {
     width: 100%; }
   .grid-xl--2 > * {
     width: 50%; }
