@@ -1,7 +1,15 @@
 /* Import the Zebra partial */
+/*******************/
+/* IMPORT SETTINGS */
+/*******************/
+/*************************/
+/* ZEBRA CUSTOM SETTINGS */
+/*************************/
+/* ZEBRA CUSTOM SETTINGS END */
 /******************/
-/* ZEBRA SETTINGS */
+/* ZEBRA NOTES */
 /******************/
+/* NOTES END */
 /***********************/
 /* RESPONSIVE SETTINGS */
 /***********************/
@@ -46,9 +54,7 @@
 /* DEBUG SETTINGS */
 /******************/
 /* DEBUG SETTINGS END */
-/*******************/
-/* IMPORT SETTINGS */
-/*******************/
+/* IMPORT SETTINGS END */
 /*************************/
 /* RESPONSIVE PROPERTIES */
 /*************************/
@@ -56,20 +62,6 @@
 /*****************/
 /* BROWSER RESET */
 /*****************/
-body {
-  margin: 0; }
-
-img {
-  max-width: 100%;
-  height: auto;
-  border: 0; }
-
-html {
-  box-sizing: border-box; }
-
-*, *:before, *:after {
-  box-sizing: inherit; }
-
 /* BROWSER RESET END */
 /******************/
 /* HELPER CLASSES */

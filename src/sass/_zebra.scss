@@ -1,8 +1,15 @@
 /*******************/
 /* IMPORT SETTINGS */
 /*******************/
-@import "zebra-settings";
 
+    // Import custom user settings
+    // This needs to be before the defaults are imported  so that any undeclared custom settings will use the Zebra defaults instead
+    @import "zebra-custom";
+
+    // Import the default Zebra settings
+    @import "zebra-settings";
+
+/* IMPORT SETTINGS END */
 
 
 
