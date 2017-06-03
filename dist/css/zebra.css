@@ -37,7 +37,7 @@
 /******************************/
 /* BACKGROUND EXTEND SETTINGS */
 /******************************/
-/* POSITIONING SETTINGS END */
+/* BACKGROUND SETTINGS END */
 /********************/
 /* SPACING SETTINGS */
 /********************/
@@ -55,6 +55,10 @@
 /******************/
 /* DEBUG SETTINGS END */
 /* IMPORT SETTINGS END */
+/*********/
+/* DEBUG */
+/*********/
+/* DEBUG END */
 /*************************/
 /* RESPONSIVE PROPERTIES */
 /*************************/
@@ -62,6 +66,20 @@
 /*****************/
 /* BROWSER RESET */
 /*****************/
+body {
+  margin: 0; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0; }
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
 /* BROWSER RESET END */
 /******************/
 /* HELPER CLASSES */
@@ -2092,9 +2110,5 @@
     box-sizing: border-box; }
 
 /* GUTTER CLASSES END */
-/*********/
-/* DEBUG */
-/*********/
-/* DEBUG END */
 
 /*# sourceMappingURL=zebra.css.map */

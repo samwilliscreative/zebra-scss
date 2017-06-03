@@ -122,7 +122,7 @@
     // Set the width of the extending panel. Uses the site width value by default but can be any numeric unit type.
     $zeb-bg-extends-width: $zeb-site-width !default;
 
-/* POSITIONING SETTINGS END */
+/* BACKGROUND SETTINGS END */
 
 
 
@@ -198,6 +198,6 @@
 /******************/
 
     // Enabled/disable the printing of all setting values when compiling
-    $zeb-print-settings: true !default;
+    $zeb-print-settings: false !default;
 
 /* DEBUG SETTINGS END */

@@ -14,6 +14,73 @@
 
 
 
+
+/*********/
+/* DEBUG */
+/*********/
+
+// Print all setting values when compiling
+@if $zeb-print-settings {
+
+    @debug "-- ALL SETTINGS VALUES --";
+
+    // Responsive settings
+    @debug "$zeb-enable-responsive: #{$zeb-enable-responsive}";
+    @debug "$zeb-mobile-first: #{$zeb-mobile-first}";
+    @debug "$zeb-media-widths: #{$zeb-media-widths}";
+    @debug "$zeb-media-width-names: #{$zeb-media-width-names}";
+    @debug "$zeb-media-unit: #{$zeb-media-unit}";
+
+    // Browser reset settings
+    @debug "$zeb-enable-browser-reset: #{$zeb-enable-browser-reset}";
+    @debug "$zeb-box-sizing: #{$zeb-box-sizing}";
+
+    // Helper settings
+    @debug "$zeb-site-width: #{$zeb-site-width}";
+    @debug "$zeb-enable-reset-font: #{$zeb-enable-reset-font}";
+    @debug "$zeb-reset-font-size: #{$zeb-reset-font-size}";
+
+    // Hidden settings
+    @debug "$zeb-enable-hidden: #{$zeb-enable-hidden}";
+
+    // Column settings
+    @debug "$zeb-columns: #{$zeb-columns}";
+    @debug "$zeb-format--col: #{$zeb-format--col}";
+
+    // Positioning settings
+    @debug "$zeb-enable-offset: #{$zeb-enable-offset}";
+    @debug "$zeb-enable-push: #{$zeb-enable-push}";
+    @debug "$zeb-enable-pull: #{$zeb-enable-pull}";
+
+    // Background extend settings
+    @debug "$zeb-enabled-bg-extends: #{$zeb-enabled-bg-extends}";
+    @debug "$zeb-bg-extends-width: #{$zeb-bg-extends-width}";
+
+    // Spacing settings
+    @debug "$zeb-enable-padding: #{$zeb-enable-padding}";
+    @debug "$zeb-enable-margi: #{$zeb-enable-margin}";
+    @debug "$zeb-spacings: #{$zeb-spacings}";
+    @debug "$zeb-spacing-unit: #{$zeb-spacing-unit}";
+
+    // Grid settings
+    @debug "$zeb-enable-grids: #{$zeb-enable-grids}";
+    @debug "$zeb-safe-grid-classes: #{$zeb-safe-grid-classes}";
+    @debug "$zeb-grid-columns: #{$zeb-grid-columns}";
+
+    // Gutter settings
+    @debug "$zeb-enable-gutters: #{$zeb-enable-gutters}";
+    @debug "$zeb-gutter-sizes: #{$zeb-gutter-sizes}";
+    @debug "$zeb-gutter-round-down: #{$zeb-gutter-round-down}";
+    @debug "$zeb-gutter-unit: #{$zeb-gutter-unit}";
+
+}
+
+/* DEBUG END */
+
+
+
+
+
 /*************************/
 /* RESPONSIVE PROPERTIES */
 /*************************/
@@ -1013,23 +1080,3 @@
     }
 
 /* GUTTER CLASSES END */
-
-
-
-
-
-/*********/
-/* DEBUG */
-/*********/
-
-    // Print all setting values when compiling
-    @if $zeb-print-settings {
-
-        @debug "$zeb-enable-responsive = " $zeb-enable-responsive;
-        @debug "$zeb-mobile-first = " $zeb-mobile-first;
-        @debug "$zeb-media-widths = " $zeb-media-widths;
-        @debug "$zeb-media-width-names = " $zeb-media-width-names;
-
-    }
-
-/* DEBUG END */
