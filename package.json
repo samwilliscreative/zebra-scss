@@ -1,6 +1,6 @@
 {
   "name": "zebra-scss",
-  "version": "5.6.3",
+  "version": "6.0.0",
   "description": "A customizable CSS grid system based on the BEM methodology",
   "author": "Sam Willis",
   "scripts": {
@@ -16,15 +16,20 @@
   },
   "keywords": [
     "css",
+    "css3",
     "sass",
     "scss",
     "css-grid",
+    "grid",
+    "responsive",
     "framework",
     "bem",
-    "responsive",
+    "flexbox",
+    "edit",
+    "editable",
     "customizable",
     "zebra",
-    "gulp"
+    "zebra-scss"
   ],
   "dependencies": {},
   "devDependencies": {

@@ -1,0 +1,119 @@
+/************************/
+/* ZEBRA SETTINGS CHECK */
+/************************/
+
+    // This map stores a list of "key: value" pairs, where the key is the name of a variable and the value is another "key: value" pair containing the the variable value and the type that it is required to be
+    $zeb-setting-types: (
+        zeb-enable-responsive: ($zeb-enable-responsive: bool),
+        zeb-mobile-first: ($zeb-mobile-first: bool),
+        zeb-media-widths: ($zeb-media-widths: list),
+        zeb-media-width-names: ($zeb-media-width-names: list),
+        zeb-media-unit: ($zeb-media-unit: string),
+        zeb-enable-browser-reset: ($zeb-enable-browser-reset: bool),
+        zeb-box-sizing: ($zeb-box-sizing: bool),
+        zeb-site-width: ($zeb-site-width: number),
+        zeb-site-unit: ($zeb-media-unit: string),
+        zeb-enable-reset-font: ($zeb-enable-reset-font: bool),
+        zeb-reset-font-size: ($zeb-reset-font-size: number),
+        zeb-enable-hidden: ($zeb-enable-hidden: bool),
+        zeb-columns: ($zeb-columns: list),
+        zeb-format--col: ($zeb-format--col: string),
+        zeb-enable-offset: ($zeb-enable-offset: bool),
+        zeb-enable-push: ($zeb-enable-push: bool),
+        zeb-enable-pull: ($zeb-enable-pull: bool),
+        zeb-enabled-bg-extends: ($zeb-enabled-bg-extends: bool),
+        zeb-bg-extends-width: ($zeb-bg-extends-width: number),
+        zeb-bg-ext-unit: ($zeb-bg-ext-unit: string),
+        zeb-enable-padding: ($zeb-enable-padding: bool),
+        zeb-enable-margin: ($zeb-enable-margin: bool),
+        zeb-spacings: ($zeb-spacings: list),
+        zeb-spacing-unit: ($zeb-spacing-unit: string),
+        zeb-enable-grids: ($zeb-enable-grids: bool),
+        zeb-safe-grid-classes: ($zeb-safe-grid-classes: bool),
+        zeb-grid-columns: ($zeb-grid-columns: list),
+        zeb-enable-gutters: ($zeb-enable-gutters: bool),
+        zeb-gutter-sizes: ($zeb-gutter-sizes: list),
+        zeb-gutter-round-down: ($zeb-gutter-round-down: bool),
+        zeb-gutter-unit: ($zeb-gutter-unit: string),
+        zeb-print-settings: ($zeb-print-settings: bool)
+    );
+
+    // This loops over the above map, checking that all settings variables are of the correct data type.
+    // If a variable is in the wrong format, an error message will be displayed stating which variable is incorrect, as well as what the correct data type is.
+    @each $setting, $data in $zeb-setting-types {
+        $setting-name: $setting;
+        @each $variable, $type in $data {
+            @if type-of($variable) != $type {
+                @error "'#{$variable}' is not a valid value for $#{$setting-name}, you must use a #{$type}.";
+            }
+        }
+    }
+
+/* ZEBRA SETTINGS CHECK END */
+
+
+
+
+
+/***************/
+/* ZEBRA DEBUG */
+/***************/
+
+    // If enabled, all the settings values will be logged before compilation of CSS
+    @if $zeb-print-settings {
+
+        @debug "-- ALL SETTINGS VALUES --";
+
+        // Responsive settings
+        @debug "$zeb-enable-responsive: #{$zeb-enable-responsive}";
+        @debug "$zeb-mobile-first: #{$zeb-mobile-first}";
+        @debug "$zeb-media-widths: #{$zeb-media-widths}";
+        @debug "$zeb-media-width-names: #{$zeb-media-width-names}";
+        @debug "$zeb-media-unit: #{$zeb-media-unit}";
+
+        // Browser reset settings
+        @debug "$zeb-enable-browser-reset: #{$zeb-enable-browser-reset}";
+        @debug "$zeb-box-sizing: #{$zeb-box-sizing}";
+
+        // Helper settings
+        @debug "$zeb-site-width: #{$zeb-site-width}";
+        @debug "$zeb-media-unit: #{$zeb-media-unit}";
+        @debug "$zeb-enable-reset-font: #{$zeb-enable-reset-font}";
+        @debug "$zeb-reset-font-size: #{$zeb-reset-font-size}";
+
+        // Hidden settings
+        @debug "$zeb-enable-hidden: #{$zeb-enable-hidden}";
+
+        // Column settings
+        @debug "$zeb-columns: #{$zeb-columns}";
+        @debug "$zeb-format--col: #{$zeb-format--col}";
+
+        // Positioning settings
+        @debug "$zeb-enable-offset: #{$zeb-enable-offset}";
+        @debug "$zeb-enable-push: #{$zeb-enable-push}";
+        @debug "$zeb-enable-pull: #{$zeb-enable-pull}";
+
+        // Background extend settings
+        @debug "$zeb-enabled-bg-extends: #{$zeb-enabled-bg-extends}";
+        @debug "$zeb-bg-extends-width: #{$zeb-bg-extends-width}";
+
+        // Spacing settings
+        @debug "$zeb-enable-padding: #{$zeb-enable-padding}";
+        @debug "$zeb-enable-margi: #{$zeb-enable-margin}";
+        @debug "$zeb-spacings: #{$zeb-spacings}";
+        @debug "$zeb-spacing-unit: #{$zeb-spacing-unit}";
+
+        // Grid settings
+        @debug "$zeb-enable-grids: #{$zeb-enable-grids}";
+        @debug "$zeb-safe-grid-classes: #{$zeb-safe-grid-classes}";
+        @debug "$zeb-grid-columns: #{$zeb-grid-columns}";
+
+        // Gutter settings
+        @debug "$zeb-enable-gutters: #{$zeb-enable-gutters}";
+        @debug "$zeb-gutter-sizes: #{$zeb-gutter-sizes}";
+        @debug "$zeb-gutter-round-down: #{$zeb-gutter-round-down}";
+        @debug "$zeb-gutter-unit: #{$zeb-gutter-unit}";
+
+    }
+
+/* ZEBRA DEBUG END */

@@ -1,571 +1,1019 @@
-/* Import the Zebra settings partial */
-@import "zebra-settings";
+/*******************/
+/* IMPORT SETTINGS */
+/*******************/
 
-/****************/
-/* SIMPLE RESET */
-/****************/
-@if $zeb-enable-simple-reset {
+    // Import custom user settings
+    // This needs to be before the defaults are imported  so that any undeclared custom settings will use the Zebra defaults instead
+    @import "zebra-custom";
 
-    /* Add box-sizing to columns to allow for padding to be easily added */
-    @for $i from 1 through 9 {
-        [class*='col--#{$i}'] {
-            box-sizing: border-box;
-        }
-    }
-    .col--auto {
-        box-sizing: border-box;
-    }
+    // Import the default Zebra settings
+    @import "zebra-settings";
 
-    /* Remove white space from page edges */
-    body {
-        margin: 0;
-    }
+    // Import the debug partial
+    @import "zebra-debug";
 
-    /* Make images responsive to their containers */
-    img {
-        max-width: 100%;
-        height: auto;
-        border: 0;
-    }
-}
+/* IMPORT SETTINGS END */
 
 
-/**************************/
-/* ROWS AND ROW MODIFIERS */
-/**************************/
-.row {
-    margin: 0 auto;
-    font-size: 0;
-    &--contained {
-        max-width: $zeb-site-width;
-    }
-    &--flex {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        /* Auto width columns can make use of flex to help fill a gap or align content. */
-        .col {
-            &--auto {
-                display: flex;
-                flex: 1;
-            }
-            &--stretch {
-                display: flex;
-                flex: 1 1 auto;
-            }
-        }
-        &-left {
-            justify-content: flex-start;
-        }
-        &-center {
-            justify-content: center;
-        }
-        &-right {
-            justify-content: flex-end;
-        }
-    }
-}
-
-/**********************/
-/* COLUMN BASE STYLES */
-/**********************/
-@for $i from 1 through 9 {
-    [class*='col--#{$i}'] {
-        display: inline-block;
-        vertical-align: top;
-        @if $zeb-enable-reset-font {
-            font-size: $zeb-reset-font-size;
-        }
-    }
-}
-
-/************/
-/* COLUMNS */
-/***********/
-.col {
-    /* COLUMN SIZES */
-    @each $column-count in $zeb-columns {
-        @for $span from 1 through $column-count {
-            &--#{$span}of#{$column-count} {
-                width: percentage($span/$column-count);
-            }
-        }
-    }
-    @if $zeb-enable-offset {
-        @each $column-count in $zeb-columns {
-            @for $span from 1 through $column-count {
-                &--offset-#{$span}of#{$column-count} {
-                    margin-left: percentage($span/$column-count);
-                }
-            }
-        }
-    }
-    @if $zeb-enable-push {
-        @each $column-count in $zeb-columns {
-            @for $span from 1 through $column-count {
-                &--push-#{$span}of#{$column-count} {
-                    position: relative;
-                    left: percentage($span/$column-count);
-                }
-            }
-        }
-    }
-    @if $zeb-enable-pull {
-        @each $column-count in $zeb-columns {
-            @for $span from 1 through $column-count {
-                &--pull-#{$span}of#{$column-count} {
-                    position: relative;
-                    right: percentage($span/$column-count);
-                }
-            }
-        }
-    }
-    &--auto {
-        position: relative;
-        display: inline-block;
-        vertical-align: top;
-        width: auto;
-        @if $zeb-enable-reset-font {
-            font-size: $zeb-reset-font-size;
-        }
-    }
-    /* COLUMN MODIFIERS */
-    &-left {
-        float: left;
-    }
-    &-right {
-        float: right;
-    }
-    &--flex {
-        &-col {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            > * {
-                flex-grow: 1;
-            }
-        }
-        &-row {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            > * {
-                flex-grow: 1;
-            }
-        }
-    }
-    &--align {
-        &-top {
-            vertical-align: top;
-        }
-        &-middle {
-            vertical-align: middle;
-        }
-        &-bottom {
-            vertical-align: bottom;
-        }
-    }
-    &--extend {
-        position: relative;
-        &:before, &:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            width: $zeb-site-width;
-            height: 100%;
-            background: inherit;
-        }
-        &:before {
-            right: 100%;
-        }
-        &:after {
-            left: 100%;
-        }
-        &-left, &-right {
-            position: relative;
-        }
-        &-left {
-            background-position: left top;
-            &:before {
-                content: "";
-                position: absolute;
-                top: 0;
-                width: $zeb-site-width;
-                height: 100%;
-                background: inherit;
-                right: 100%;
-                background-position: right top;
-            }
-        }
-        &-right {
-            background-position: right top;
-            &:after {
-                content: "";
-                position: absolute;
-                top: 0;
-                width: $zeb-site-width;
-                height: 100%;
-                background: inherit;
-                left: 100%;
-                background-position: left top;
-            }
-        }
-        /* Make nested column extends overlay each other correctly */
-        .col {
-            &--extend {
-                z-index: 1;
-                &-left, &-right {
-                    z-index: 1;
-                }
-            }
-        }
-    }
-}
 
 
-.bg {
-    &--extend {
-        position: relative;
-        &:before, &:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            width: $zeb-site-width;
-            height: 100%;
-            background: inherit;
-        }
-        &:before {
-            right: 100%;
-        }
-        &:after {
-            left: 100%;
-        }
-        &-left, &-right {
-            position: relative;
-        }
-        &-left {
-            background-position: left top;
-            &:before {
-                content: "";
-                position: absolute;
-                top: 0;
-                width: $zeb-site-width;
-                height: 100%;
-                background: inherit;
-                right: 100%;
-                background-position: right top;
+
+/*************************/
+/* RESPONSIVE PROPERTIES */
+/*************************/
+
+    // REVERSE FUNCTION (used if Zebra is not set to be mobile first)
+    @function reverse($list, $recursive: false) {
+        $result: ();
+        @for $i from length($list)*-1 through -1 {
+            @if type-of(nth($list, abs($i))) == list and $recursive {
+                $result: append($result, reverse(nth($list, abs($i)), $recursive));
+            } @else {
+                $result: append($result, nth($list, abs($i)));
             }
         }
-        &-right {
-            background-position: right top;
-            &:after {
-                content: "";
-                position: absolute;
-                top: 0;
-                width: $zeb-site-width;
-                height: 100%;
-                background: inherit;
-                left: 100%;
-                background-position: left top;
-            }
-        }
-        /* Make nested column extends overlay each other correctly */
-        .bg {
-            &--extend {
-                z-index: 1;
-                &-left, &-right {
-                    z-index: 1;
-                }
-            }
-        }
+        @return $result;
     }
-}
 
-/**********************/
-/* ADDITIONAL CLASSES */
-/**********************/
-.site-wrapper {
-    display: block;
-    max-width: $zeb-site-width;
-    margin: 0 auto;
-}
+    // SET MEDIA QUERY PROPERTY FOR MOBILE FIRST
+    $zeb-query-property: min-width;
 
-.clearfix {
-    &:after {
-        content: "";
+    // OVERWRITE VARIABLES IF NOT MOBILE FIRST
+    @if not $zeb-mobile-first {
+
+        // Replace media query property
+        $zeb-query-property: max-width;
+
+        // Reverse the list of media query width values
+        $zeb-media-widths: reverse($zeb-media-widths);
+
+        // Reverse the list of media query names
+        $zeb-media-width-names: reverse($zeb-media-width-names);
+
+    }
+
+/* RESPONSIVE PROPERTIES END */
+
+
+
+
+
+/*****************/
+/* BROWSER RESET */
+/*****************/
+
+    @if $zeb-enable-browser-reset {
+
+        // Remove white space from page edges
+        body {
+            margin: 0;
+        }
+
+        // Make images responsive to their containers
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 0;
+        }
+
+        // Add box-sizing to all elements
+        @if $zeb-box-sizing {
+            html {
+                box-sizing: border-box;
+            }
+            *, *:before, *:after {
+                box-sizing: inherit;
+            }
+        }
+
+    }
+
+/* BROWSER RESET END */
+
+
+
+
+
+/******************/
+/* HELPER CLASSES */
+/******************/
+
+    .site-wrapper {
         display: block;
-        clear: both;
+        max-width: $zeb-site-width#{$zeb-site-unit};
+        margin: 0 auto;
     }
-}
 
-@each $value in $zeb-spacings {
-    @if $zeb-enable-padding {
-        .p {
-            &--#{$value} {
-                padding: #{$value}px;
-            }
-            &--t {
-                &-#{$value} {
-                    padding-top: #{$value}px;
+    .clearfix {
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+
+/* HELPER CLASSES END */
+
+
+
+
+
+/******************/
+/* HIDDEN CLASSES */
+/******************/
+
+    @if $zeb-enable-hidden {
+
+        .hidden {
+            display: none;
+        }
+
+        @if $zeb-enable-responsive {
+
+            @each $zeb-media-width in $zeb-media-widths {
+
+                $i: index($zeb-media-widths, $zeb-media-width);
+
+                @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                    .hidden__#{nth($zeb-media-width-names, $i)}-down {
+                        display: none;
+                    }
                 }
-            }
-            &--r {
-                &-#{$value} {
-                    padding-right: #{$value}px;
+
+                @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
+                    .hidden__#{nth($zeb-media-width-names, $i)}-up {
+                        display: none;
+                    }
                 }
+
             }
-            &--b {
-                &-#{$value} {
-                    padding-bottom: #{$value}px;
-                }
-            }
-            &--l {
-                &-#{$value} {
-                    padding-left: #{$value}px;
-                }
-            }
-            &--x {
-                &-#{$value} {
-                    padding-left: #{$value}px;
-                    padding-right: #{$value}px;
-                }
-            }
-            &--y {
-                &-#{$value} {
-                    padding-top: #{$value}px;
-                    padding-bottom: #{$value}px;
+
+        }
+
+    }
+
+/* HIDDEN CLASSES END */
+
+
+
+
+
+/*********************************/
+/* ROWS AND ROW MODIFIER CLASSES */
+/*********************************/
+
+    .row {
+        margin: 0 auto;
+        font-size: 0; // This removes the white space between child inline block elements. Be aware that if you have disabled the $zeb-enable-reset-font setting, you will need to manually add font size declarations for all elements or they will inherit the 0 value
+
+        // Stop rows from being wider than the $zeb-site-width value
+        &--contained {
+            max-width: $zeb-site-width#{$zeb-site-unit};
+        }
+
+        // Flex columns can be used to help line up items
+        &--flex {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+
+            // Stretch columns can make use of flex to help fill any remaining gaps
+            .col {
+                &--stretch {
+                    flex: 1 1 auto;
                 }
             }
         }
-    }
-    @if $zeb-enable-margin {
-        .m {
-            &--#{$value} {
-                margin: #{$value}px;
+
+        // Used in conjunction with .row--flex to justify the child columns
+        &--justify {
+            &-l {
+                justify-content: flex-start;
             }
-            &--t {
-                &-#{$value} {
-                    margin-top: #{$value}px;
-                }
+
+            &-c {
+                justify-content: center;
             }
-            &--r {
-                &-#{$value} {
-                    margin-right: #{$value}px;
-                }
-            }
-            &--b {
-                &-#{$value} {
-                    margin-bottom: #{$value}px;
-                }
-            }
-            &--l {
-                &-#{$value} {
-                    margin-left: #{$value}px;
-                }
-            }
-            &--x {
-                &-#{$value} {
-                    margin-left: #{$value}px;
-                    margin-right: #{$value}px;
-                }
-            }
-            &--y {
-                &-#{$value} {
-                    margin-top: #{$value}px;
-                    margin-bottom: #{$value}px;
-                }
+
+            &-r {
+                justify-content: flex-end;
             }
         }
+
+        // Used in conjunction with .row--flex to align the child columns
+        &--align {
+            &-l {
+                align-items: flex-start;
+            }
+
+            &-c {
+                align-items: center;
+            }
+
+            &-r {
+                align-items: flex-end;
+            }
+        }
+
     }
-}
-@if $zeb-enable-grids {
-    $grid-sub-class: "> *";
-    @if $zeb-safe-grid-classes {
-        $grid-sub-class: ".grid__col";
-    }
-    [class*="grid--"] {
-        #{$grid-sub-class} {
+
+/* ROWS AND ROW MODIFIERS END */
+
+
+
+
+
+/**************************************/
+/* COLUMN AND COLUMN MODIFIER CLASSES */
+/**************************************/
+
+    // Column base styling
+    @for $i from 1 through 9 {
+
+        [class*='col--#{$i}'] {
             display: inline-block;
             vertical-align: top;
-        }
-    }
-    @each $grid-size in $zeb-grid-columns {
-        .grid--#{$grid-size} {
-            #{$grid-sub-class} {
-                width: percentage(1/$grid-size);
-            }
-        }
-    }
-}
-@if $zeb-enable-gutters {
-    @each $value in $zeb-gutter-sizes {
-        $half-value: $value / 2;
-        .gutters {
-            &--#{$value} {
-                margin: -#{$half-value}px;
-                > * {
-                    padding: #{$half-value}px;
-                    box-sizing: border-box;;
-                }
-            }
-            &--x {
-                &-#{$value} {
-                    margin-left: -#{$half-value}px;
-                    margin-right: -#{$half-value}px;
-                    > * {
-                        padding-left: #{$half-value}px;;
-                        padding-right: #{$half-value}px;
-                        box-sizing: border-box;;
-                    }
-                }
-            }
-            &--y {
-                &-#{$value} {
-                    margin-top: -#{$half-value}px;
-                    margin-bottom: -#{$half-value}px;
-                    > * {
-                        padding-top: #{$half-value}px;
-                        padding-bottom: #{$half-value}px;
-                        box-sizing: border-box;;
-                    }
-                }
-            }
-        }
-    }
-}
 
-/* REVERSE FUNCTION */
-@function reverse($list, $recursive: false) {
-    $result: ();
-    @for $i from length($list)*-1 through -1 {
-        @if type-of(nth($list, abs($i))) == list and $recursive {
-            $result: append($result, reverse(nth($list, abs($i)), $recursive));
-        } @else {
-            $result: append($result, nth($list, abs($i)));
+            // We advise you to declare font sizes on all elements yourself, as rows will set font sizes to 0 to remove white space.
+            // If enabled, This setting will add a default font size back to columns, so that any elements within that don't have a specified font size will inherit one (otherwise they won't show up!)
+            @if $zeb-enable-reset-font {
+                font-size: $zeb-reset-font-size;
+            }
         }
+
     }
-    @return $result;
-}
-/* RESPONSIVE */
-@if $zeb-enable-responsive {
-    $zeb-query-property: min-width;
-    @if not $zeb-mobile-first {
-        $zeb-query-property: max-width;
-        $zeb-media-widths: reverse($zeb-media-widths);
-        $zeb-media-width-names: reverse($zeb-media-width-names);
-    }
-    @each $zeb-media-width in $zeb-media-widths {
-        @media all and ($zeb-query-property: $zeb-media-width + px) {
-            .col {
-                $i: index($zeb-media-widths, $zeb-media-width);
-                @each $zeb-column-count in $zeb-columns {
-                    @for $zeb-span from 1 through $zeb-column-count {
-                        &-#{nth($zeb-media-width-names, $i)}--#{$zeb-span}of#{$zeb-column-count} {
-                            width: percentage($zeb-span/$zeb-column-count);
-                        }
+
+    // Columns and column modifiers
+    .col {
+
+        // Core column size classes
+        @each $column-count in $zeb-columns {
+            @for $span from 1 through $column-count {
+                &--#{$span}#{$zeb-format--col}#{$column-count} {
+                    width: percentage($span/$column-count);
+                }
+            }
+        }
+
+        // If enabled, zebra will output offset classes
+        @if $zeb-enable-offset {
+            @each $column-count in $zeb-columns {
+                @for $span from 1 through $column-count {
+                    &--offset-#{$span}#{$zeb-format--col}#{$column-count} {
+                        margin-left: percentage($span/$column-count);
                     }
                 }
             }
-            @if $zeb-enable-grids {
-                .grid {
+        }
+
+        // If enabled, zebra will output push classes
+        @if $zeb-enable-push {
+            @each $column-count in $zeb-columns {
+                @for $span from 1 through $column-count {
+                    &--push-#{$span}#{$zeb-format--col}#{$column-count} {
+                        position: relative;
+                        left: percentage($span/$column-count);
+                    }
+                }
+            }
+        }
+
+        // If enabled, zebra will output pull classes
+        @if $zeb-enable-pull {
+            @each $column-count in $zeb-columns {
+                @for $span from 1 through $column-count {
+                    &--pull-#{$span}#{$zeb-format--col}#{$column-count} {
+                        position: relative;
+                        right: percentage($span/$column-count);
+                    }
+                }
+            }
+        }
+
+        // Column that will take the width of it's child content, ignoring any grid classes.
+        &--auto {
+            display: inline-block;
+            vertical-align: top;
+            width: auto;
+        }
+
+        // Add font size to automatic width columns
+        &--auto, &--stretch {
+            @if $zeb-enable-reset-font {
+                font-size: $zeb-reset-font-size;
+            }
+        }
+
+        // Column modifiers
+        &--left {
+            float: left;
+        }
+        &--right {
+            float: right;
+        }
+
+        &--align {
+            &-top {
+                vertical-align: top;
+            }
+            &-middle {
+                vertical-align: middle;
+            }
+            &-bottom {
+                vertical-align: bottom;
+            }
+        }
+
+        // Flex columns
+        &--flex {
+            &-col, &-row {
+                display: flex;
+                flex-wrap: wrap;
+                > * {
+                    flex-grow: 1;
+                }
+            }
+            &-col {
+                flex-direction: column;
+                > .row {
+                    margin: 0;
+                }
+            }
+            &-row {
+                flex-direction: row;
+            }
+        }
+
+    }
+
+    // Responsive column classes
+    @if $zeb-enable-responsive {
+
+        @each $zeb-media-width in $zeb-media-widths {
+
+            @media all and ($zeb-query-property: $zeb-media-width + $zeb-media-unit) {
+
+                .col {
                     $i: index($zeb-media-widths, $zeb-media-width);
-                    @each $zeb-grid-size in $zeb-grid-columns {
-                        &-#{nth($zeb-media-width-names, $i)}--#{$zeb-grid-size} {
-                            > * {
-                                width: percentage(1/$zeb-grid-size);
+
+                    @each $zeb-column-count in $zeb-columns {
+
+                        @for $zeb-span from 1 through $zeb-column-count {
+
+                            &__#{nth($zeb-media-width-names, $i)}--#{$zeb-span}#{$zeb-format--col}#{$zeb-column-count} {
+                                width: percentage($zeb-span/$zeb-column-count);
                             }
+
                         }
+
                     }
                 }
+
             }
-            @if $zeb-enable-padding {
-                @each $zeb-value in $zeb-spacings {
-                    .p {
-                        $i: index($zeb-media-widths, $zeb-media-width);
-                        &-#{nth($zeb-media-width-names, $i)} {
-                            &--#{$zeb-value} {
-                                padding: #{$zeb-value}px;
-                            }
-                            &--t {
-                                &-#{$zeb-value} {
-                                    padding-top: #{$zeb-value}px;
-                                }
-                            }
-                            &--r {
-                                &-#{$zeb-value} {
-                                    padding-right: #{$zeb-value}px;
-                                }
-                            }
-                            &--b {
-                                &-#{$zeb-value} {
-                                    padding-bottom: #{$zeb-value}px;
-                                }
-                            }
-                            &--l {
-                                &-#{$zeb-value} {
-                                    padding-left: #{$zeb-value}px;
-                                }
-                            }
-                            &--x {
-                                &-#{$zeb-value} {
-                                    padding-left: #{$zeb-value}px;
-                                    padding-right: #{$zeb-value}px;
-                                }
-                            }
-                            &--y {
-                                &-#{$zeb-value} {
-                                    padding-top: #{$zeb-value}px;
-                                    padding-bottom: #{$zeb-value}px;
-                                }
-                            }
-                        }
+
+        }
+
+    }
+
+/* COLUMN AND COLUMN MODIFIERS END */
+
+
+
+
+
+/*****************************/
+/* BACKGROUND EXTEND CLASSES */
+/*****************************/
+
+    @if $zeb-enabled-bg-extends {
+
+        .bg {
+            &-ext {
+                position: relative;
+                &:before, &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    width: $zeb-bg-extends-width#{$zeb-bg-ext-unit};
+                    height: 100%;
+                    background: inherit;
+                }
+                &:before {
+                    right: 100%;
+                }
+                &:after {
+                    left: 100%;
+                }
+                &--l, &--r {
+                    position: relative;
+                }
+                &--l {
+                    background-position: left top;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        width: $zeb-bg-extends-width#{$zeb-bg-ext-unit};
+                        height: 100%;
+                        background: inherit;
+                        right: 100%;
+                        background-position: right top;
                     }
                 }
-            }
-            @if $zeb-enable-margin {
-                @each $zeb-value in $zeb-spacings {
-                    .m {
-                        $i: index($zeb-media-widths, $zeb-media-width);
-                        &-#{nth($zeb-media-width-names, $i)} {
-                            &--#{$zeb-value} {
-                                margin: #{$zeb-value}px;
-                            }
-                            &--t {
-                                &-#{$zeb-value} {
-                                    margin-top: #{$zeb-value}px;
-                                }
-                            }
-                            &--r {
-                                &-#{$zeb-value} {
-                                    margin-right: #{$zeb-value}px;
-                                }
-                            }
-                            &--b {
-                                &-#{$zeb-value} {
-                                    margin-bottom: #{$zeb-value}px;
-                                }
-                            }
-                            &--l {
-                                &-#{$zeb-value} {
-                                    margin-left: #{$zeb-value}px;
-                                }
-                            }
-                            &--x {
-                                &-#{$zeb-value} {
-                                    margin-left: #{$zeb-value}px;
-                                    margin-right: #{$zeb-value}px;
-                                }
-                            }
-                            &--y {
-                                &-#{$zeb-value} {
-                                    margin-top: #{$zeb-value}px;
-                                    margin-bottom: #{$zeb-value}px;
-                                }
-                            }
+                &--r {
+                    background-position: right top;
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        width: $zeb-bg-extends-width#{$zeb-bg-ext-unit};
+                        height: 100%;
+                        background: inherit;
+                        left: 100%;
+                        background-position: left top;
+                    }
+                }
+
+                // Make nested column extends overlay each other correctly
+                .bg {
+                    &-ext {
+                        z-index: 1;
+                        &--l, &--r {
+                            z-index: 1;
                         }
                     }
                 }
             }
         }
+
+        @if $zeb-enable-responsive {
+
+            @each $zeb-media-width in $zeb-media-widths {
+
+                $i: index($zeb-media-widths, $zeb-media-width);
+
+                @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                    .bg {
+                        &-ext {
+                            &__#{nth($zeb-media-width-names, $i)}-down {
+                                position: relative;
+                                &:before, &:after {
+                                    content: "";
+                                    position: absolute;
+                                    top: 0;
+                                    width: $zeb-bg-extends-width#{$zeb-bg-ext-unit};
+                                    height: 100%;
+                                    background: inherit;
+                                }
+                                &:before {
+                                    right: 100%;
+                                }
+                                &:after {
+                                    left: 100%;
+                                }
+                                &--l, &--r {
+                                    position: relative;
+                                }
+                            }
+                        }
+                        &-ext {
+                            &__#{nth($zeb-media-width-names, $i)}-down {
+                                &--l {
+                                    position: relative;
+                                    background-position: left top;
+                                    &:before {
+                                        content: "";
+                                        position: absolute;
+                                        top: 0;
+                                        width: $zeb-bg-extends-width#{$zeb-bg-ext-unit};
+                                        height: 100%;
+                                        background: inherit;
+                                        right: 100%;
+                                        background-position: right top;
+                                    }
+                                }
+                            }
+                        }
+                        &-ext {
+                            &__#{nth($zeb-media-width-names, $i)}-down {
+                                &--r {
+                                    position: relative;
+                                    background-position: right top;
+                                    &:after {
+                                        content: "";
+                                        position: absolute;
+                                        top: 0;
+                                        width: $zeb-bg-extends-width#{$zeb-bg-ext-unit};
+                                        height: 100%;
+                                        background: inherit;
+                                        left: 100%;
+                                        background-position: left top;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
+                    .bg {
+                        &-ext {
+                            &__#{nth($zeb-media-width-names, $i)}-up {
+                                position: relative;
+                                &:before, &:after {
+                                    content: "";
+                                    position: absolute;
+                                    top: 0;
+                                    width: $zeb-bg-extends-width#{$zeb-bg-ext-unit};
+                                    height: 100%;
+                                    background: inherit;
+                                }
+                                &:before {
+                                    right: 100%;
+                                }
+                                &:after {
+                                    left: 100%;
+                                }
+                                &--l, &--r {
+                                    position: relative;
+                                }
+                            }
+                        }
+                        &-ext {
+                            &__#{nth($zeb-media-width-names, $i)}-up {
+                                &--l {
+                                    position: relative;
+                                    background-position: left top;
+                                    &:before {
+                                        content: "";
+                                        position: absolute;
+                                        top: 0;
+                                        width: $zeb-bg-extends-width#{$zeb-bg-ext-unit};
+                                        height: 100%;
+                                        background: inherit;
+                                        right: 100%;
+                                        background-position: right top;
+                                    }
+                                }
+                            }
+                        }
+                        &-ext {
+                            &__#{nth($zeb-media-width-names, $i)}-up {
+                                &--r {
+                                    position: relative;
+                                    background-position: right top;
+                                    &:after {
+                                        content: "";
+                                        position: absolute;
+                                        top: 0;
+                                        width: $zeb-bg-extends-width#{$zeb-bg-ext-unit};
+                                        height: 100%;
+                                        background: inherit;
+                                        left: 100%;
+                                        background-position: left top;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        }
+
     }
-}
+
+/* BACKGROUND EXTENDS END */
+
+
+
+
+
+/****************************/
+/* PADDING & MARGIN CLASSES */
+/****************************/
+
+    @each $value in $zeb-spacings {
+
+        // Padding classes
+        @if $zeb-enable-padding {
+            .p {
+                &--#{$value} {
+                    padding: $value#{$zeb-spacing-unit};
+                }
+                &--t {
+                    &-#{$value} {
+                        padding-top: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--r {
+                    &-#{$value} {
+                        padding-right: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--b {
+                    &-#{$value} {
+                        padding-bottom: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--l {
+                    &-#{$value} {
+                        padding-left: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--x {
+                    &-#{$value} {
+                        padding-left: $value#{$zeb-spacing-unit};
+                        padding-right: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--y {
+                    &-#{$value} {
+                        padding-top: $value#{$zeb-spacing-unit};
+                        padding-bottom: $value#{$zeb-spacing-unit};
+                    }
+                }
+            }
+
+            @if $zeb-enable-responsive {
+
+                @each $zeb-media-width in $zeb-media-widths {
+
+                    $i: index($zeb-media-widths, $zeb-media-width);
+
+                    @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                        .p {
+                            &__#{nth($zeb-media-width-names, $i)}-down {
+                                &--#{$value} {
+                                    padding: $value#{$zeb-spacing-unit};
+                                }
+                                &--t {
+                                    &-#{$value} {
+                                        padding-top: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--r {
+                                    &-#{$value} {
+                                        padding-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--b {
+                                    &-#{$value} {
+                                        padding-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--l {
+                                    &-#{$value} {
+                                        padding-left: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--x {
+                                    &-#{$value} {
+                                        padding-left: $value#{$zeb-spacing-unit};
+                                        padding-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--y {
+                                    &-#{$value} {
+                                        padding-top: $value#{$zeb-spacing-unit};
+                                        padding-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
+                        .p {
+                            &__#{nth($zeb-media-width-names, $i)}-up {
+                                &--#{$value} {
+                                    padding: $value#{$zeb-spacing-unit};
+                                }
+                                &--t {
+                                    &-#{$value} {
+                                        padding-top: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--r {
+                                    &-#{$value} {
+                                        padding-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--b {
+                                    &-#{$value} {
+                                        padding-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--l {
+                                    &-#{$value} {
+                                        padding-left: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--x {
+                                    &-#{$value} {
+                                        padding-left: $value#{$zeb-spacing-unit};
+                                        padding-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--y {
+                                    &-#{$value} {
+                                        padding-top: $value#{$zeb-spacing-unit};
+                                        padding-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+        // Margin classes
+        @if $zeb-enable-margin {
+            .m {
+                &--#{$value} {
+                    margin: $value#{$zeb-spacing-unit};
+                }
+                &--t {
+                    &-#{$value} {
+                        margin-top: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--r {
+                    &-#{$value} {
+                        margin-right: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--b {
+                    &-#{$value} {
+                        margin-bottom: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--l {
+                    &-#{$value} {
+                        margin-left: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--x {
+                    &-#{$value} {
+                        margin-left: $value#{$zeb-spacing-unit};
+                        margin-right: $value#{$zeb-spacing-unit};
+                    }
+                }
+                &--y {
+                    &-#{$value} {
+                        margin-top: $value#{$zeb-spacing-unit};
+                        margin-bottom: $value#{$zeb-spacing-unit};
+                    }
+                }
+            }
+
+            @if $zeb-enable-responsive {
+
+                @each $zeb-media-width in $zeb-media-widths {
+
+                    $i: index($zeb-media-widths, $zeb-media-width);
+
+                    @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                        .m {
+                            &__#{nth($zeb-media-width-names, $i)}-down {
+                                &--#{$value} {
+                                    margin: $value#{$zeb-spacing-unit};
+                                }
+                                &--t {
+                                    &-#{$value} {
+                                        margin-top: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--r {
+                                    &-#{$value} {
+                                        margin-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--b {
+                                    &-#{$value} {
+                                        margin-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--l {
+                                    &-#{$value} {
+                                        margin-left: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--x {
+                                    &-#{$value} {
+                                        margin-left: $value#{$zeb-spacing-unit};
+                                        margin-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--y {
+                                    &-#{$value} {
+                                        margin-top: $value#{$zeb-spacing-unit};
+                                        margin-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
+                        .m {
+                            &__#{nth($zeb-media-width-names, $i)}-up {
+                                &--#{$value} {
+                                    margin: $value#{$zeb-spacing-unit};
+                                }
+                                &--t {
+                                    &-#{$value} {
+                                        margin-top: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--r {
+                                    &-#{$value} {
+                                        margin-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--b {
+                                    &-#{$value} {
+                                        margin-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--l {
+                                    &-#{$value} {
+                                        margin-left: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--x {
+                                    &-#{$value} {
+                                        margin-left: $value#{$zeb-spacing-unit};
+                                        margin-right: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                                &--y {
+                                    &-#{$value} {
+                                        margin-top: $value#{$zeb-spacing-unit};
+                                        margin-bottom: $value#{$zeb-spacing-unit};
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+/* PADDING & MARGIN CLASSES END */
+
+
+
+
+
+/****************/
+/* GRID CLASSES */
+/****************/
+
+    @if $zeb-enable-grids {
+
+        // By default, all direct children of a grid will become grid items
+        $grid-sub-class: "> *";
+
+        // If the safe grid classes setting is enabled, then only direct children elements with the class of .grid__item will become grid items
+        @if $zeb-safe-grid-classes {
+            $grid-sub-class: "> .grid__item";
+        }
+
+        [class*="grid--"] {
+            #{$grid-sub-class} {
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+
+        @each $grid-size in $zeb-grid-columns {
+
+            .grid--#{$grid-size} {
+                #{$grid-sub-class} {
+                    width: percentage(1/$grid-size);
+
+                    // We advise you to declare font sizes on all elements yourself, as rows will set font sizes to 0 to remove white space.
+                    // If enabled, This setting will add a default font size back to grid items, so that any elements within that don't have a specified font size will inherit one (otherwise they won't show up!)
+                    @if $zeb-enable-reset-font {
+                        font-size: $zeb-reset-font-size;
+                    }
+                }
+            }
+
+            @if $zeb-enable-responsive {
+
+                @each $zeb-media-width in $zeb-media-widths {
+
+                    $i: index($zeb-media-widths, $zeb-media-width);
+
+                    @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                        .grid {
+                            &__#{nth($zeb-media-width-names, $i)}-down {
+                                &--#{$grid-size} {
+                                    #{$grid-sub-class} {
+                                        width: percentage(1/$grid-size);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
+                        .grid {
+                            &__#{nth($zeb-media-width-names, $i)}-up {
+                                &--#{$grid-size} {
+                                    #{$grid-sub-class} {
+                                        width: percentage(1/$grid-size);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+/* GRID CLASSES END */
+
+
+
+
+
+/******************/
+/* GUTTER CLASSES */
+/******************/
+
+    @if $zeb-enable-gutters {
+
+        // If the box-sizing setting isn't enabled then gutters will force box-sizing on themselves
+        @if (not $zeb-enable-browser-reset) and (not $zeb-box-sizing) {
+            [class*="gutters"] {
+                box-sizing: border-box;
+            }
+        }
+
+        @each $value in $zeb-gutter-sizes {
+
+            $half-value: ceil($value / 2);
+
+            @if $zeb-gutter-round-down {
+                $half-value: floor($value / 2);
+            }
+
+            .gutters {
+
+                &--#{$value} {
+                    margin: -#{$half-value}#{$zeb-gutter-unit};
+                    > * {
+                        padding: #{$half-value}#{$zeb-gutter-unit};
+                        box-sizing: border-box;;
+                    }
+                }
+
+                &--x {
+                    &-#{$value} {
+                        margin-left: -#{$half-value}#{$zeb-gutter-unit};
+                        margin-right: -#{$half-value}#{$zeb-gutter-unit};
+                        > * {
+                            padding-left: #{$half-value}#{$zeb-gutter-unit};;
+                            padding-right: #{$half-value}#{$zeb-gutter-unit};
+                            box-sizing: border-box;;
+                        }
+                    }
+                }
+
+                &--y {
+                    &-#{$value} {
+                        margin-top: -#{$half-value}#{$zeb-gutter-unit};
+                        margin-bottom: -#{$half-value}#{$zeb-gutter-unit};
+                        > * {
+                            padding-top: #{$half-value}#{$zeb-gutter-unit};
+                            padding-bottom: #{$half-value}#{$zeb-gutter-unit};
+                            box-sizing: border-box;;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+/* GUTTER CLASSES END */

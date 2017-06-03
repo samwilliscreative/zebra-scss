@@ -1,39 +1,209 @@
 /******************/
-/* ZEBRA SETTINGS */
+/* ZEBRA NOTES */
 /******************/
-$zeb-site-width: 1400px !default;
 
-/* INCLUDE SIMPLE RESET */
-$zeb-enable-simple-reset: true !default;
+    // NOTES:
+    // Do not make changes to this file, as they will be overwritten if you were to update Zebra.
+    // Any custom settings should be set in "_zebra-custom.scss"
 
-/* RESET FONT SIZE */
-$zeb-enable-reset-font: true !default;
-$zeb-reset-font-size: 16px !default;
+/* NOTES END */
 
-/* COLUMN FRACTIONS */
-$zeb-columns: 5, 8, 12 !default;
 
-/* POSITIONING */
-$zeb-enable-offset: false !default;
-$zeb-enable-push: false !default;
-$zeb-enable-pull: false !default;
 
-/* SPACING */
-$zeb-enable-padding: true !default;
-$zeb-enable-margin: true !default;
-$zeb-spacings: 10, 25 !default;
+/***********************/
+/* RESPONSIVE SETTINGS */
+/***********************/
 
-/* GRIDS */
-$zeb-enable-grids: true !default;
-$zeb-safe-grid-classes: false !default;
-$zeb-grid-columns: 2, 3, 4 !default;
+    // Enable/Disable the output of classes within media queries
+    $zeb-enable-responsive: true !default;
 
-/* GUTTERS */
-$zeb-enable-gutters: true !default;
-$zeb-gutter-sizes: 10, 25 !default;
+    // Enable/Disable mobile first media queries
+    $zeb-mobile-first: true !default;
 
-/* RESPONSIVE  */
-$zeb-enable-responsive: true !default;
-$zeb-mobile-first: false !default;
-$zeb-media-widths: 435, 500, 599, 768, 1024 !default;
-$zeb-media-width-names: xs, s, m, l, xl !default;
+    // Media query breakpoints
+    $zeb-media-widths:      435, 500, 599, 768, 1024 !default; // Numeric value of the unit type set below
+    $zeb-media-width-names: xs,  s,   m,   l,   xl   !default; // Aliases for the media query breakpoints
+
+    // Media query unit type
+    $zeb-media-unit: px !default;
+
+/* RESPONSIVE SETTINGS END */
+
+
+
+
+
+/**************************/
+/* BROWSER RESET SETTINGS */
+/**************************/
+
+    $zeb-enable-browser-reset: true !default;
+    $zeb-box-sizing: true !default;
+
+/* BROWSER RESET SETTINGS END */
+
+
+
+
+
+/*******************/
+/* HELPER SETTINGS */
+/*******************/
+
+    // Max site width (used by both .site-wrapper and .row--contained)
+    $zeb-site-width: 1280 !default;
+
+    // Max site width unit type
+    $zeb-site-unit: px !default;
+
+    // Enable/disable the font size reset. We advise you to declare font sizes on all elements yourself, as rows will set font sizes to 0 to remove white space.
+    // This setting will add a default font size back to columns and grid items, meaning that any elements within a column that don't have a specified font size will inherit one (otherwise they won't show up!)
+    $zeb-enable-reset-font: true !default;
+    $zeb-reset-font-size: 18px !default;
+
+/* HELPER SETTINGS END */
+
+
+
+
+
+/*******************/
+/* HIDDEN SETTINGS */
+/*******************/
+
+    // Enable/disable the output of classes that hide elements
+    $zeb-enable-hidden: true !default;
+
+/* HIDDEN SETTINGS END */
+
+
+
+
+
+/*******************/
+/* COLUMN SETTINGS */
+/*******************/
+
+    // Column fractions
+    $zeb-columns: 5, 8, 12 !default;
+
+    // Column class format
+    $zeb-format--col: "-" !default; // This is the separator used between column values in a column class for example. If this setting were "-foo-" then column classes would be .col--6-foo-12
+
+/* COLUMN SETTINGS END */
+
+
+
+
+
+/************************/
+/* POSITIONING SETTINGS */
+/************************/
+
+    // Enable/disable the output of offset classes
+    $zeb-enable-offset: false !default;
+
+    // Enable/disable the output of push classes
+    $zeb-enable-push: false !default;
+
+    // Enable/disable the output of pull classes
+    $zeb-enable-pull: false !default;
+
+/* POSITIONING SETTINGS END */
+
+
+
+
+
+/******************************/
+/* BACKGROUND EXTEND SETTINGS */
+/******************************/
+
+    // Enable/disable the output of background extend classes
+    $zeb-enabled-bg-extends: true !default;
+
+    // Set the width of the extending panel. Uses the site width value by default but can be any numeric unit type.
+    $zeb-bg-extends-width: $zeb-site-width !default;
+
+    // Background extend unit type
+    $zeb-bg-ext-unit: px !default;
+
+/* BACKGROUND SETTINGS END */
+
+
+
+
+
+/********************/
+/* SPACING SETTINGS */
+/********************/
+
+    // Enable/disable the output of padding classes
+    $zeb-enable-padding: true !default;
+
+    // Enable/disable the output of margin classes
+    $zeb-enable-margin: true !default;
+
+    // Numeric values for padding and margin classes
+    $zeb-spacings: 10, 25 !default;
+
+    // Spacing unit type
+    $zeb-spacing-unit: px !default;
+
+/* SPACING SETTINGS END */
+
+
+
+
+
+/*****************/
+/* GRID SETTINGS */
+/*****************/
+
+    // Enable/disable the output of grid classes
+    $zeb-enable-grids: true !default;
+
+    // By default all direct children of a grid element will become grid items
+    // If enabled, only direct children with the class of grid__item will become grid items
+    $zeb-safe-grid-classes: false !default;
+
+    // Number of columns available in grid classes
+    $zeb-grid-columns: 1, 2, 3, 4 !default;
+
+/* GRID SETTINGS END */
+
+
+
+
+
+/*******************/
+/* GUTTER SETTINGS */
+/*******************/
+
+    // Enable the output of gutter classes
+    $zeb-enable-gutters: true !default;
+
+    // Numeric values for gutter classes
+    $zeb-gutter-sizes: 10, 25 !default;
+
+    // Due to the way gutters work, odd number values can cause issues as it means spacing will rely on sub pixels (Browsers often render sub pixels differently, some round up whilst others round down)
+    // By default, Zebra will round sub pixel values up to the nearest whole number, but enabling the setting below will make Zebra round down
+    $zeb-gutter-round-down: false !default;
+
+    // Gutter unit type
+    $zeb-gutter-unit: px !default;
+
+/* GUTTER SETTINGS END */
+
+
+
+
+
+/******************/
+/* DEBUG SETTINGS */
+/******************/
+
+    // Enabled/disable the printing of all setting values when compiling
+    $zeb-print-settings: false !default;
+
+/* DEBUG SETTINGS END */
