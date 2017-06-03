@@ -6,7 +6,7 @@
 Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your individual project requirements.
 
 
-
+# The following information is now deprecated. An updated readme will be provided shortly
 ## What is Zebra?
 Zebra is a CSS grid system based on the [BEM][bem] methodology, that can be customized through the modification of built in SASS variables. Zebra provides a varying number of CSS classes (depending on what [settings][settings] you choose) that allow you to quickly add rows and columns to your project.
 
