@@ -25,7 +25,7 @@
     $zeb-media-width-names: xs,  s,   m,   l,   xl   !default; // Aliases for the media query breakpoints
 
     // Media query unit type
-    $zeb-media-unit: "px" !default;
+    $zeb-media-unit: px !default;
 
 /* RESPONSIVE SETTINGS END */
 
@@ -51,7 +51,10 @@
 /*******************/
 
     // Max site width (used by both .site-wrapper and .row--contained)
-    $zeb-site-width: 1400px !default;
+    $zeb-site-width: 1400 !default;
+
+    // Max site width unit type
+    $zeb-site-unit: px !default;
 
     // Enable/disable the font size reset. We advise you to declare font sizes on all elements yourself, as rows will set font sizes to 0 to remove white space.
     // This setting will add a default font size back to columns and grid items, meaning that any elements within a column that don't have a specified font size will inherit one (otherwise they won't show up!)
@@ -122,6 +125,9 @@
     // Set the width of the extending panel. Uses the site width value by default but can be any numeric unit type.
     $zeb-bg-extends-width: $zeb-site-width !default;
 
+    // Background extend unit type
+    $zeb-bg-ext-unit: px !default;
+
 /* BACKGROUND SETTINGS END */
 
 
@@ -142,7 +148,7 @@
     $zeb-spacings: 10, 25 !default;
 
     // Spacing unit type
-    $zeb-spacing-unit: "px" !default;
+    $zeb-spacing-unit: px !default;
 
 /* SPACING SETTINGS END */
 
@@ -185,7 +191,7 @@
     $zeb-gutter-round-down: false !default;
 
     // Gutter unit type
-    $zeb-gutter-unit: "px" !default;
+    $zeb-gutter-unit: px !default;
 
 /* GUTTER SETTINGS END */
 
