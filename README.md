@@ -8,50 +8,51 @@ Just like a Zebra's stripes, every website is unique, and so we've created a gri
 
 
 ## What is Zebra?
-Zebra is a customizable CSS grid system that aims to make it extremely easy for developers to create custom layouts. By default, Zebra comes precompiled so that you can get up and running with our base grid in a matter of minutes. Or for developers with more specific needs, there are currently over [30 Scss variables][settings] that can be modified to tailor the output CSS to your exact requirements.
+Zebra is a customizable CSS grid system that aims to make it easier for developers to create custom layouts. By default, Zebra comes precompiled so that you can get up and running with our base grid in a matter of minutes. Or for developers with more specific needs, there are currently over [30 Scss variables][settings] that can be modified to tailor the output CSS to your exact requirements.
 
-Zebra's class naming structure draws largely from the [BEM][bem] methodology, but with a few differences:
+Zebra's class naming structure draws largely from the [BEM][bem] methodology, but with some differences to help suit a grid system rather than individual components. You can check the [wiki][wiki] for full documentation on the classes available, but for now, here is an example of how to create columns using the default output:
+ 
+ ```css
+<div class="row">
+    <div class="col--3-12">This column spans 3/12ths</div>
+    <div class="col--6-12">This column spans 6/12ths</div>
+    <div class="col--3-12"This column spans 3/12ths></div>
+</div>
+```
+ 
+ This is just a very basic example, but it gives an overview of the core parts of the grid system: `rows` and `columns`. As with most grids, columns must always be nested within rows. There are two reasons for this, firstly it helps keep your DOM structured and consistent, and secondly, the `row` class contains some vital properties needed for `columns` to work.
+ 
+ Once you have a `row`, you can easily add columns within. Simply add elements and follow the class naming structure of `col--X-Y`, where `X` is the column span and `Y` is the total number of columns available (by default, Zebra offers 5, 8  and 12 as values for the total columns). Here you can see the influence of BEM, with `.col` being the base styling for a column, and `--X-Y` modifying the width. However, where a typical example of BEM would require both `.col` and `.col--X-Y` to be added to an element, Zebra combines the classes into one. This is because there should always be a width set on a column, meaning that there would never be an isntance of `.col` being used without a width modifier.
+ 
+ This is just a very brief introduction of how to use Zebra, but there are many more features available such as responsive columns, spacer classes, grids and guttering, and more. For full documentation on what Zebra can do, take a look at the [wiki page][wiki].
+ 
+ 
+ 
+ ## Get Zebra
 
-Firstly columns rely on a `block` and `modifier` pair, combining the properties of both into a single class. The reasoning behind this is that there should never be an instance where a size isn't declared on a column, so having to add multiple column classes to an element is unnecessary.
+Install with npm:
 
-```css
-<div class="col--3-12">Zebra's simplified column classes</div>
-<div class="col col--9-12">Typical BEM usage</div>
+```
+npm install zebra-scss
 ```
 
+Next, either include the `/dist/css/zebra.css` file in your `<head>`, or copy the files from the `/src/sass` folder into your Scss project to take advantage of Zebra's customization options.
 
-
-# The following information is now deprecated. An updated readme will be provided shortly
-
-
-
-
-## Getting started
-It's really easy to get started, either include the `/dist/css/zebra.css` file in your `<head>`, or copy the `/src/sass/_zebra.scss` and `/src/sass/_zebra-settings.scss` files into your SASS project to take advantage of Zebra's customization options.
 ```html
-<!-- Add this to your head -->
+<!-- Add a link to Zebra to your head -->
 <link rel="stylesheet" type="text/css" href="/css/zebra.css">
-
-<!-- OR copy the _zebra files into your SASS project and add this to your site.scss -->
+ 
+<!-- OR copy the files within /src/sass into your Scss project and add this to your site.scss -->
 @import '/src/sass/_zebra'
 ```
 *Remember to update the file paths to match your project structure.*
-
-Now you just need to create an element with the class of `row` and add your columns within.
-```css
-<div class="row">
-	<div class="col--2of12">A column that spans 2/12 of the parent</div>
-	<div class="col--6of12">A column that spans 6/12 of the parent</div>
-	<div class="col--4of12">A column that spans 4/12 of the parent</div>
-</div>
-```
-
-For a more detailed usage guide, see the [wiki][wiki].
 
 
 
 ## Authors and Contributing
 Contributions, either in code or constructive feedback, are welcome.
+
+
 
 ### Authors
 [Sam Willis][swillis]
@@ -59,6 +60,7 @@ Contributions, either in code or constructive feedback, are welcome.
 
 
 [bem]: http://getbem.com/introduction
-[settings]: https://github.com/swillis93/zebra-scss/wiki/Settings
+[inline-block-issues]: https://css-tricks.com/fighting-the-space-between-inline-block-elements
+[settings]: https://github.com/swillis93/zebra-scss/wiki/02.-Settings
 [swillis]: http://swillis.co.uk
 [wiki]: https://github.com/swillis93/zebra-scss/wiki
