@@ -3,19 +3,26 @@
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg)](https://badge.fury.io/gh/swillis93%2Fzebra)
 
 # Zebra - a customizable CSS grid system
-Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your individual project requirements.
+Just like a Zebra's stripes, every website is unique, and so we've created a grid system that can be tailored to your own individual project requirements.
+
+
+
+## What is Zebra?
+Zebra is a customizable CSS grid system that aims to make it extremely easy for developers to create custom layouts. By default, Zebra comes precompiled so that you can get up and running with our base grid in a matter of minutes. Or for developers with more specific needs, there are currently over [30 Scss variables][settings] that can be modified to tailor the output CSS to your exact requirements.
+
+Zebra's class naming structure draws largely from the [BEM][bem] methodology, but with a few differences:
+
+Firstly columns rely on a `block` and `modifier` pair, combining the properties of both into a single class. The reasoning behind this is that there should never be an instance where a size isn't declared on a column, so having to add multiple column classes to an element is unnecessary.
+
+```css
+<div class="col--3-12">Zebra's simplified column classes</div>
+<div class="col col--9-12">Typical BEM usage</div>
+```
+
 
 
 # The following information is now deprecated. An updated readme will be provided shortly
-## What is Zebra?
-Zebra is a CSS grid system based on the [BEM][bem] methodology, that can be customized through the modification of built in SASS variables. Zebra provides a varying number of CSS classes (depending on what [settings][settings] you choose) that allow you to quickly add rows and columns to your project.
 
-Base columns follow a slightly simplified version of the BEM methodology, combining the properties of `.col` (a block) with it's size `--XofX` or `--auto` (modifiers). This keeps your DOM cleaner, as classes have been combined when possible.
-
-```css
-<div class="col--3of12">Zebra's simplified column classes</div>
-<div class="col col--9of12">Typical BEM usage</div>
-```
 
 
 
