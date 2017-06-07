@@ -6,8 +6,8 @@
     $zeb-setting-types: (
         zeb-enable-responsive: ($zeb-enable-responsive: bool),
         zeb-mobile-first: ($zeb-mobile-first: bool),
-        zeb-media-widths: ($zeb-media-widths: list),
-        zeb-media-width-names: ($zeb-media-width-names: list),
+        zeb-media-widths: ($zeb-media-widths: (list: number)),
+        zeb-media-width-names: ($zeb-media-width-names: (list: string)),
         zeb-media-unit: ($zeb-media-unit: string),
         zeb-enable-browser-reset: ($zeb-enable-browser-reset: bool),
         zeb-box-sizing: ($zeb-box-sizing: bool),
@@ -16,7 +16,7 @@
         zeb-enable-reset-font: ($zeb-enable-reset-font: bool),
         zeb-reset-font-size: ($zeb-reset-font-size: number),
         zeb-enable-hidden: ($zeb-enable-hidden: bool),
-        zeb-columns: ($zeb-columns: list),
+        zeb-columns: ($zeb-columns: (list: number)),
         zeb-format--col: ($zeb-format--col: string),
         zeb-enable-offset: ($zeb-enable-offset: bool),
         zeb-enable-push: ($zeb-enable-push: bool),
@@ -26,13 +26,13 @@
         zeb-bg-ext-unit: ($zeb-bg-ext-unit: string),
         zeb-enable-padding: ($zeb-enable-padding: bool),
         zeb-enable-margin: ($zeb-enable-margin: bool),
-        zeb-spacings: ($zeb-spacings: list),
+        zeb-spacings: ($zeb-spacings: (list: number)),
         zeb-spacing-unit: ($zeb-spacing-unit: string),
         zeb-enable-grids: ($zeb-enable-grids: bool),
         zeb-safe-grid-classes: ($zeb-safe-grid-classes: bool),
-        zeb-grid-columns: ($zeb-grid-columns: list),
+        zeb-grid-columns: ($zeb-grid-columns: (list: number)),
         zeb-enable-gutters: ($zeb-enable-gutters: bool),
-        zeb-gutter-sizes: ($zeb-gutter-sizes: list),
+        zeb-gutter-sizes: ($zeb-gutter-sizes: (list: number)),
         zeb-gutter-round-down: ($zeb-gutter-round-down: bool),
         zeb-gutter-unit: ($zeb-gutter-unit: string),
         zeb-print-settings: ($zeb-print-settings: bool)
@@ -40,11 +40,23 @@
 
     // This loops over the above map, checking that all settings variables are of the correct data type.
     // If a variable is in the wrong format, an error message will be displayed stating which variable is incorrect, as well as what the correct data type is.
-    @each $setting, $data in $zeb-setting-types {
-        $setting-name: $setting;
-        @each $variable, $type in $data {
-            @if type-of($variable) != $type {
-                @error "'#{$variable}' is not a valid value for $#{$setting-name}, you must use a #{$type}.";
+    @each $setting-name, $data in $zeb-setting-types {
+        @each $zeb-variable, $data-type in $data {
+            @if type-of($data-type) != map {
+                @if type-of($zeb-variable) != $data-type {
+                    @error "'#{$zeb-variable}' is not a valid value for $#{$setting-name}, you must use a #{$data-type}.";
+                }
+            } @else {
+                @each $list, $list-type in $data-type {
+                    @if $list-type != string {
+                        @each $option in $zeb-variable {
+                            @debug type-of($option) "should be:" $list-type;
+                            @if type-of($option) != $list-type {
+                                @error "'#{$option}' is not a valid value for $#{$setting-name}, you must use a #{$list-type}.";
+                            }
+                        }
+                    }
+                }
             }
         }
     }
