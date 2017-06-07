@@ -52,6 +52,8 @@
 
     }
 
+    @debug $zeb-query-property;
+
 /* RESPONSIVE PROPERTIES END */
 
 
@@ -452,10 +454,10 @@
 
                 $i: index($zeb-media-widths, $zeb-media-width);
 
-                @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                @media all and ($zeb-query-property: $zeb-media-width#{$zeb-media-unit}) {
                     .bg {
                         &-ext {
-                            &__#{nth($zeb-media-width-names, $i)}-down {
+                            &__#{nth($zeb-media-width-names, $i)} {
                                 position: relative;
                                 &:before, &:after {
                                     content: "";
@@ -477,7 +479,7 @@
                             }
                         }
                         &-ext {
-                            &__#{nth($zeb-media-width-names, $i)}-down {
+                            &__#{nth($zeb-media-width-names, $i)} {
                                 &--l {
                                     position: relative;
                                     background-position: left top;
@@ -495,70 +497,7 @@
                             }
                         }
                         &-ext {
-                            &__#{nth($zeb-media-width-names, $i)}-down {
-                                &--r {
-                                    position: relative;
-                                    background-position: right top;
-                                    &:after {
-                                        content: "";
-                                        position: absolute;
-                                        top: 0;
-                                        width: $zeb-bg-extends-width#{$zeb-bg-ext-unit};
-                                        height: 100%;
-                                        background: inherit;
-                                        left: 100%;
-                                        background-position: left top;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
-                    .bg {
-                        &-ext {
-                            &__#{nth($zeb-media-width-names, $i)}-up {
-                                position: relative;
-                                &:before, &:after {
-                                    content: "";
-                                    position: absolute;
-                                    top: 0;
-                                    width: $zeb-bg-extends-width#{$zeb-bg-ext-unit};
-                                    height: 100%;
-                                    background: inherit;
-                                }
-                                &:before {
-                                    right: 100%;
-                                }
-                                &:after {
-                                    left: 100%;
-                                }
-                                &--l, &--r {
-                                    position: relative;
-                                }
-                            }
-                        }
-                        &-ext {
-                            &__#{nth($zeb-media-width-names, $i)}-up {
-                                &--l {
-                                    position: relative;
-                                    background-position: left top;
-                                    &:before {
-                                        content: "";
-                                        position: absolute;
-                                        top: 0;
-                                        width: $zeb-bg-extends-width#{$zeb-bg-ext-unit};
-                                        height: 100%;
-                                        background: inherit;
-                                        right: 100%;
-                                        background-position: right top;
-                                    }
-                                }
-                            }
-                        }
-                        &-ext {
-                            &__#{nth($zeb-media-width-names, $i)}-up {
+                            &__#{nth($zeb-media-width-names, $i)} {
                                 &--r {
                                     position: relative;
                                     background-position: right top;
@@ -594,10 +533,11 @@
 /* PADDING & MARGIN CLASSES */
 /****************************/
 
-    @each $value in $zeb-spacings {
+    // Padding classes
+    @if $zeb-enable-padding {
 
-        // Padding classes
-        @if $zeb-enable-padding {
+        @each $value in $zeb-spacings {
+
             .p {
                 &--#{$value} {
                     padding: $value#{$zeb-spacing-unit};
@@ -636,15 +576,19 @@
                 }
             }
 
-            @if $zeb-enable-responsive {
+        }
 
-                @each $zeb-media-width in $zeb-media-widths {
+        @if $zeb-enable-responsive {
 
-                    $i: index($zeb-media-widths, $zeb-media-width);
+            @each $zeb-media-width in $zeb-media-widths {
 
-                    @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                $i: index($zeb-media-widths, $zeb-media-width);
+
+                @media all and ($zeb-query-property: $zeb-media-width#{$zeb-media-unit}) {
+
+                    @each $value in $zeb-spacings {
                         .p {
-                            &__#{nth($zeb-media-width-names, $i)}-down {
+                            &__#{nth($zeb-media-width-names, $i)} {
                                 &--#{$value} {
                                     padding: $value#{$zeb-spacing-unit};
                                 }
@@ -683,57 +627,18 @@
                             }
                         }
                     }
-
-                    @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
-                        .p {
-                            &__#{nth($zeb-media-width-names, $i)}-up {
-                                &--#{$value} {
-                                    padding: $value#{$zeb-spacing-unit};
-                                }
-                                &--t {
-                                    &-#{$value} {
-                                        padding-top: $value#{$zeb-spacing-unit};
-                                    }
-                                }
-                                &--r {
-                                    &-#{$value} {
-                                        padding-right: $value#{$zeb-spacing-unit};
-                                    }
-                                }
-                                &--b {
-                                    &-#{$value} {
-                                        padding-bottom: $value#{$zeb-spacing-unit};
-                                    }
-                                }
-                                &--l {
-                                    &-#{$value} {
-                                        padding-left: $value#{$zeb-spacing-unit};
-                                    }
-                                }
-                                &--x {
-                                    &-#{$value} {
-                                        padding-left: $value#{$zeb-spacing-unit};
-                                        padding-right: $value#{$zeb-spacing-unit};
-                                    }
-                                }
-                                &--y {
-                                    &-#{$value} {
-                                        padding-top: $value#{$zeb-spacing-unit};
-                                        padding-bottom: $value#{$zeb-spacing-unit};
-                                    }
-                                }
-                            }
-                        }
-                    }
-
                 }
 
             }
 
         }
 
-        // Margin classes
-        @if $zeb-enable-margin {
+    }
+
+    // Margin classes
+    @if $zeb-enable-margin {
+
+        @each $value in $zeb-spacings {
             .m {
                 &--#{$value} {
                     margin: $value#{$zeb-spacing-unit};
@@ -771,16 +676,18 @@
                     }
                 }
             }
+        }
 
-            @if $zeb-enable-responsive {
+        @if $zeb-enable-responsive {
 
-                @each $zeb-media-width in $zeb-media-widths {
+            @each $zeb-media-width in $zeb-media-widths {
 
-                    $i: index($zeb-media-widths, $zeb-media-width);
+                $i: index($zeb-media-widths, $zeb-media-width);
 
-                    @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                @media all and ($zeb-query-property: $zeb-media-width#{$zeb-media-unit}) {
+                    @each $value in $zeb-spacings {
                         .m {
-                            &__#{nth($zeb-media-width-names, $i)}-down {
+                            &__#{nth($zeb-media-width-names, $i)} {
                                 &--#{$value} {
                                     margin: $value#{$zeb-spacing-unit};
                                 }
@@ -819,49 +726,6 @@
                             }
                         }
                     }
-
-                    @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
-                        .m {
-                            &__#{nth($zeb-media-width-names, $i)}-up {
-                                &--#{$value} {
-                                    margin: $value#{$zeb-spacing-unit};
-                                }
-                                &--t {
-                                    &-#{$value} {
-                                        margin-top: $value#{$zeb-spacing-unit};
-                                    }
-                                }
-                                &--r {
-                                    &-#{$value} {
-                                        margin-right: $value#{$zeb-spacing-unit};
-                                    }
-                                }
-                                &--b {
-                                    &-#{$value} {
-                                        margin-bottom: $value#{$zeb-spacing-unit};
-                                    }
-                                }
-                                &--l {
-                                    &-#{$value} {
-                                        margin-left: $value#{$zeb-spacing-unit};
-                                    }
-                                }
-                                &--x {
-                                    &-#{$value} {
-                                        margin-left: $value#{$zeb-spacing-unit};
-                                        margin-right: $value#{$zeb-spacing-unit};
-                                    }
-                                }
-                                &--y {
-                                    &-#{$value} {
-                                        margin-top: $value#{$zeb-spacing-unit};
-                                        margin-bottom: $value#{$zeb-spacing-unit};
-                                    }
-                                }
-                            }
-                        }
-                    }
-
                 }
 
             }
@@ -911,27 +775,20 @@
                 }
             }
 
-            @if $zeb-enable-responsive {
+        }
 
-                @each $zeb-media-width in $zeb-media-widths {
+        @if $zeb-enable-responsive {
 
-                    $i: index($zeb-media-widths, $zeb-media-width);
+            @each $zeb-media-width in $zeb-media-widths {
 
-                    @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                $i: index($zeb-media-widths, $zeb-media-width);
+
+                @media all and ($zeb-query-property: $zeb-media-width#{$zeb-media-unit}) {
+
+                    @each $grid-size in $zeb-grid-columns {
+
                         .grid {
-                            &__#{nth($zeb-media-width-names, $i)}-down {
-                                &--#{$grid-size} {
-                                    #{$grid-sub-class} {
-                                        width: percentage(1/$grid-size);
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
-                        .grid {
-                            &__#{nth($zeb-media-width-names, $i)}-up {
+                            &__#{nth($zeb-media-width-names, $i)} {
                                 &--#{$grid-size} {
                                     #{$grid-sub-class} {
                                         width: percentage(1/$grid-size);
@@ -1008,6 +865,68 @@
                             box-sizing: border-box;;
                         }
                     }
+                }
+
+            }
+
+        }
+
+        @if $zeb-enable-responsive {
+
+            @each $zeb-media-width in $zeb-media-widths {
+
+                $i: index($zeb-media-widths, $zeb-media-width);
+
+                @media all and ($zeb-query-property: $zeb-media-width#{$zeb-media-unit}) {
+
+                    @each $value in $zeb-gutter-sizes {
+
+                        $half-value: ceil($value / 2);
+
+                        @if $zeb-gutter-round-down {
+                            $half-value: floor($value / 2);
+                        }
+
+                        .gutters {
+                            &__#{nth($zeb-media-width-names, $i)} {
+
+                                &--#{$value} {
+                                    margin: -#{$half-value}#{$zeb-gutter-unit};
+                                    > * {
+                                        padding: #{$half-value}#{$zeb-gutter-unit};
+                                        box-sizing: border-box;;
+                                    }
+                                }
+
+                                &--x {
+                                    &-#{$value} {
+                                        margin-left: -#{$half-value}#{$zeb-gutter-unit};
+                                        margin-right: -#{$half-value}#{$zeb-gutter-unit};
+                                        > * {
+                                            padding-left: #{$half-value}#{$zeb-gutter-unit};;
+                                            padding-right: #{$half-value}#{$zeb-gutter-unit};
+                                            box-sizing: border-box;;
+                                        }
+                                    }
+                                }
+
+                                &--y {
+                                    &-#{$value} {
+                                        margin-top: -#{$half-value}#{$zeb-gutter-unit};
+                                        margin-bottom: -#{$half-value}#{$zeb-gutter-unit};
+                                        > * {
+                                            padding-top: #{$half-value}#{$zeb-gutter-unit};
+                                            padding-bottom: #{$half-value}#{$zeb-gutter-unit};
+                                            box-sizing: border-box;;
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+
+                    }
+
                 }
 
             }
