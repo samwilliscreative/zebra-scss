@@ -50,7 +50,6 @@
                 @each $list, $list-type in $data-type {
                     @if $list-type != string {
                         @each $option in $zeb-variable {
-                            @debug type-of($option) "should be:" $list-type;
                             @if type-of($option) != $list-type {
                                 @error "'#{$option}' is not a valid value for $#{$setting-name}, you must use a #{$list-type}.";
                             }
