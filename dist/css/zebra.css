@@ -671,30 +671,32 @@ html {
       left: 100%; }
     .bg-ext__xs--l, .bg-ext__xs--r {
       position: relative; }
-  .bg-ext__xs--l {
-    position: relative;
-    background-position: left top; }
-    .bg-ext__xs--l:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 1280px;
-      height: 100%;
-      background: inherit;
-      right: 100%;
+    .bg-ext__xs--l {
+      position: relative;
+      background-position: left top; }
+      .bg-ext__xs--l:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 1280px;
+        height: 100%;
+        background: inherit;
+        right: 100%;
+        background-position: right top; }
+    .bg-ext__xs--r {
+      position: relative;
       background-position: right top; }
-  .bg-ext__xs--r {
-    position: relative;
-    background-position: right top; }
-    .bg-ext__xs--r:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 1280px;
-      height: 100%;
-      background: inherit;
-      left: 100%;
-      background-position: left top; } }
+      .bg-ext__xs--r:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 1280px;
+        height: 100%;
+        background: inherit;
+        left: 100%;
+        background-position: left top; }
+    .bg-ext__xs--none:before, .bg-ext__xs--none:after {
+      display: none; } }
 
 @media all and (min-width: 500px) {
   .bg-ext__s {
@@ -712,30 +714,32 @@ html {
       left: 100%; }
     .bg-ext__s--l, .bg-ext__s--r {
       position: relative; }
-  .bg-ext__s--l {
-    position: relative;
-    background-position: left top; }
-    .bg-ext__s--l:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 1280px;
-      height: 100%;
-      background: inherit;
-      right: 100%;
+    .bg-ext__s--l {
+      position: relative;
+      background-position: left top; }
+      .bg-ext__s--l:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 1280px;
+        height: 100%;
+        background: inherit;
+        right: 100%;
+        background-position: right top; }
+    .bg-ext__s--r {
+      position: relative;
       background-position: right top; }
-  .bg-ext__s--r {
-    position: relative;
-    background-position: right top; }
-    .bg-ext__s--r:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 1280px;
-      height: 100%;
-      background: inherit;
-      left: 100%;
-      background-position: left top; } }
+      .bg-ext__s--r:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 1280px;
+        height: 100%;
+        background: inherit;
+        left: 100%;
+        background-position: left top; }
+    .bg-ext__s--none:before, .bg-ext__s--none:after {
+      display: none; } }
 
 @media all and (min-width: 599px) {
   .bg-ext__m {
@@ -753,30 +757,32 @@ html {
       left: 100%; }
     .bg-ext__m--l, .bg-ext__m--r {
       position: relative; }
-  .bg-ext__m--l {
-    position: relative;
-    background-position: left top; }
-    .bg-ext__m--l:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 1280px;
-      height: 100%;
-      background: inherit;
-      right: 100%;
+    .bg-ext__m--l {
+      position: relative;
+      background-position: left top; }
+      .bg-ext__m--l:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 1280px;
+        height: 100%;
+        background: inherit;
+        right: 100%;
+        background-position: right top; }
+    .bg-ext__m--r {
+      position: relative;
       background-position: right top; }
-  .bg-ext__m--r {
-    position: relative;
-    background-position: right top; }
-    .bg-ext__m--r:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 1280px;
-      height: 100%;
-      background: inherit;
-      left: 100%;
-      background-position: left top; } }
+      .bg-ext__m--r:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 1280px;
+        height: 100%;
+        background: inherit;
+        left: 100%;
+        background-position: left top; }
+    .bg-ext__m--none:before, .bg-ext__m--none:after {
+      display: none; } }
 
 @media all and (min-width: 768px) {
   .bg-ext__l {
@@ -794,30 +800,32 @@ html {
       left: 100%; }
     .bg-ext__l--l, .bg-ext__l--r {
       position: relative; }
-  .bg-ext__l--l {
-    position: relative;
-    background-position: left top; }
-    .bg-ext__l--l:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 1280px;
-      height: 100%;
-      background: inherit;
-      right: 100%;
+    .bg-ext__l--l {
+      position: relative;
+      background-position: left top; }
+      .bg-ext__l--l:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 1280px;
+        height: 100%;
+        background: inherit;
+        right: 100%;
+        background-position: right top; }
+    .bg-ext__l--r {
+      position: relative;
       background-position: right top; }
-  .bg-ext__l--r {
-    position: relative;
-    background-position: right top; }
-    .bg-ext__l--r:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 1280px;
-      height: 100%;
-      background: inherit;
-      left: 100%;
-      background-position: left top; } }
+      .bg-ext__l--r:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 1280px;
+        height: 100%;
+        background: inherit;
+        left: 100%;
+        background-position: left top; }
+    .bg-ext__l--none:before, .bg-ext__l--none:after {
+      display: none; } }
 
 @media all and (min-width: 1024px) {
   .bg-ext__xl {
@@ -835,30 +843,32 @@ html {
       left: 100%; }
     .bg-ext__xl--l, .bg-ext__xl--r {
       position: relative; }
-  .bg-ext__xl--l {
-    position: relative;
-    background-position: left top; }
-    .bg-ext__xl--l:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 1280px;
-      height: 100%;
-      background: inherit;
-      right: 100%;
+    .bg-ext__xl--l {
+      position: relative;
+      background-position: left top; }
+      .bg-ext__xl--l:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 1280px;
+        height: 100%;
+        background: inherit;
+        right: 100%;
+        background-position: right top; }
+    .bg-ext__xl--r {
+      position: relative;
       background-position: right top; }
-  .bg-ext__xl--r {
-    position: relative;
-    background-position: right top; }
-    .bg-ext__xl--r:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 1280px;
-      height: 100%;
-      background: inherit;
-      left: 100%;
-      background-position: left top; } }
+      .bg-ext__xl--r:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 1280px;
+        height: 100%;
+        background: inherit;
+        left: 100%;
+        background-position: left top; }
+    .bg-ext__xl--none:before, .bg-ext__xl--none:after {
+      display: none; } }
 
 /* BACKGROUND EXTENDS END */
 /****************************/

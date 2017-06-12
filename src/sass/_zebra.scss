@@ -2,10 +2,6 @@
 /* IMPORT SETTINGS */
 /*******************/
 
-    // Import custom user settings
-    // This needs to be before the defaults are imported  so that any undeclared custom settings will use the Zebra defaults instead
-    @import "zebra-custom";
-
     // Import the default Zebra settings
     @import "zebra-settings";
 
@@ -474,10 +470,6 @@
                                 &--l, &--r {
                                     position: relative;
                                 }
-                            }
-                        }
-                        &-ext {
-                            &__#{nth($zeb-media-width-names, $i)} {
                                 &--l {
                                     position: relative;
                                     background-position: left top;
@@ -492,10 +484,6 @@
                                         background-position: right top;
                                     }
                                 }
-                            }
-                        }
-                        &-ext {
-                            &__#{nth($zeb-media-width-names, $i)} {
                                 &--r {
                                     position: relative;
                                     background-position: right top;
@@ -508,6 +496,11 @@
                                         background: inherit;
                                         left: 100%;
                                         background-position: left top;
+                                    }
+                                }
+                                &--none {
+                                    &:before, &:after {
+                                        display: none;
                                     }
                                 }
                             }
