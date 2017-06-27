@@ -159,12 +159,17 @@
 /*********************************/
 
     .row {
-        margin: 0 auto;
+        margin-right: auto;
+        margin-left: auto;
         font-size: 0; // This removes the white space between child inline block elements. Be aware that if you have disabled the $zeb-enable-reset-font setting, you will need to manually add font size declarations for all elements or they will inherit the 0 value
 
         // Stop rows from being wider than the $zeb-site-width value
         &--contained {
             max-width: $zeb-site-width#{$zeb-site-unit};
+        }
+
+        &--full {
+            width: 100%;
         }
 
         // Flex columns can be used to help line up items
@@ -332,7 +337,8 @@
             &-col {
                 flex-direction: column;
                 > .row {
-                    margin: 0;
+                    margin-right: 0;
+                    margin-left: 0;
                 }
             }
             &-row {

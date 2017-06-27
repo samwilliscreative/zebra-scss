@@ -2,10 +2,6 @@
 /*******************/
 /* IMPORT SETTINGS */
 /*******************/
-/*************************/
-/* ZEBRA CUSTOM SETTINGS */
-/*************************/
-/* ZEBRA CUSTOM SETTINGS END */
 /******************/
 /* ZEBRA NOTES */
 /******************/
@@ -150,10 +146,13 @@ html {
 /* ROWS AND ROW MODIFIER CLASSES */
 /*********************************/
 .row {
-  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
   font-size: 0; }
   .row--contained {
     max-width: 1280px; }
+  .row--full {
+    width: 100%; }
   .row--flex {
     display: -ms-flexbox;
     display: flex;
@@ -343,7 +342,8 @@ html {
   -ms-flex-direction: column;
   flex-direction: column; }
   .col--flex-col > .row {
-    margin: 0; }
+    margin-right: 0;
+    margin-left: 0; }
 
 .col--flex-row {
   -ms-flex-direction: row;
