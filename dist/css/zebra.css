@@ -95,53 +95,6 @@ html {
   clear: both; }
 
 /* HELPER CLASSES END */
-/******************/
-/* HIDDEN CLASSES */
-/******************/
-.hidden {
-  display: none; }
-
-@media all and (max-width: 435px) {
-  .hidden__xs-down {
-    display: none; } }
-
-@media all and (min-width: 435px) {
-  .hidden__xs-up {
-    display: none; } }
-
-@media all and (max-width: 500px) {
-  .hidden__s-down {
-    display: none; } }
-
-@media all and (min-width: 500px) {
-  .hidden__s-up {
-    display: none; } }
-
-@media all and (max-width: 599px) {
-  .hidden__m-down {
-    display: none; } }
-
-@media all and (min-width: 599px) {
-  .hidden__m-up {
-    display: none; } }
-
-@media all and (max-width: 768px) {
-  .hidden__l-down {
-    display: none; } }
-
-@media all and (min-width: 768px) {
-  .hidden__l-up {
-    display: none; } }
-
-@media all and (max-width: 1024px) {
-  .hidden__xl-down {
-    display: none; } }
-
-@media all and (min-width: 1024px) {
-  .hidden__xl-up {
-    display: none; } }
-
-/* HIDDEN CLASSES END */
 /*********************************/
 /* ROWS AND ROW MODIFIER CLASSES */
 /*********************************/
@@ -1629,5 +1582,52 @@ html {
       box-sizing: border-box; } }
 
 /* GUTTER CLASSES END */
+/******************/
+/* HIDDEN CLASSES */
+/******************/
+.hidden {
+  display: none; }
+
+@media all and (max-width: 435px) {
+  .hidden__xs-down {
+    display: none; } }
+
+@media all and (min-width: 435px) {
+  .hidden__xs-up {
+    display: none; } }
+
+@media all and (max-width: 500px) {
+  .hidden__s-down {
+    display: none; } }
+
+@media all and (min-width: 500px) {
+  .hidden__s-up {
+    display: none; } }
+
+@media all and (max-width: 599px) {
+  .hidden__m-down {
+    display: none; } }
+
+@media all and (min-width: 599px) {
+  .hidden__m-up {
+    display: none; } }
+
+@media all and (max-width: 768px) {
+  .hidden__l-down {
+    display: none; } }
+
+@media all and (min-width: 768px) {
+  .hidden__l-up {
+    display: none; } }
+
+@media all and (max-width: 1024px) {
+  .hidden__xl-down {
+    display: none; } }
+
+@media all and (min-width: 1024px) {
+  .hidden__xl-up {
+    display: none; } }
+
+/* HIDDEN CLASSES END */
 
 /*# sourceMappingURL=zebra.css.map */

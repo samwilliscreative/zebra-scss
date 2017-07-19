@@ -114,46 +114,6 @@
 
 
 
-/******************/
-/* HIDDEN CLASSES */
-/******************/
-
-    @if $zeb-enable-hidden {
-
-        .hidden {
-            display: none;
-        }
-
-        @if $zeb-enable-responsive {
-
-            @each $zeb-media-width in $zeb-media-widths {
-
-                $i: index($zeb-media-widths, $zeb-media-width);
-
-                @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
-                    .hidden__#{nth($zeb-media-width-names, $i)}-down {
-                        display: none;
-                    }
-                }
-
-                @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
-                    .hidden__#{nth($zeb-media-width-names, $i)}-up {
-                        display: none;
-                    }
-                }
-
-            }
-
-        }
-
-    }
-
-/* HIDDEN CLASSES END */
-
-
-
-
-
 /*********************************/
 /* ROWS AND ROW MODIFIER CLASSES */
 /*********************************/
@@ -933,3 +893,43 @@
     }
 
 /* GUTTER CLASSES END */
+
+
+
+
+
+/******************/
+/* HIDDEN CLASSES */
+/******************/
+
+@if $zeb-enable-hidden {
+
+    .hidden {
+        display: none;
+    }
+
+    @if $zeb-enable-responsive {
+
+        @each $zeb-media-width in $zeb-media-widths {
+
+            $i: index($zeb-media-widths, $zeb-media-width);
+
+            @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
+                .hidden__#{nth($zeb-media-width-names, $i)}-down {
+                    display: none;
+                }
+            }
+
+            @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
+                .hidden__#{nth($zeb-media-width-names, $i)}-up {
+                    display: none;
+                }
+            }
+
+        }
+
+    }
+
+}
+
+/* HIDDEN CLASSES END */
