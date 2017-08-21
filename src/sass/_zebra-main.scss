@@ -721,6 +721,7 @@
         @each $grid-size in $zeb-grid-columns {
 
             .grid--#{$grid-size} {
+                font-size: 0;
                 #{$grid-sub-class} {
                     width: percentage(1/$grid-size);
 
@@ -732,6 +733,14 @@
                 }
             }
 
+        }
+
+        // Grid flex classes will allow all grid items in a row to match heights to avoid any issues that may arise due to content lengths.
+        .grid {
+            &--flex {
+                display: flex;
+                flex-wrap: wrap;
+            }
         }
 
         @if $zeb-enable-responsive {
@@ -915,13 +924,13 @@
             $i: index($zeb-media-widths, $zeb-media-width);
 
             @media all and (max-width: $zeb-media-width#{$zeb-media-unit}) {
-                .hidden__#{nth($zeb-media-width-names, $i)}-down {
+                .hidden__#{nth($zeb-media-width-names, $i)}--down {
                     display: none;
                 }
             }
 
             @media all and (min-width: $zeb-media-width#{$zeb-media-unit}) {
-                .hidden__#{nth($zeb-media-width-names, $i)}-up {
+                .hidden__#{nth($zeb-media-width-names, $i)}--up {
                     display: none;
                 }
             }
