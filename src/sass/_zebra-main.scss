@@ -37,13 +37,13 @@
     // OVERWRITE VARIABLES IF NOT MOBILE FIRST
     @if not $zeb-mobile-first {
 
-        // Replace media query property
+        // Replace media property
         $zeb-query-property: max-width;
 
-        // Reverse the list of media query width values
+        // Reverse the list of media width values
         $zeb-media-widths: reverse($zeb-media-widths);
 
-        // Reverse the list of media query names
+        // Reverse the list of media names
         $zeb-media-width-names: reverse($zeb-media-width-names);
 
     }
@@ -109,6 +109,44 @@
     }
 
 /* HELPER CLASSES END */
+
+
+
+
+
+/**********************/
+/* MEDIA QUERY MIXINS */
+/**********************/
+
+@mixin zeb-mq($size1: null, $size2: null, $media: null) {
+
+    // If there are two properties passed then create a MIN and MAX width query
+    // Else create a single query that uses the zebra setting for media queries based on if the project is set to be mobile first.
+    // If there is a media value passed then make a query that only targets the passed media.
+     @if ($size2) {
+         @if ($media) {
+             @media only #{$media} and (min-width: $size1#{$zeb-media-unit}) and (max-width: $size2#{$zeb-media-unit}) {
+                 @content
+             }
+         } @else {
+             @media all and (min-width: $size1#{$zeb-media-unit}) and (max-width: $size2#{$zeb-media-unit}) {
+                 @content
+             }
+         }
+    } @else {
+         @if ($media) {
+             @media only #{$media} and ($zeb-query-property: $size1#{$zeb-media-unit}) {
+                 @content
+             }
+         } @else {
+             @media all and ($zeb-query-property: $size1#{$zeb-media-unit}) {
+                 @content
+             }
+         }
+    }
+}
+
+/* MEDIA QUERIES END*/
 
 
 
@@ -901,6 +939,7 @@
 /******************/
 /* HIDDEN CLASSES */
 /******************/
+// Positioned last to help with specificity overriding
 
 @if $zeb-enable-hidden {
 

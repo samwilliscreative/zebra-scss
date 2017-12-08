@@ -95,6 +95,14 @@ html {
   clear: both; }
 
 /* HELPER CLASSES END */
+/**********************/
+/* MEDIA QUERY MIXINS */
+/**********************/
+/* MEDIA QUERIES END*/
+@media only print and (min-width: 19px) and (max-width: 60px) {
+  h1 {
+    color: red; } }
+
 /*********************************/
 /* ROWS AND ROW MODIFIER CLASSES */
 /*********************************/
