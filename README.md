@@ -33,7 +33,7 @@ Zebra's class naming structure draws largely from the [BEM][bem] methodology, bu
 Install with npm:
 
 ```
-npm install zebra-scss
+npm i zebra-scss -s
 ```
 
 Next, either include the `/dist/css/zebra.css` file in your `<head>`, or copy the files from the `/src/sass` folder into your Scss project to take advantage of Zebra's customization options.
