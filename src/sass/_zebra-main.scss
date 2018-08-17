@@ -739,61 +739,88 @@
 /* GRID CLASSES */
 /****************/
 
-    @if $zeb-enable-grids {
+@if $zeb-enable-grids {
 
-        // By default, all direct children of a grid will become grid items
-        $grid-sub-class: "> *";
+    // By default, all direct children of a grid will become grid items
+    $grid-sub-class: "> *";
 
-        // If the safe grid classes setting is enabled, then only direct children elements with the class of .grid__item will become grid items
-        @if $zeb-safe-grid-classes {
-            $grid-sub-class: "> .grid__item";
+    // If the safe grid classes setting is enabled, then only direct children elements with the class of .grid__item will become grid items
+    @if $zeb-safe-grid-classes {
+        $grid-sub-class: "> .grid__item";
+    }
+
+    [class*="grid--"] {
+        #{$grid-sub-class} {
+            display: inline-block;
+            vertical-align: top;
         }
+    }
 
-        [class*="grid--"] {
+    @each $grid-size in $zeb-grid-columns {
+
+        .grid--#{$grid-size} {
+            font-size: 0;
             #{$grid-sub-class} {
-                display: inline-block;
-                vertical-align: top;
+                width: percentage(1/$grid-size);
+
+                // We advise you to declare font sizes on all elements yourself, as rows will set font sizes to 0 to remove white space.
+                // If enabled, This setting will add a default font size back to grid items, so that any elements within that don't have a specified font size will inherit one (otherwise they won't show up!)
+                @if $zeb-enable-reset-font {
+                    font-size: $zeb-reset-font-size;
+                }
             }
         }
 
-        @each $grid-size in $zeb-grid-columns {
+        .grid-dynamic {
+            &--#{$grid-size} {
+                .grid {
+                    font-size: 0;
+                    #{$grid-sub-class} {
+                        width: percentage(1/$grid-size);
 
-            .grid--#{$grid-size} {
-                font-size: 0;
-                #{$grid-sub-class} {
-                    width: percentage(1/$grid-size);
-
-                    // We advise you to declare font sizes on all elements yourself, as rows will set font sizes to 0 to remove white space.
-                    // If enabled, This setting will add a default font size back to grid items, so that any elements within that don't have a specified font size will inherit one (otherwise they won't show up!)
-                    @if $zeb-enable-reset-font {
-                        font-size: $zeb-reset-font-size;
+                        // We advise you to declare font sizes on all elements yourself, as rows will set font sizes to 0 to remove white space.
+                        // If enabled, This setting will add a default font size back to grid items, so that any elements within that don't have a specified font size will inherit one (otherwise they won't show up!)
+                        @if $zeb-enable-reset-font {
+                            font-size: $zeb-reset-font-size;
+                        }
                     }
                 }
             }
-
         }
+    }
 
-        // Grid flex classes will allow all grid items in a row to match heights to avoid any issues that may arise due to content lengths.
-        .grid {
-            &--flex {
-                display: flex;
-                flex-wrap: wrap;
-            }
+    // Grid flex classes will allow all grid items in a row to match heights to avoid any issues that may arise due to content lengths.
+    .grid {
+        &--flex {
+            display: flex;
+            flex-wrap: wrap;
         }
+    }
 
-        @if $zeb-enable-responsive {
+    @if $zeb-enable-responsive {
 
-            @each $zeb-media-width in $zeb-media-widths {
+        @each $zeb-media-width in $zeb-media-widths {
 
-                $i: index($zeb-media-widths, $zeb-media-width);
+            $i: index($zeb-media-widths, $zeb-media-width);
 
-                @media all and ($zeb-query-property: $zeb-media-width#{$zeb-media-unit}) {
+            @media all and ($zeb-query-property: $zeb-media-width#{$zeb-media-unit}) {
 
-                    @each $grid-size in $zeb-grid-columns {
+                @each $grid-size in $zeb-grid-columns {
 
-                        .grid {
-                            &__#{nth($zeb-media-width-names, $i)} {
-                                &--#{$grid-size} {
+                    .grid {
+                        &__#{nth($zeb-media-width-names, $i)} {
+                            &--#{$grid-size} {
+                                #{$grid-sub-class} {
+                                    width: percentage(1/$grid-size);
+                                }
+                            }
+                        }
+                    }
+
+                    .grid-dynamic {
+                        &__#{nth($zeb-media-width-names, $i)} {
+                            &--#{$grid-size} {
+                                .grid {
                                     #{$grid-sub-class} {
                                         width: percentage(1/$grid-size);
                                     }
@@ -801,7 +828,6 @@
                             }
                         }
                     }
-
                 }
 
             }
@@ -809,6 +835,8 @@
         }
 
     }
+
+}
 
 /* GRID CLASSES END */
 
